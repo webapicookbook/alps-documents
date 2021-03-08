@@ -1,0 +1,17 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="b";
+    fontname="Helvetica"
+    label="Most Recently Used (MRU) Profile";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled"];
+
+    home [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">home<br />(mrulink)<br /></td></tr></table>>,shape=box URL="docs/semantic.home.html" target="_parent"]
+    mru [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">mru<br />(mrulink)<br /></td></tr></table>>,shape=box URL="docs/semantic.mru.html" target="_parent"]
+
+    home -> mru [label = "getMRU, mru (safe)" URL="docs/safe.getMRU.html" target="_parent" fontsize=13];
+    mru -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+
+
+}

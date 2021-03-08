@@ -1,0 +1,15 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Optional media type identifier string."
+    },
+    "descriptor": [
+      {
+        "id": "type",
+        "ref": "https://schema.org/contentType",
+        "type": "semantic"
+      }
+    ]
+  }
+}

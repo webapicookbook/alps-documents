@@ -1,0 +1,14 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents one or more link elements containing the most recently used actions"
+    },
+    "descriptor": [
+      {
+        "id": "mrulink",
+        "type": "semantic"
+      }
+    ]
+  }
+}

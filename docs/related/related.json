@@ -1,0 +1,52 @@
+{ "alps": 
+  {
+    "title": "Related Actions Profile",
+    "doc": {"value": "Related actions profile for RWMBook. Clients SHOULD use the link marked rel='related' to get a list of all the available related actions. The contents of the list SHOULD reflect the context of the client and the service."},
+    "descriptor" : [
+      {"id": "href", "type": "semantic", "def": "https://schema.org/url",
+        "doc": {"value": "The URL of the most recently used action"}
+      },
+      {"id": "rel", "type": "semantic", "def": "https://schema.org/linkRelationship",
+        "doc": {"value": "The link relation value of an available related action. This value SHOULD also include the link relation value of 'related'"}
+      },
+      {"id": "title", "type": "semantic", "def": "https://schema.org/title",
+        "doc": {"value": "Human readable title associated with the link"}
+      },
+      {"id": "type", "type": "semantic", "def": "https://schema.org/contentType",
+        "doc": {"value": "Optional media type identifier string."}
+      },
+      
+      {"id": "relatedlink", "type": "semantic", 
+        "descriptor": [
+          {"href": "#href"},
+          {"href": "#rel"},
+          {"href": "#title"},
+          {"href": "#type"}
+        ],
+        "doc" : {"value": "Represents one or more link elements containing the available related actions"}
+      },
+      
+     {"id": "home", "type": "semantic", 
+         "descriptor": [
+          {"href": "#relatedlink"},
+          {"href": "#getRelated"}
+        ],
+        "doc" : {"value" : "Home represents any current document or starting point in the flow"}
+      },
+
+      {"id": "related", "type": "semantic", 
+        "descriptor": [
+          {"href": "#relatedlink"},
+          {"href": "#getHome"}
+        ]
+      },
+
+      {"id": "getHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "doc": {"value": "A safe, idempotent action to return to the Home document"}
+      },
+      {"id": "getRelated", "name": "mru", "rel": "mru", "type": "safe", "rt": "#related",
+        "doc": {"value": "An optional safe idempotent action to list the Related links as a response."}
+      }
+    ]
+  }
+}

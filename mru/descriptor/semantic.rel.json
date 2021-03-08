@@ -1,0 +1,12 @@
+{
+  "$schema": "",
+  "alps": {
+    "descriptor": [
+      {
+        "id": "rel",
+        "ref": "https://schema.org/linkRelationship",
+        "type": "semantic"
+      }
+    ]
+  }
+}

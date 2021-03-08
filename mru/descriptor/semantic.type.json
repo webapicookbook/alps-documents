@@ -1,0 +1,12 @@
+{
+  "$schema": "",
+  "alps": {
+    "descriptor": [
+      {
+        "id": "type",
+        "ref": "https://schema.org/contentType",
+        "type": "semantic"
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "",
+  "alps": {
+    "descriptor": [
+      {
+        "id": "href",
+        "ref": "https://schema.org/url",
+        "type": "semantic"
+      }
+    ]
+  }
+}

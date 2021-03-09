@@ -1,0 +1,56 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="b";
+    fontname="Helvetica"
+    label="Work-In-Progress (WIP) Profile";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled"];
+
+    home [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">home<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.home.html" target="_parent"]
+    listwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">listwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.listwip.html" target="_parent"]
+    createwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">createwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.createwip.html" target="_parent"]
+    readwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">readwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.readwip.html" target="_parent"]
+    updatewip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">updatewip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.updatewip.html" target="_parent"]
+    submitwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">submitwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.submitwip.html" target="_parent"]
+    cancelwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">cancelwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.cancelwip.html" target="_parent"]
+    filterwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">filterwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.filterwip.html" target="_parent"]
+    sharewip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">sharewip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.sharewip.html" target="_parent"]
+    statuswip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">statuswip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.statuswip.html" target="_parent"]
+
+    home -> listwip [label = "getListWIP, list-wip (safe)" URL="docs/safe.getListWIP.html" target="_parent" fontsize=13];
+    home -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+    listwip -> filterwip [label = "getFilterWIP, filter-wip (safe)" URL="docs/safe.getFilterWIP.html" target="_parent" fontsize=13];
+    listwip -> readwip [label = "getReadWIP, read-wip (safe)" URL="docs/safe.getReadWIP.html" target="_parent" fontsize=13];
+    listwip -> createwip [label = "doCreateWIP, create-wip (idempotent)" URL="docs/idempotent.doCreateWIP.html" target="_parent" fontsize=13];
+    listwip -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+    createwip -> updatewip [label = "doUpdateWIP, update-wip (idempotent)" URL="docs/idempotent.doUpdateWIP.html" target="_parent" fontsize=13];
+    createwip -> listwip [label = "getListWIP, list-wip (safe)" URL="docs/safe.getListWIP.html" target="_parent" fontsize=13];
+    createwip -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+    readwip -> sharewip [label = "doShareWIP, share-wip (idempotent)" URL="docs/idempotent.doShareWIP.html" target="_parent" fontsize=13];
+    readwip -> updatewip [label = "doUpdateWIP, update-wip (idempotent)" URL="docs/idempotent.doUpdateWIP.html" target="_parent" fontsize=13];
+    readwip -> submitwip [label = "doSubmitWIP, submit-wip (idempotent)" URL="docs/idempotent.doSubmitWIP.html" target="_parent" fontsize=13];
+    readwip -> cancelwip [label = "doCancelWIP, cancel-wip (idempotent)" URL="docs/idempotent.doCancelWIP.html" target="_parent" fontsize=13];
+    readwip -> statuswip [label = "doStatusWIP, status-wip (idempotent)" URL="docs/idempotent.doStatusWIP.html" target="_parent" fontsize=13];
+    readwip -> listwip [label = "getListWIP, list-wip (safe)" URL="docs/safe.getListWIP.html" target="_parent" fontsize=13];
+    readwip -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+    updatewip -> submitwip [label = "doSubmitWIP, submit-wip (idempotent)" URL="docs/idempotent.doSubmitWIP.html" target="_parent" fontsize=13];
+    updatewip -> listwip [label = "getListWIP, list-wip (safe)" URL="docs/safe.getListWIP.html" target="_parent" fontsize=13];
+    updatewip -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+    submitwip -> listwip [label = "getListWIP, list-wip (safe)" URL="docs/safe.getListWIP.html" target="_parent" fontsize=13];
+    submitwip -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+    cancelwip -> listwip [label = "getListWIP, list-wip (safe)" URL="docs/safe.getListWIP.html" target="_parent" fontsize=13];
+    cancelwip -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+    filterwip -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+    filterwip -> listwip [label = "getListWIP, list-wip (safe)" URL="docs/safe.getListWIP.html" target="_parent" fontsize=13];
+    filterwip -> filterwip [label = "getFilterWIP, filter-wip (safe)" URL="docs/safe.getFilterWIP.html" target="_parent" fontsize=13];
+    filterwip -> readwip [label = "getReadWIP, read-wip (safe)" URL="docs/safe.getReadWIP.html" target="_parent" fontsize=13];
+    sharewip -> readwip [label = "getReadWIP, read-wip (safe)" URL="docs/safe.getReadWIP.html" target="_parent" fontsize=13];
+    sharewip -> listwip [label = "getListWIP, list-wip (safe)" URL="docs/safe.getListWIP.html" target="_parent" fontsize=13];
+    sharewip -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+    statuswip -> readwip [label = "getReadWIP, read-wip (safe)" URL="docs/safe.getReadWIP.html" target="_parent" fontsize=13];
+    statuswip -> listwip [label = "getListWIP, list-wip (safe)" URL="docs/safe.getListWIP.html" target="_parent" fontsize=13];
+    statuswip -> home [label = "getHome, self (safe)" URL="docs/safe.getHome.html" target="_parent" fontsize=13];
+
+
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "An unsafe idempotent action to cancel an existing WIP."
+    },
+    "descriptor": [
+      {
+        "id": "getCancelWIP",
+        "type": "idempotent"
+      }
+    ]
+  },
+  "link": [
+    {
+      "rel": "parent",
+      "href": "semantic..json"
+    }
+  ]
+}

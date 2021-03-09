@@ -1,0 +1,14 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents the ability to update an existing work-in-progress record."
+    },
+    "descriptor": [
+      {
+        "id": "update-wip",
+        "type": "semantic"
+      }
+    ]
+  }
+}

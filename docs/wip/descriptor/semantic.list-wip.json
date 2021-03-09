@@ -1,0 +1,14 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents the ability to get a list of available work-in-progress records."
+    },
+    "descriptor": [
+      {
+        "id": "list-wip",
+        "type": "semantic"
+      }
+    ]
+  }
+}

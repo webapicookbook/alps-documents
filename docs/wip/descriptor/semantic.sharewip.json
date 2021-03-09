@@ -1,0 +1,14 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents the ability to share or publish an existing work-in-progress record."
+    },
+    "descriptor": [
+      {
+        "id": "sharewip",
+        "type": "semantic"
+      }
+    ]
+  }
+}

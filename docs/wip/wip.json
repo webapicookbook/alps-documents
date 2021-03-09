@@ -1,0 +1,165 @@
+{ "alps": 
+  {
+    "title": "Work-In-Progress (WIP) Profile",
+    "doc": {"value": "Work-In-Progress (WIP) profile for RWMBook. Services SHOULD present a generalized WIP flow for client applications."},
+    "descriptor" : [
+      {"id": "href", "type": "semantic", "def": "https://schema.org/url",
+        "doc": {"value": "The URL of the most recently used action"}
+      },
+      {"id": "rel", "type": "semantic", "def": "https://schema.org/linkRelationship",
+        "doc": {"value": "The link relation value of an available related action. This value SHOULD also include the link relation value of 'related'"}
+      },
+      {"id": "title", "type": "semantic", "def": "https://schema.org/title",
+        "doc": {"value": "Human readable title associated with the link"}
+      },
+      {"id": "type", "type": "semantic", "def": "https://schema.org/contentType",
+        "doc": {"value": "Optional media type identifier string."}
+      },
+      
+      {"id": "wiplink", "type": "semantic", 
+        "descriptor": [
+          {"href": "#href"},
+          {"href": "#rel"},
+          {"href": "#title"},
+          {"href": "#type"}
+        ],
+        "doc" : {"value": "Represents one or more link elements containing the available related actions"}
+      },
+      
+     {"id": "home", "type": "semantic", 
+         "descriptor": [
+           {"href": "#wiplink"},
+           {"href": "#getListWIP"},
+           {"href": "#getHome"}
+         ],
+        "doc" : {"value" : "Home represents any current document or starting point in the flow"}
+      },
+
+      {"id": "listwip", "type": "semantic", 
+        "descriptor":[
+           {"href": "#wiplink"},
+           {"href": "#getFilterWIP"},
+           {"href": "#getReadWIP"},
+           {"href": "#doCreateWIP"},
+           {"href": "#getHome"}
+        ],
+        "doc": {"value": "Represents the ability to get a list of available work-in-progress records."}
+      },
+
+      {"id": "createwip", "type": "semantic", 
+        "descriptor":[
+           {"href": "#wiplink"},
+           {"href": "#doUpdateWIP"},
+           {"href": "#getListWIP"},
+           {"href": "#getHome"}
+        ],
+        "doc": {"value": "Represents the ability to create a new work-in-progress record."}
+      },
+
+      {"id": "readwip", "type": "semantic", 
+        "descriptor":[
+           {"href": "#wiplink"},
+           {"href":"#doShareWIP"},
+           {"href":"#doUpdateWIP"},
+           {"href":"#doSubmitWIP"},
+           {"href":"#doCancelWIP"},
+           {"href":"#doStatusWIP"},
+           {"href": "#getListWIP"},
+           {"href": "#getHome"}          
+        ],
+        "doc": {"value": "Represents the ability to read an existing work-in-progress record."}
+      },
+
+      {"id": "updatewip", "type": "semantic", 
+        "descriptor":[
+           {"href": "#wiplink"},
+           {"href": "#doSubmitWIP"},
+           {"href": "#getListWIP"},
+           {"href": "#getHome"}
+        ],
+        "doc": {"value": "Represents the ability to update an existing work-in-progress record."}
+      },
+
+      {"id": "submitwip", "type": "semantic", 
+        "descriptor":[
+           {"href": "#wiplink"},
+           {"href": "#getListWIP"},
+           {"href": "#getHome"}
+        ],
+        "doc": {"value": "Represents the ability to submit an existing work-in-progress record as completed."}
+      },
+
+      {"id": "cancelwip", "type": "semantic", 
+        "descriptor":[
+           {"href": "#wiplink"},
+           {"href": "#getListWIP"},
+           {"href": "#getHome"}
+        ],
+        "doc": {"value": "Represents the ability to cancel an existing work-in-progress record."}
+      },
+
+      {"id": "filterwip", "type": "semantic", 
+        "descriptor":[
+           {"href": "#wiplink"},
+           {"href": "#getHome"},
+           {"href": "#getListWIP"},
+           {"href": "#getFilterWIP"},
+           {"href": "#getReadWIP"},
+           {"href": "#getHome"}
+        ],
+        "doc": {"value": "Represents the ability to get a filtered list of available work-in-progress records."}
+      },
+
+      {"id": "sharewip", "type": "semantic", 
+        "descriptor":[
+           {"href": "#wiplink"},
+           {"href": "#getReadWIP"},
+           {"href": "#getListWIP"},
+           {"href": "#getHome"}
+        ],
+        "doc": {"value": "Represents the ability to share or publish an existing work-in-progress record."}
+      },
+
+      {"id": "statuswip", "type": "semantic", 
+        "descriptor":[
+           {"href": "#wiplink"},
+           {"href": "#getReadWIP"},
+           {"href": "#getListWIP"},
+           {"href": "#getHome"}
+        ],
+        "doc": {"value": "Represents the ability to update the status of an existing work-in-progress record. Valid status values are 'ready', 'working', 'completed', 'cancelled'."}
+      },
+
+      {"id": "getHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "doc": {"value": "A safe, idempotent action to return to the Home document"}
+      },
+      {"id": "getListWIP", "name": "list", "rel": "list-wip", "type": "safe", "rt": "#listwip",
+        "doc": {"value": "An safe idempotent action to return a list of WIP records."}
+      },
+      {"id": "getReadWIP", "name": "read", "rel": "read-wip", "type": "safe", "rt": "#readwip",
+        "doc": {"value": "An safe idempotent action to return a single WIP record."}
+      },
+      {"id": "doCreateWIP", "name": "create", "rel": "create-wip", "type": "idempotent", "rt": "#createwip",
+        "doc": {"value": "An unsafe idempotent action to create a new WIP."}
+      },
+      {"id": "getFilterWIP", "name": "filter", "rel": "filter-wip", "type": "safe", "rt": "#filterwip",
+        "doc": {"value": "An unsafe idempotent action to create a new WIP."}
+      },
+      {"id": "doUpdateWIP", "name": "update", "rel": "update-wip", "type": "idempotent", "rt": "#updatewip",
+        "doc": {"value": "An unsafe idempotent action to update an existing WIP."}
+      },
+      {"id": "doCancelWIP", "name": "cancel", "rel": "cancel-wip", "type": "idempotent", "rt": "#cancelwip",
+        "doc": {"value": "An unsafe idempotent action to cancel an existing WIP."}
+      },
+      {"id": "doShareWIP", "name": "share", "rel": "share-wip", "type": "idempotent", "rt": "#sharewip",
+        "doc": {"value": "An unsafe idempotent action to share/publish an existing WIP."}
+      },
+      {"id": "doStatusWIP", "name": "status", "rel": "status-wip", "type": "idempotent", "rt": "#statuswip",
+        "doc": {"value": "An unsafe idempotent action to update the status (ready, working, done, cancelled) of an existing WIP."}
+      },
+      {"id": "doSubmitWIP", "name": "submit", "rel": "submit-wip", "type": "idempotent", "rt": "#submitwip",
+        "doc": {"value": "An unsafe idempotent action to update an existing WIP."}
+      }
+    ]
+  }
+}

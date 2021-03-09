@@ -1,0 +1,14 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents the ability to update the status of an existing work-in-progress record. Valid status values are 'ready', 'working', 'completed', 'cancelled'."
+    },
+    "descriptor": [
+      {
+        "id": "statuswip",
+        "type": "semantic"
+      }
+    ]
+  }
+}

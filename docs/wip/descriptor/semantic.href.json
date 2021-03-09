@@ -1,0 +1,15 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "The URL of the most recently used action"
+    },
+    "descriptor": [
+      {
+        "id": "href",
+        "ref": "https://schema.org/url",
+        "type": "semantic"
+      }
+    ]
+  }
+}

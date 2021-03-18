@@ -1,7 +1,7 @@
 { "alps": 
   {
-    "title": "Navigation Profile",
-    "doc": {"value": "Navigation profile for RWMBook. Whenever presenting lists of records, services SHOULD emit a set of navigation links that help the client move forward and back in the list."},
+    "title": "List Navigation Profile",
+    "doc": {"value": "List Navigation profile for RWMBook. Whenever presenting lists of records, services SHOULD emit a set of navigation links that help the client move forward and back in the list, select an item from the list and exit the list navigation."},
     "descriptor" : [
       {"id": "href", "type": "semantic", "def": "https://schema.org/url",
         "doc": {"value": "The URL of the most recently used action"}
@@ -33,14 +33,14 @@
         "doc" : {"value" : "Home represents any current document or starting point in the flow"}
       },
 
-     {"id": "singleRecord", "type": "semantic", 
+     {"id": "selectRecord", "type": "semantic", 
          "descriptor": [
           {"href": "#goHome"}
         ],
         "doc" : {"value" : "Represents any single record in the list."}
       },
 
-     {"id": "exitNavigation", "type": "semantic", 
+     {"id": "exitList", "type": "semantic", 
          "descriptor": [
           {"href": "#goHome"}
         ],
@@ -79,10 +79,10 @@
       {"id": "goLast", "name": "last", "rel": "collection nav last", "type": "safe", "rt": "#list",
         "doc": {"value": "An optional safe idempotent action to view the last page in the list of records."}
       },
-      {"id": "goSelect", "name": "select", "rel": "collection nav select", "type": "safe", "rt": "#singleRecord",
+      {"id": "goSelect", "name": "select", "rel": "collection nav select", "type": "safe", "rt": "#selectRecord",
         "doc": {"value": "An optional safe idempotent action to select an item in the list of records."}
       },
-      {"id": "goExit", "name": "exit", "rel": "collection nav exit", "type": "safe", "rt": "#exitNavigation",
+      {"id": "goExit", "name": "exit", "rel": "collection nav exit", "type": "safe", "rt": "#exitList",
         "doc": {"value": "An optional safe idempotent action to exit the list navigation."}
       }
     ]

@@ -6,7 +6,7 @@
     },
     "descriptor": [
       {
-        "id": "singleRecord",
+        "id": "selectRecord",
         "type": "semantic"
       }
     ]

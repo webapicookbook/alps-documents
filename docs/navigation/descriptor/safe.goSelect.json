@@ -1,0 +1,20 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "An optional safe idempotent action to select an item in the list of records."
+    },
+    "descriptor": [
+      {
+        "id": "goSelect",
+        "type": "safe"
+      }
+    ]
+  },
+  "link": [
+    {
+      "rel": "parent",
+      "href": "semantic..json"
+    }
+  ]
+}

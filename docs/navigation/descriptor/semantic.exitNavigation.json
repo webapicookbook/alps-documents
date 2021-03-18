@@ -1,0 +1,14 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents an 'exit' state when leaving the list."
+    },
+    "descriptor": [
+      {
+        "id": "exitNavigation",
+        "type": "semantic"
+      }
+    ]
+  }
+}

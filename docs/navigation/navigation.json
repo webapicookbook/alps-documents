@@ -1,0 +1,90 @@
+{ "alps": 
+  {
+    "title": "Navigation Profile",
+    "doc": {"value": "Navigation profile for RWMBook. Whenever presenting lists of records, services SHOULD emit a set of navigation links that help the client move forward and back in the list."},
+    "descriptor" : [
+      {"id": "href", "type": "semantic", "def": "https://schema.org/url",
+        "doc": {"value": "The URL of the most recently used action"}
+      },
+      {"id": "rel", "type": "semantic", "def": "https://schema.org/linkRelationship",
+        "doc": {"value": "The link relation value of the most recently used action. This value SHOULD also include the link relation value of 'mru'"}
+      },
+      {"id": "title", "type": "semantic", "def": "https://schema.org/title",
+        "doc": {"value": "Human readable title associated with the link"}
+      },
+      {"id": "type", "type": "semantic", "def": "https://schema.org/contentType",
+        "doc": {"value": "Optional media type identifier string."}
+      },
+      
+      {"id": "navlink", "type": "semantic", 
+        "descriptor": [
+          {"href": "#href"},
+          {"href": "#rel"},
+          {"href": "#title"},
+          {"href": "#type"}
+        ],
+        "doc" : {"value": "Represents one or more link elements for navigating a list of records."}
+      },
+      
+     {"id": "home", "type": "semantic", 
+         "descriptor": [
+          {"href": "#goList"}
+        ],
+        "doc" : {"value" : "Home represents any current document or starting point in the flow"}
+      },
+
+     {"id": "singleRecord", "type": "semantic", 
+         "descriptor": [
+          {"href": "#goHome"}
+        ],
+        "doc" : {"value" : "Represents any single record in the list."}
+      },
+
+     {"id": "exitNavigation", "type": "semantic", 
+         "descriptor": [
+          {"href": "#goHome"}
+        ],
+        "doc" : {"value" : "Represents an 'exit' state when leaving the list."}
+      },
+
+      {"id": "list", "type": "semantic", 
+        "descriptor": [
+          {"href": "#navlink"},
+          {"href": "#goList"},
+          {"href": "#goFirst"},
+          {"href": "#goPrevious"},
+          {"href": "#goNext"},
+          {"href": "#goLast"},
+          {"href": "#goSelect"},
+          {"href": "#goExit"},
+          {"href": "#goHome"}
+        ]
+      },
+
+      {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "doc": {"value": "A safe, idempotent action to return to the Home document"}
+      },
+      {"id": "goList", "name": "list", "rel": "collection nav", "type": "safe", "rt": "#list",
+        "doc": {"value": "An optional safe idempotent action to view the list of records."}
+      },
+      {"id": "goFirst", "name": "first", "rel": "collection nav first", "type": "safe", "rt": "#list",
+        "doc": {"value": "An optional safe idempotent action to navigate to the top of the list."}
+      },
+      {"id": "goPrevious", "name": "previous", "rel": "collection nav previous", "type": "safe", "rt": "#list",
+        "doc": {"value": "An optional safe idempotent action to view the previous page in the list of records."}
+      },
+      {"id": "goNext", "name": "next", "rel": "collection nav next", "type": "safe", "rt": "#list",
+        "doc": {"value": "An optional safe idempotent action to view the next page in the list of records."}
+      },
+      {"id": "goLast", "name": "last", "rel": "collection nav last", "type": "safe", "rt": "#list",
+        "doc": {"value": "An optional safe idempotent action to view the last page in the list of records."}
+      },
+      {"id": "goSelect", "name": "select", "rel": "collection nav select", "type": "safe", "rt": "#singleRecord",
+        "doc": {"value": "An optional safe idempotent action to select an item in the list of records."}
+      },
+      {"id": "goExit", "name": "exit", "rel": "collection nav exit", "type": "safe", "rt": "#exitNavigation",
+        "doc": {"value": "An optional safe idempotent action to exit the list navigation."}
+      }
+    ]
+  }
+}

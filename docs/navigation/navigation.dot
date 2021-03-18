@@ -1,0 +1,24 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="b";
+    fontname="Helvetica"
+    label="Navigation Profile";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled"];
+
+    list [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">list<br />(navlink)<br /></td></tr></table>>,shape=box URL="docs/semantic.list.html" target="_parent"]
+
+    home -> list [label = "goList, collection nav (safe)" URL="docs/safe.goList.html" target="_parent" fontsize=13];
+    singleRecord -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    exitNavigation -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    list -> list [label=<<table  border="0"><tr><td align="left" href="docs/safe.goList.html">goList (safe)</td></tr><tr><td align="left" href="docs/safe.goFirst.html">goFirst (safe)</td></tr><tr><td align="left" href="docs/safe.goPrevious.html">goPrevious (safe)</td></tr><tr><td align="left" href="docs/safe.goNext.html">goNext (safe)</td></tr><tr><td align="left" href="docs/safe.goLast.html">goLast (safe)</td></tr></table>> fontsize=13];
+    list -> singleRecord [label = "goSelect, collection nav select (safe)" URL="docs/safe.goSelect.html" target="_parent" fontsize=13];
+    list -> exitNavigation [label = "goExit, collection nav exit (safe)" URL="docs/safe.goExit.html" target="_parent" fontsize=13];
+    list -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+
+    home [URL="docs/semantic.home.html" target="_parent"]
+    singleRecord [URL="docs/semantic.singleRecord.html" target="_parent"]
+    exitNavigation [URL="docs/semantic.exitNavigation.html" target="_parent"]
+
+}

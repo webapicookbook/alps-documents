@@ -1,0 +1,14 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents one or more link elements for navigating a list of records."
+    },
+    "descriptor": [
+      {
+        "id": "navlink",
+        "type": "semantic"
+      }
+    ]
+  }
+}

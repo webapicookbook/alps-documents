@@ -1,0 +1,14 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents any single record in the list."
+    },
+    "descriptor": [
+      {
+        "id": "singleRecord",
+        "type": "semantic"
+      }
+    ]
+  }
+}

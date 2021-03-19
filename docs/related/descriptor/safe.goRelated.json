@@ -1,0 +1,20 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "An optional safe idempotent action to list the Related links as a response."
+    },
+    "descriptor": [
+      {
+        "id": "goRelated",
+        "type": "safe"
+      }
+    ]
+  },
+  "link": [
+    {
+      "rel": "parent",
+      "href": "semantic..json"
+    }
+  ]
+}

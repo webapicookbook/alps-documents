@@ -29,7 +29,7 @@
      {"id": "home", "type": "semantic", 
          "descriptor": [
           {"href": "#relatedlink"},
-          {"href": "#getRelated"}
+          {"href": "#goRelated"}
         ],
         "doc" : {"value" : "Home represents any current document or starting point in the flow"}
       },
@@ -37,14 +37,14 @@
       {"id": "related", "type": "semantic", 
         "descriptor": [
           {"href": "#relatedlink"},
-          {"href": "#getHome"}
+          {"href": "#goHome"}
         ]
       },
 
-      {"id": "getHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+      {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
         "doc": {"value": "A safe, idempotent action to return to the Home document"}
       },
-      {"id": "getRelated", "name": "mru", "rel": "mru", "type": "safe", "rt": "#related",
+      {"id": "goRelated", "name": "mru", "rel": "mru", "type": "safe", "rt": "#related",
         "doc": {"value": "An optional safe idempotent action to list the Related links as a response."}
       }
     ]

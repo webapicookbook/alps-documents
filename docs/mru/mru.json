@@ -1,4 +1,4 @@
-{ "alps": 
+{ "alps":
   {
     "title": "Most Recently Used (MRU) Profile",
     "doc": {"value": "Most Recently Used (MRU) profile for RWMBook. Services SHOULD emit a short list of the most recently-used URLs when clients interact with the service. This list MAY be filtered to reflect the MRUs of this particular client and/or this particular session between client and service."},
@@ -29,7 +29,7 @@
      {"id": "home", "type": "semantic", 
          "descriptor": [
           {"href": "#mrulink"},
-          {"href": "#getMRU"}
+          {"href": "#goMRU"}
         ],
         "doc" : {"value" : "Home represents any current document or starting point in the flow"}
       },
@@ -37,14 +37,14 @@
       {"id": "mru", "type": "semantic", 
         "descriptor": [
           {"href": "#mrulink"},
-          {"href": "#getHome"}
+          {"href": "#goHome"}
         ]
       },
 
-      {"id": "getHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+      {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
         "doc": {"value": "A safe, idempotent action to return to the Home document"}
       },
-      {"id": "getMRU", "name": "mru", "rel": "mru", "type": "safe", "rt": "#mru",
+      {"id": "goMRU", "name": "mru", "rel": "mru", "type": "safe", "rt": "#mru",
         "doc": {"value": "An optional safe idempotent action to list the MRU links as a response."}
       }
     ]

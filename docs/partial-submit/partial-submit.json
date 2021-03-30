@@ -1,0 +1,76 @@
+{ "alps": 
+  {
+    "title": "Partial Submit Profile",
+    "doc": {"value": "Partial Submit profile for RWMBook. Services SHOULD allow client applications to submit partially completed FORM data and, afer accepting the data, SHOULD continue to redirect the client to a FORM that asks for the remaining inputs. Services SHOULD also provide a CANCEL option if client appilcations are unable or unwilling to complete the minimum requiested data FORM."},
+    "descriptor" : [
+      {"id": "href", "type": "semantic", "def": "https://schema.org/url",
+        "doc": {"value": "The URL of the most recently used action"}
+      },
+      {"id": "rel", "type": "semantic", "def": "https://schema.org/linkRelationship",
+        "doc": {"value": "The link relation value of an available related action. This value SHOULD also include the link relation value of 'related'"}
+      },
+      {"id": "title", "type": "semantic", "def": "https://schema.org/title",
+        "doc": {"value": "Human readable title associated with the link"}
+      },
+      {"id": "type", "type": "semantic", "def": "https://schema.org/contentType",
+        "doc": {"value": "Optional media type identifier string."}
+      },
+      {"id": "input", "type": "semantic", "def": "http://rwmbook.github.io/defs/input",
+        "doc": {"value": "Represents on or more input values needed to complete the FORM."}
+      },
+      
+      {"id": "inputForm", "type": "semantic", 
+        "descriptor": [
+          {"href": "#href"},
+          {"href": "#rel"},
+          {"href": "#title"},
+          {"href": "#type"},
+          {"href": "#input"},
+          {"href": "#doPartialSubmit"},
+          {"href": "#doFinalSubmit"},
+          {"href": "#doResetSubmit"},
+          {"href": "#doCancelSubmit"},
+          {"href": "#goForm"},
+          {"href": "#goHome"}
+          
+        ],
+        "doc" : {"value": "Represents one or more FORM elements containing the requested inputs."}
+      },
+      
+     {"id": "home", "type": "semantic", 
+         "descriptor": [
+          {"href": "#goForm"},
+          {"href": "#goHome"}
+        ],
+        "doc" : {"value" : "Home represents any current document or starting point in the flow"}
+      },
+
+     {"id": "completed", "type": "semantic", 
+         "descriptor": [
+          {"href": "#goForm"},
+          {"href": "#goHome"}
+        ],
+        "doc" : {"value" : "Represents the completed state when the FORM has been successfully completed and submitted."}
+      },
+
+      {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "doc": {"value": "A safe, idempotent action to return to the Home document"}
+      },
+      {"id": "goForm", "name": "form", "rel": "form", "type": "safe", "rt": "#inputForm",
+        "doc": {"value": "A safe idempotent action to return the input form as a response."}
+      },
+      {"id": "doPartialSubmit", "name": "submit", "rel":"submit", "type": "idempotent", "rt": "#inputForm",
+        "doc": {"value": "An unsafe, idempotent action to submit inputs to the service. This MAY be a partial completion of the input fields and MAY result in seeing the same (or a slightly different) FORM requesting the reamining required inputs."}
+      },
+      {"id": "doFinalSubmit", "name": "submit", "rel":"submit", "type": "idempotent", "rt": "#completed",
+        "doc": {"value": "An unsafe, idempontent action to submit inputs to the service. This SHOULD be a full completion (or the remaing inputs that results in a full completion) of the requested input fields and SHOULD result in the client being forwarded to the 'completed' state."}
+      },
+      {"id": "doResetSubmit", "name":"reset", "rel":"reset", "type": "idempotent", "rt": "#inputForm",
+        "doc": {"value": "An unsafe idempontent action that resets the fullset of input values to thier state when the FORM was new/fresh. Clients can use this action to re-start the input experience from the beginning." }
+      },
+      {"id": "doCancelSubmit", "name":"cancel", "rel":"cancel", "type": "idempotent", "rt": "#home",
+        "doc": {"value": "An unsafe idempontent action that abandons the process of filling in the FORM. Clients can use this action to abandon the input experience. Services SHOULD forget any inputs provided by the client in any previous steps." }
+      }
+    ]
+  }
+}

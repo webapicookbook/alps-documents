@@ -1,0 +1,14 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents one or more FORM elements containing the requested inputs."
+    },
+    "descriptor": [
+      {
+        "id": "inputForm",
+        "type": "semantic"
+      }
+    ]
+  }
+}

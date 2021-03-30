@@ -1,0 +1,15 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "Represents on or more input values needed to complete the FORM."
+    },
+    "descriptor": [
+      {
+        "id": "input",
+        "ref": "http://rwmbook.github.io/defs/input",
+        "type": "semantic"
+      }
+    ]
+  }
+}

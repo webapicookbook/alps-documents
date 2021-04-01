@@ -1,0 +1,20 @@
+{
+  "$schema": "",
+  "alps": {
+    "doc": {
+      "value": "An safe idempotent action to return a list of WIP records."
+    },
+    "descriptor": [
+      {
+        "id": "goListWIP",
+        "type": "safe"
+      }
+    ]
+  },
+  "link": [
+    {
+      "rel": "parent",
+      "href": "semantic..json"
+    }
+  ]
+}

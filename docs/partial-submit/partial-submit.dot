@@ -2,22 +2,63 @@ digraph application_state_diagram {
   graph [
     labelloc="t";
     fontname="Helvetica"
-    label="Partial Submit Profile";
+    label="Work-In-Progress (WIP) Profile";
     URL="index.html" target="_parent"
   ];
   node [shape = box, style = "bold,filled" fillcolor="lightgray"];
 
-    inputForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>inputForm<br />(href)<br />(rel)<br />(title)<br />(type)<br />(input)<br /></td></tr></table>>,shape=box URL="docs/semantic.inputForm.html" target="_parent"]
+    inputForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>inputForm<br />(href)<br />(rel)<br />(title)<br />(type)<br />(input)<br />(listwip)<br /></td></tr></table>>,shape=box URL="docs/semantic.inputForm.html" target="_parent"]
+    home [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>home<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.home.html" target="_parent"]
+    listwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>listwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.listwip.html" target="_parent"]
+    createwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>createwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.createwip.html" target="_parent"]
+    readwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>readwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.readwip.html" target="_parent"]
+    updatewip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>updatewip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.updatewip.html" target="_parent"]
+    submitwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>submitwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.submitwip.html" target="_parent"]
+    cancelwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>cancelwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.cancelwip.html" target="_parent"]
+    filterwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>filterwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.filterwip.html" target="_parent"]
+    sharewip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>sharewip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.sharewip.html" target="_parent"]
+    statuswip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>statuswip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.statuswip.html" target="_parent"]
 
     inputForm -> inputForm [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doPartialSubmit.html">doPartialSubmit (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doResetSubmit.html">doResetSubmit (idempotent)</td></tr><tr><td align="left" href="docs/safe.goForm.html">goForm (safe)</td></tr></table>> fontsize=13];
     inputForm -> completed [label = "doFinalSubmit, submit (idempotent)" URL="docs/idempotent.doFinalSubmit.html" target="_parent" fontsize=13];
     inputForm -> home [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doCancelSubmit.html">doCancelSubmit (idempotent)</td></tr><tr><td align="left" href="docs/safe.goHome.html">goHome (safe)</td></tr></table>> fontsize=13];
-    home -> inputForm [label = "goForm, form (safe)" URL="docs/safe.goForm.html" target="_parent" fontsize=13];
+    home -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
     home -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    listwip -> filterwip [label = "goFilterWIP, filter-wip (safe)" URL="docs/safe.goFilterWIP.html" target="_parent" fontsize=13];
+    listwip -> readwip [label = "goReadWIP, read-wip (safe)" URL="docs/safe.goReadWIP.html" target="_parent" fontsize=13];
+    listwip -> createwip [label = "doCreateWIP, create-wip (idempotent)" URL="docs/idempotent.doCreateWIP.html" target="_parent" fontsize=13];
+    listwip -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    createwip -> updatewip [label = "doUpdateWIP, update-wip (idempotent)" URL="docs/idempotent.doUpdateWIP.html" target="_parent" fontsize=13];
+    createwip -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
+    createwip -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    readwip -> sharewip [label = "doShareWIP, share-wip (idempotent)" URL="docs/idempotent.doShareWIP.html" target="_parent" fontsize=13];
+    readwip -> updatewip [label = "doUpdateWIP, update-wip (idempotent)" URL="docs/idempotent.doUpdateWIP.html" target="_parent" fontsize=13];
+    readwip -> submitwip [label = "doSubmitWIP, submit-wip (idempotent)" URL="docs/idempotent.doSubmitWIP.html" target="_parent" fontsize=13];
+    readwip -> cancelwip [label = "doCancelWIP, cancel-wip (idempotent)" URL="docs/idempotent.doCancelWIP.html" target="_parent" fontsize=13];
+    readwip -> statuswip [label = "doStatusWIP, status-wip (idempotent)" URL="docs/idempotent.doStatusWIP.html" target="_parent" fontsize=13];
+    readwip -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
+    readwip -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    updatewip -> submitwip [label = "doSubmitWIP, submit-wip (idempotent)" URL="docs/idempotent.doSubmitWIP.html" target="_parent" fontsize=13];
+    updatewip -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
+    updatewip -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    submitwip -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
+    submitwip -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    cancelwip -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
+    cancelwip -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    filterwip -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    filterwip -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
+    filterwip -> filterwip [label = "goFilterWIP, filter-wip (safe)" URL="docs/safe.goFilterWIP.html" target="_parent" fontsize=13];
+    filterwip -> readwip [label = "goReadWIP, read-wip (safe)" URL="docs/safe.goReadWIP.html" target="_parent" fontsize=13];
+    sharewip -> readwip [label = "goReadWIP, read-wip (safe)" URL="docs/safe.goReadWIP.html" target="_parent" fontsize=13];
+    sharewip -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
+    sharewip -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    statuswip -> readwip [label = "goReadWIP, read-wip (safe)" URL="docs/safe.goReadWIP.html" target="_parent" fontsize=13];
+    statuswip -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
+    statuswip -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    home -> inputForm [label = "goForm, form (safe)" URL="docs/safe.goForm.html" target="_parent" fontsize=13];
     completed -> inputForm [label = "goForm, form (safe)" URL="docs/safe.goForm.html" target="_parent" fontsize=13];
     completed -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];
 
     completed [URL="docs/semantic.completed.html" target="_parent"]
-    home [URL="docs/semantic.home.html" target="_parent"]
 
 }

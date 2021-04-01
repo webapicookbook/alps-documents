@@ -31,8 +31,7 @@
           {"href": "#doResetSubmit"},
           {"href": "#doCancelSubmit"},
           {"href": "#goForm"},
-          {"href": "#goHome"},
-          {"href": "https://rwmbook.github.io/alps-documents/wip/wip.json#listwip"}
+          {"href": "#goHome"}
           
         ],
         "doc" : {"value": "Represents one or more FORM elements containing the requested inputs."}

@@ -1,13 +1,13 @@
 digraph application_state_diagram {
   graph [
-    labelloc="b";
+    labelloc="t";
     fontname="Helvetica"
     label="Partial Submit Profile";
     URL="index.html" target="_parent"
   ];
-  node [shape = box, style = "bold,filled"];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
 
-    inputForm [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">inputForm<br />(href)<br />(rel)<br />(title)<br />(type)<br />(input)<br /></td></tr></table>>,shape=box URL="docs/semantic.inputForm.html" target="_parent"]
+    inputForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>inputForm<br />(href)<br />(rel)<br />(title)<br />(type)<br />(input)<br /></td></tr></table>>,shape=box URL="docs/semantic.inputForm.html" target="_parent"]
 
     inputForm -> inputForm [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doPartialSubmit.html">doPartialSubmit (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doResetSubmit.html">doResetSubmit (idempotent)</td></tr><tr><td align="left" href="docs/safe.goForm.html">goForm (safe)</td></tr></table>> fontsize=13];
     inputForm -> completed [label = "doFinalSubmit, submit (idempotent)" URL="docs/idempotent.doFinalSubmit.html" target="_parent" fontsize=13];

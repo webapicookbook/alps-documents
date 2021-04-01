@@ -10,44 +10,42 @@
 <title>application_state_diagram</title>
 <g id="a_graph0"><a xlink:href="index.html" xlink:title="List Navigation Profile" target="_parent">
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-301 738.17,-301 738.17,4 -4,4"/>
-<text text-anchor="middle" x="367.09" y="-7.8" font-family="Helvetica,sans-Serif" font-size="14.00">List Navigation Profile</text>
+<text text-anchor="middle" x="367.09" y="-281.8" font-family="Helvetica,sans-Serif" font-size="14.00">List Navigation Profile</text>
 </a>
 </g>
 <!-- list -->
 <g id="node1" class="node">
 <title>list</title>
 <g id="a_node1"><a xlink:href="docs/semantic.list.html" xlink:title="&lt;TABLE&gt;" target="_parent">
-<polygon fill="none" stroke="black" points="209.67,-268 132.67,-268 132.67,-224 209.67,-224 209.67,-268"/>
-<polygon fill="#dddddd" stroke="transparent" points="134.17,-225 134.17,-267 209.17,-267 209.17,-225 134.17,-225"/>
-<polygon fill="none" stroke="black" points="134.17,-225 134.17,-267 209.17,-267 209.17,-225 134.17,-225"/>
-<text text-anchor="start" x="160.17" y="-249.8" font-family="Times,serif" font-size="14.00">list</text>
-<text text-anchor="start" x="140.17" y="-234.8" font-family="Times,serif" font-size="14.00">(navlink)</text>
+<polygon fill="lightgray" stroke="black" stroke-width="2" points="208.67,-244 133.67,-244 133.67,-202 208.67,-202 208.67,-244"/>
+<text text-anchor="start" x="160.17" y="-226.8" font-family="Times,serif" font-size="14.00">list</text>
+<text text-anchor="start" x="140.17" y="-211.8" font-family="Times,serif" font-size="14.00">(navlink)</text>
 </a>
 </g>
 </g>
 <!-- list&#45;&gt;list -->
 <g id="edge4" class="edge">
 <title>list&#45;&gt;list</title>
-<path fill="none" stroke="black" d="M209.73,-260.12C219.94,-259.32 227.67,-254.61 227.67,-246 227.67,-240.48 224.5,-236.57 219.53,-234.26"/>
-<polygon fill="black" stroke="black" points="220.27,-230.83 209.73,-231.88 218.62,-237.64 220.27,-230.83"/>
+<path fill="none" stroke="black" d="M208.79,-237.14C218.94,-236.4 226.67,-231.68 226.67,-223 226.67,-217.44 223.5,-213.5 218.55,-211.2"/>
+<polygon fill="black" stroke="black" points="219.33,-207.78 208.79,-208.86 217.69,-214.59 219.33,-207.78"/>
 <g id="a_edge4_0"><a xlink:href="docs/safe.goList.html" xlink:title="&lt;TABLE&gt;">
-<text text-anchor="start" x="232.17" y="-282.6" font-family="Times,serif" font-size="13.00">goList (safe)</text>
+<text text-anchor="start" x="231.17" y="-259.6" font-family="Times,serif" font-size="13.00">goList (safe)</text>
 </a>
 </g>
 <g id="a_edge4_1"><a xlink:href="docs/safe.goFirst.html" xlink:title="&lt;TABLE&gt;">
-<text text-anchor="start" x="232.17" y="-262.6" font-family="Times,serif" font-size="13.00">goFirst (safe)</text>
+<text text-anchor="start" x="231.17" y="-239.6" font-family="Times,serif" font-size="13.00">goFirst (safe)</text>
 </a>
 </g>
 <g id="a_edge4_2"><a xlink:href="docs/safe.goPrevious.html" xlink:title="&lt;TABLE&gt;">
-<text text-anchor="start" x="232.17" y="-242.6" font-family="Times,serif" font-size="13.00">goPrevious (safe)</text>
+<text text-anchor="start" x="231.17" y="-219.6" font-family="Times,serif" font-size="13.00">goPrevious (safe)</text>
 </a>
 </g>
 <g id="a_edge4_3"><a xlink:href="docs/safe.goNext.html" xlink:title="&lt;TABLE&gt;">
-<text text-anchor="start" x="232.17" y="-222.6" font-family="Times,serif" font-size="13.00">goNext (safe)</text>
+<text text-anchor="start" x="231.17" y="-199.6" font-family="Times,serif" font-size="13.00">goNext (safe)</text>
 </a>
 </g>
 <g id="a_edge4_4"><a xlink:href="docs/safe.goLast.html" xlink:title="&lt;TABLE&gt;">
-<text text-anchor="start" x="232.17" y="-202.6" font-family="Times,serif" font-size="13.00">goLast (safe)</text>
+<text text-anchor="start" x="231.17" y="-179.6" font-family="Times,serif" font-size="13.00">goLast (safe)</text>
 </a>
 </g>
 </g>
@@ -55,8 +53,8 @@
 <g id="node2" class="node">
 <title>home</title>
 <g id="a_node2"><a xlink:href="docs/semantic.home.html" xlink:title="home" target="_parent">
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="294.17,-59 238.17,-59 238.17,-23 294.17,-23 294.17,-59"/>
-<text text-anchor="middle" x="266.17" y="-37.3" font-family="Times,serif" font-size="14.00">home</text>
+<polygon fill="lightgray" stroke="black" stroke-width="2" points="294.17,-36 238.17,-36 238.17,0 294.17,0 294.17,-36"/>
+<text text-anchor="middle" x="266.17" y="-14.3" font-family="Times,serif" font-size="14.00">home</text>
 </a>
 </g>
 </g>
@@ -64,12 +62,12 @@
 <g id="edge7" class="edge">
 <title>list&#45;&gt;home</title>
 <g id="a_edge7"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, self (safe)" target="_parent">
-<path fill="none" stroke="black" d="M132.31,-232.14C72.42,-210.25 -31.41,-162.87 10.17,-109 36.63,-74.72 162.93,-54.6 227.69,-46.37"/>
-<polygon fill="black" stroke="black" points="228.41,-49.81 237.9,-45.1 227.55,-42.86 228.41,-49.81"/>
+<path fill="none" stroke="black" d="M133.28,-209.49C73.54,-187.76 -31.64,-140.16 10.17,-86 36.63,-51.72 162.93,-31.6 227.69,-23.37"/>
+<polygon fill="black" stroke="black" points="228.41,-26.81 237.91,-22.1 227.55,-19.86 228.41,-26.81"/>
 </a>
 </g>
 <g id="a_edge7&#45;label"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, self (safe)" target="_parent">
-<text text-anchor="middle" x="74.17" y="-123.6" font-family="Times,serif" font-size="13.00">goHome, self (safe)</text>
+<text text-anchor="middle" x="74.17" y="-100.6" font-family="Times,serif" font-size="13.00">goHome, self (safe)</text>
 </a>
 </g>
 </g>
@@ -77,8 +75,8 @@
 <g id="node3" class="node">
 <title>selectRecord</title>
 <g id="a_node3"><a xlink:href="docs/semantic.selectRecord.html" xlink:title="selectRecord" target="_parent">
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="256.67,-145 147.67,-145 147.67,-109 256.67,-109 256.67,-145"/>
-<text text-anchor="middle" x="202.17" y="-123.3" font-family="Times,serif" font-size="14.00">selectRecord</text>
+<polygon fill="lightgray" stroke="black" stroke-width="2" points="256.67,-122 147.67,-122 147.67,-86 256.67,-86 256.67,-122"/>
+<text text-anchor="middle" x="202.17" y="-100.3" font-family="Times,serif" font-size="14.00">selectRecord</text>
 </a>
 </g>
 </g>
@@ -86,12 +84,12 @@
 <g id="edge5" class="edge">
 <title>list&#45;&gt;selectRecord</title>
 <g id="a_edge5"><a xlink:href="docs/safe.goSelect.html" xlink:title="goSelect, collection nav select (safe)" target="_parent">
-<path fill="none" stroke="black" d="M132.53,-236.91C83.5,-224.91 8.75,-199.8 39.17,-163 52.72,-146.61 112.4,-149.55 133.17,-145 134.64,-144.68 136.13,-144.35 137.62,-144.01"/>
-<polygon fill="black" stroke="black" points="138.66,-147.37 147.62,-141.72 137.09,-140.54 138.66,-147.37"/>
+<path fill="none" stroke="black" d="M133.36,-214.11C84.34,-202.2 8.58,-177.01 39.17,-140 52.72,-123.61 112.4,-126.55 133.17,-122 134.64,-121.68 136.13,-121.35 137.62,-121.01"/>
+<polygon fill="black" stroke="black" points="138.66,-124.37 147.62,-118.72 137.09,-117.54 138.66,-124.37"/>
 </a>
 </g>
 <g id="a_edge5&#45;label"><a xlink:href="docs/safe.goSelect.html" xlink:title="goSelect, collection nav select (safe)" target="_parent">
-<text text-anchor="middle" x="161.17" y="-166.6" font-family="Times,serif" font-size="13.00">goSelect, collection nav select (safe)</text>
+<text text-anchor="middle" x="161.17" y="-143.6" font-family="Times,serif" font-size="13.00">goSelect, collection nav select (safe)</text>
 </a>
 </g>
 </g>
@@ -99,8 +97,8 @@
 <g id="node4" class="node">
 <title>exitList</title>
 <g id="a_node4"><a xlink:href="docs/semantic.exitList.html" xlink:title="exitList" target="_parent">
-<polygon fill="lightgrey" stroke="black" stroke-width="2" points="366.67,-145 295.67,-145 295.67,-109 366.67,-109 366.67,-145"/>
-<text text-anchor="middle" x="331.17" y="-123.3" font-family="Times,serif" font-size="14.00">exitList</text>
+<polygon fill="lightgray" stroke="black" stroke-width="2" points="366.67,-122 295.67,-122 295.67,-86 366.67,-86 366.67,-122"/>
+<text text-anchor="middle" x="331.17" y="-100.3" font-family="Times,serif" font-size="14.00">exitList</text>
 </a>
 </g>
 </g>
@@ -108,12 +106,12 @@
 <g id="edge6" class="edge">
 <title>list&#45;&gt;exitList</title>
 <g id="a_edge6"><a xlink:href="docs/safe.goExit.html" xlink:title="goExit, collection nav exit (safe)" target="_parent">
-<path fill="none" stroke="black" d="M209.8,-224.72C232.14,-212.23 260.27,-195.17 283.17,-177 292.22,-169.82 301.3,-161.05 309.1,-152.92"/>
-<polygon fill="black" stroke="black" points="311.86,-155.09 316.13,-145.39 306.74,-150.31 311.86,-155.09"/>
+<path fill="none" stroke="black" d="M208.77,-202.3C231.27,-189.76 259.92,-172.45 283.17,-154 292.22,-146.82 301.31,-138.05 309.1,-129.92"/>
+<polygon fill="black" stroke="black" points="311.86,-132.09 316.13,-122.39 306.74,-127.31 311.86,-132.09"/>
 </a>
 </g>
 <g id="a_edge6&#45;label"><a xlink:href="docs/safe.goExit.html" xlink:title="goExit, collection nav exit (safe)" target="_parent">
-<text text-anchor="middle" x="405.67" y="-166.6" font-family="Times,serif" font-size="13.00">goExit, collection nav exit (safe)</text>
+<text text-anchor="middle" x="405.67" y="-143.6" font-family="Times,serif" font-size="13.00">goExit, collection nav exit (safe)</text>
 </a>
 </g>
 </g>
@@ -121,12 +119,12 @@
 <g id="edge1" class="edge">
 <title>home&#45;&gt;list</title>
 <g id="a_edge1"><a xlink:href="docs/safe.goList.html" xlink:title="goList, collection nav (safe)" target="_parent">
-<path fill="none" stroke="black" d="M294.33,-44.47C340.91,-48.98 431.51,-59.73 458.17,-77 600.18,-169.01 547.27,-140.41 517.17,-177 480.08,-222.09 306.17,-237.74 219.92,-242.79"/>
-<polygon fill="black" stroke="black" points="219.64,-239.3 209.86,-243.35 220.04,-246.29 219.64,-239.3"/>
+<path fill="none" stroke="black" d="M294.33,-21.47C340.91,-25.98 431.51,-36.73 458.17,-54 600.19,-146.01 547.27,-117.41 517.17,-154 479.94,-199.26 304.86,-214.86 218.95,-219.84"/>
+<polygon fill="black" stroke="black" points="218.72,-216.35 208.93,-220.4 219.11,-223.34 218.72,-216.35"/>
 </a>
 </g>
 <g id="a_edge1&#45;label"><a xlink:href="docs/safe.goList.html" xlink:title="goList, collection nav (safe)" target="_parent">
-<text text-anchor="middle" x="642.17" y="-123.6" font-family="Times,serif" font-size="13.00">goList, collection nav (safe)</text>
+<text text-anchor="middle" x="642.17" y="-100.6" font-family="Times,serif" font-size="13.00">goList, collection nav (safe)</text>
 </a>
 </g>
 </g>
@@ -134,12 +132,12 @@
 <g id="edge2" class="edge">
 <title>selectRecord&#45;&gt;home</title>
 <g id="a_edge2"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, self (safe)" target="_parent">
-<path fill="none" stroke="black" d="M192.71,-108.54C188.73,-98.64 186.23,-86.39 192.17,-77 200.25,-64.25 214.36,-56.05 228.11,-50.83"/>
-<polygon fill="black" stroke="black" points="229.6,-54.02 237.97,-47.52 227.38,-47.38 229.6,-54.02"/>
+<path fill="none" stroke="black" d="M192.71,-85.54C188.73,-75.64 186.23,-63.39 192.17,-54 200.25,-41.25 214.36,-33.05 228.11,-27.83"/>
+<polygon fill="black" stroke="black" points="229.6,-31.02 237.97,-24.52 227.38,-24.38 229.6,-31.02"/>
 </a>
 </g>
 <g id="a_edge2&#45;label"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, self (safe)" target="_parent">
-<text text-anchor="middle" x="256.17" y="-80.6" font-family="Times,serif" font-size="13.00">goHome, self (safe)</text>
+<text text-anchor="middle" x="256.17" y="-57.6" font-family="Times,serif" font-size="13.00">goHome, self (safe)</text>
 </a>
 </g>
 </g>
@@ -147,12 +145,12 @@
 <g id="edge3" class="edge">
 <title>exitList&#45;&gt;home</title>
 <g id="a_edge3"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, self (safe)" target="_parent">
-<path fill="none" stroke="black" d="M330.51,-108.83C329.38,-98.79 326.65,-86.3 320.17,-77 315.59,-70.42 309.34,-64.79 302.71,-60.08"/>
-<polygon fill="black" stroke="black" points="304.52,-57.08 294.22,-54.61 300.73,-62.96 304.52,-57.08"/>
+<path fill="none" stroke="black" d="M330.51,-85.83C329.39,-75.79 326.65,-63.3 320.17,-54 315.59,-47.42 309.34,-41.79 302.72,-37.08"/>
+<polygon fill="black" stroke="black" points="304.52,-34.08 294.22,-31.61 300.73,-39.96 304.52,-34.08"/>
 </a>
 </g>
 <g id="a_edge3&#45;label"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, self (safe)" target="_parent">
-<text text-anchor="middle" x="390.17" y="-80.6" font-family="Times,serif" font-size="13.00">goHome, self (safe)</text>
+<text text-anchor="middle" x="390.17" y="-57.6" font-family="Times,serif" font-size="13.00">goHome, self (safe)</text>
 </a>
 </g>
 </g>

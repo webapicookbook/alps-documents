@@ -1,22 +1,22 @@
 digraph application_state_diagram {
   graph [
-    labelloc="b";
+    labelloc="t";
     fontname="Helvetica"
     label="Work-In-Progress (WIP) Profile";
     URL="index.html" target="_parent"
   ];
-  node [shape = box, style = "bold,filled"];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
 
-    home [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">home<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.home.html" target="_parent"]
-    listwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">listwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.listwip.html" target="_parent"]
-    createwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">createwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.createwip.html" target="_parent"]
-    readwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">readwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.readwip.html" target="_parent"]
-    updatewip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">updatewip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.updatewip.html" target="_parent"]
-    submitwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">submitwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.submitwip.html" target="_parent"]
-    cancelwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">cancelwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.cancelwip.html" target="_parent"]
-    filterwip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">filterwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.filterwip.html" target="_parent"]
-    sharewip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">sharewip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.sharewip.html" target="_parent"]
-    statuswip [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">statuswip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.statuswip.html" target="_parent"]
+    home [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>home<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.home.html" target="_parent"]
+    listwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>listwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.listwip.html" target="_parent"]
+    createwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>createwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.createwip.html" target="_parent"]
+    readwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>readwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.readwip.html" target="_parent"]
+    updatewip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>updatewip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.updatewip.html" target="_parent"]
+    submitwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>submitwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.submitwip.html" target="_parent"]
+    cancelwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>cancelwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.cancelwip.html" target="_parent"]
+    filterwip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>filterwip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.filterwip.html" target="_parent"]
+    sharewip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>sharewip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.sharewip.html" target="_parent"]
+    statuswip [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>statuswip<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.statuswip.html" target="_parent"]
 
     home -> listwip [label = "goListWIP, list-wip (safe)" URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
     home -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];

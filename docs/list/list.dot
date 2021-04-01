@@ -1,13 +1,13 @@
 digraph application_state_diagram {
   graph [
-    labelloc="b";
+    labelloc="t";
     fontname="Helvetica"
     label="List Navigation Profile";
     URL="index.html" target="_parent"
   ];
-  node [shape = box, style = "bold,filled"];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
 
-    list [style=solid, margin=0.02, label=<<table cellspacing="0" cellpadding="5" cellborder="1" border="0"><tr><td bgcolor="#dddddd">list<br />(navlink)<br /></td></tr></table>>,shape=box URL="docs/semantic.list.html" target="_parent"]
+    list [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>list<br />(navlink)<br /></td></tr></table>>,shape=box URL="docs/semantic.list.html" target="_parent"]
 
     home -> list [label = "goList, collection nav (safe)" URL="docs/safe.goList.html" target="_parent" fontsize=13];
     selectRecord -> home [label = "goHome, self (safe)" URL="docs/safe.goHome.html" target="_parent" fontsize=13];

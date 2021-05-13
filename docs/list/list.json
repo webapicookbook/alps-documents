@@ -4,7 +4,7 @@
   {
     "version": "1.0",
     "title": "List Navigation Profile",
-    "doc": {"value": "List Navigation profile for RWMBook. Whenever presenting lists of records, services SHOULD emit a set of navigation links that help the client move forward and back in the list, select an item from the list and exit the list navigation."},
+    "doc": {"value": "List Navigation profile for [RWMBook](http://twitter.com/rwmbook). Whenever presenting lists of records, services [SHOULD](https://www.rfc-editor.org/rfc/rfc2119.html) emit a set of navigation links that help the client move forward and back in the list, select an item from the list and exit the list navigation."},
     "descriptor" : [
       {"id": "href", "type": "semantic", "def": "https://schema.org/url",
         "title":"URL of the link.",

@@ -1,53 +1,73 @@
-{ "alps": 
+{ 
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps": 
   {
+    "version": "1.0",
     "title": "List Navigation Profile",
     "doc": {"value": "List Navigation profile for RWMBook. Whenever presenting lists of records, services SHOULD emit a set of navigation links that help the client move forward and back in the list, select an item from the list and exit the list navigation."},
     "descriptor" : [
       {"id": "href", "type": "semantic", "def": "https://schema.org/url",
-        "doc": {"value": "The URL of the most recently used action"}
+        "title":"URL of the link.",
+        "doc": {"value": "The URL of the navigation link"},
+        "tag": "ontology"
       },
       {"id": "rel", "type": "semantic", "def": "https://schema.org/linkRelationship",
-        "doc": {"value": "The link relation value of the most recently used action. This value SHOULD also include the link relation value of 'mru'"}
+        "title": "Rel value of the link.",
+        "doc": {"value": "The link relation value of the navigation. This value SHOULD also include the link relation value of 'list'"},
+        "tag": "ontology"
       },
       {"id": "title", "type": "semantic", "def": "https://schema.org/title",
-        "doc": {"value": "Human readable title associated with the link"}
+        "title": "Title text of the link.",
+        "doc": {"value": "Human readable title associated with the navigation link"},
+        "tag": "ontology"
       },
       {"id": "type", "type": "semantic", "def": "https://schema.org/contentType",
-        "doc": {"value": "Optional media type identifier string."}
+        "title": "Media type for the link (optional).",
+        "doc": {"value": "Optional media type identifier string for the navigation link."},
+        "tag": "ontology"
       },
       
-      {"id": "navlink", "type": "semantic", 
+      {"id": "navlink", "type": "semantic",
+        "title": "List navigation link object.", 
         "descriptor": [
           {"href": "#href"},
           {"href": "#rel"},
           {"href": "#title"},
           {"href": "#type"}
         ],
-        "doc" : {"value": "Represents one or more link elements for navigating a list of records."}
+        "doc" : {"value": "Represents one or more link elements for navigating a list of records."},
+        "tag": "taxonomy"
       },
       
      {"id": "home", "type": "semantic", 
-         "descriptor": [
+       "title":"The Home state before you enter the list.",
+       "descriptor": [
           {"href": "#goList"}
         ],
-        "doc" : {"value" : "Home represents any current document or starting point in the flow"}
+        "doc" : {"value" : "Home represents any current document or starting point in the flow"},
+        "tag": "taxonomy"
       },
 
      {"id": "selectRecord", "type": "semantic", 
-         "descriptor": [
+       "title": "A single record from the list.",
+       "descriptor": [
           {"href": "#goHome"}
         ],
-        "doc" : {"value" : "Represents any single record in the list."}
+        "doc" : {"value" : "Represents any single record in the list."},
+        "tag": "taxonomy"
       },
 
      {"id": "exitList", "type": "semantic", 
-         "descriptor": [
+       "title": "The controlled exit state (after you leave the list).",
+       "descriptor": [
           {"href": "#goHome"}
         ],
-        "doc" : {"value" : "Represents an 'exit' state when leaving the list."}
+        "doc" : {"value" : "Represents an 'exit' state when leaving the list."},
+        "tag": "taxonomy"
       },
 
       {"id": "list", "type": "semantic", 
+        "title": "The list and all the options.",
         "descriptor": [
           {"href": "#navlink"},
           {"href": "#goList"},
@@ -58,32 +78,50 @@
           {"href": "#goSelect"},
           {"href": "#goExit"},
           {"href": "#goHome"}
-        ]
+        ],
+        "doc": {"value":"Represents the list and all the navigation options."},
+        "tag": "taxonomy"
       },
 
       {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
-        "doc": {"value": "A safe, idempotent action to return to the Home document"}
+        "title": "Go to the Home resource (exiting the list).",
+        "doc": {"value": "A safe, idempotent action to return to the Home document"},
+        "tag": "choreography"
       },
       {"id": "goList", "name": "list", "rel": "collection nav", "type": "safe", "rt": "#list",
-        "doc": {"value": "An optional safe idempotent action to view the list of records."}
+        "title": "Go to the list (usually, the start of the list).",
+        "doc": {"value": "An optional safe idempotent action to view the list of records."},
+        "tag": "choreography"
       },
       {"id": "goFirst", "name": "first", "rel": "collection nav first", "type": "safe", "rt": "#list",
-        "doc": {"value": "An optional safe idempotent action to navigate to the top of the list."}
+        "title": "Move to the first page in the list.",
+        "doc": {"value": "An optional safe idempotent action to navigate to the top of the list."},
+        "tag": "choreography"
       },
       {"id": "goPrevious", "name": "previous", "rel": "collection nav previous", "type": "safe", "rt": "#list",
-        "doc": {"value": "An optional safe idempotent action to view the previous page in the list of records."}
+        "title": "Move back to the previous page in the list.",
+        "doc": {"value": "An optional safe idempotent action to view the previous page in the list of records."},
+        "tag": "choreography"
       },
       {"id": "goNext", "name": "next", "rel": "collection nav next", "type": "safe", "rt": "#list",
-        "doc": {"value": "An optional safe idempotent action to view the next page in the list of records."}
+        "title": "Move forward to the next page in the last",
+        "doc": {"value": "An optional safe idempotent action to view the next page in the list of records."},
+        "tag": "choreography"
       },
       {"id": "goLast", "name": "last", "rel": "collection nav last", "type": "safe", "rt": "#list",
-        "doc": {"value": "An optional safe idempotent action to view the last page in the list of records."}
+        "title": "Move to the last page in the list.",
+        "doc": {"value": "An optional safe idempotent action to view the last page in the list of records."},
+        "tag": "choreography"
       },
       {"id": "goSelect", "name": "select", "rel": "collection nav select", "type": "safe", "rt": "#selectRecord",
-        "doc": {"value": "An optional safe idempotent action to select an item in the list of records."}
+        "title": "Select an item from the list",
+        "doc": {"value": "An optional safe idempotent action to select an item in the list of records."},
+        "tag": "choreography"
       },
       {"id": "goExit", "name": "exit", "rel": "collection nav exit", "type": "safe", "rt": "#exitList",
-        "doc": {"value": "An optional safe idempotent action to exit the list navigation."}
+        "title": "Exist the list.",
+        "doc": {"value": "An optional safe idempotent action to exit the list navigation."},
+        "tag": "choreography"
       }
     ]
   }

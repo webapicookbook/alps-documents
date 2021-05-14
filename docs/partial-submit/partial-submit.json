@@ -1,7 +1,10 @@
-{ "alps": 
+{ 
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps": 
   {
+    "version":"1.0",
     "title": "Partial Submit Profile",
-    "doc": {"value": "Partial Submit profile for RWMBook. Services SHOULD allow client applications to submit partially completed FORM data and, afer accepting the data, SHOULD continue to redirect the client to a FORM that asks for the remaining inputs. Services SHOULD also provide a CANCEL option if client appilcations are unable or unwilling to complete the minimum requiested data FORM."},
+    "doc": {"value": "Partial Submit profile for [RWMBook](http://b.mamund.com/rwmbook). Services SHOULD allow client applications to submit partially completed FORM data and, afer accepting the data, [SHOULD](http://b.mamund.com/rfc2119) continue to redirect the client to a form that asks for the remaining inputs. Services [SHOULD](http://b.mamund.com/rfc2119) also provide a `cancel` option if client appilcations are unable or unwilling to complete the minimum requiested data form."},
     "descriptor" : [
       {"id": "href", "type": "semantic", "def": "https://schema.org/url",
         "doc": {"value": "The URL of the most recently used action"}

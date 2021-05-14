@@ -1,7 +1,8 @@
 { "alps":
   {
+    "version": "1.0",
     "title": "Most Recently Used (MRU) Profile",
-    "doc": {"value": "Most Recently Used (MRU) profile for RWMBook. Services SHOULD emit a short list of the most recently-used URLs when clients interact with the service. This list MAY be filtered to reflect the MRUs of this particular client and/or this particular session between client and service."},
+    "doc": {"value": "Most Recently Used (MRU) profile for [RWMBook](http://b.mamund.com/rwmbook). Services [SHOULD](b.mamund.com/rfc2119) emit a short list of the most recently-used URLs when clients interact with the service. This list MAY be filtered to reflect the MRUs of this particular client and/or this particular session between client and service."},
     "descriptor" : [
       {"id": "href", "type": "semantic", "def": "https://schema.org/url",
         "doc": {"value": "The URL of the most recently used action"}

@@ -2,22 +2,32 @@
   {
     "version": "1.0",
     "title": "Most Recently Used (MRU) Profile",
-    "doc": {"value": "Most Recently Used (MRU) profile for [RWMBook](http://b.mamund.com/rwmbook). Services [SHOULD](b.mamund.com/rfc2119) emit a short list of the most recently-used URLs when clients interact with the service. This list MAY be filtered to reflect the MRUs of this particular client and/or this particular session between client and service."},
+    "doc": {"value": "Most Recently Used (MRU) profile for [RWMBook](http://b.mamund.com/rwmbook). Services [SHOULD](http://b.mamund.com/rfc2119) emit a short list of the most recently-used URLs when clients interact with the service. This list MAY be filtered to reflect the MRUs of this particular client and/or this particular session between client and service."},
     "descriptor" : [
       {"id": "href", "type": "semantic", "def": "https://schema.org/url",
+        "title": "URL of the MRU",
+        "tag":"ontology",
         "doc": {"value": "The URL of the most recently used action"}
       },
       {"id": "rel", "type": "semantic", "def": "https://schema.org/linkRelationship",
+        "title":"Relation value of the MRU link",
+        "tag":"ontology",
         "doc": {"value": "The link relation value of the most recently used action. This value SHOULD also include the link relation value of 'mru'"}
       },
       {"id": "title", "type": "semantic", "def": "https://schema.org/title",
+        "title":"Text title of MRU link",
+        "tag":"ontology",
         "doc": {"value": "Human readable title associated with the link"}
       },
       {"id": "type", "type": "semantic", "def": "https://schema.org/contentType",
+        "title":"Optional media type string",
+        "tag":"ontology",
         "doc": {"value": "Optional media type identifier string."}
       },
       
-      {"id": "mrulink", "type": "semantic", 
+      {"id": "mrulink", "type": "semantic",
+       "title":"MRU link object and actions",
+      "tag":"taxonomy", 
         "descriptor": [
           {"href": "#href"},
           {"href": "#rel"},
@@ -27,15 +37,19 @@
         "doc" : {"value": "Represents one or more link elements containing the most recently used actions"}
       },
       
-     {"id": "home", "type": "semantic", 
-         "descriptor": [
+     {"id": "home", "type": "semantic",
+        "title":"Home (starting point) that leads to MRU links",
+        "tag":"taxonomy", 
+        "descriptor": [
           {"href": "#mrulink"},
           {"href": "#goMRU"}
         ],
         "doc" : {"value" : "Home represents any current document or starting point in the flow"}
       },
 
-      {"id": "mru", "type": "semantic", 
+      {"id": "mru", "type": "semantic",
+       "title":"MRU link and action",
+       "tag":"taxonomy", 
         "descriptor": [
           {"href": "#mrulink"},
           {"href": "#goHome"}
@@ -43,9 +57,13 @@
       },
 
       {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "title":"Go to the Home resource",
+        "tag":"choreography",
         "doc": {"value": "A safe, idempotent action to return to the Home document"}
       },
       {"id": "goMRU", "name": "mru", "rel": "mru", "type": "safe", "rt": "#mru",
+        "title":"Go to the MRU resource",
+        "tag":"choreography",
         "doc": {"value": "An optional safe idempotent action to list the MRU links as a response."}
       }
     ]

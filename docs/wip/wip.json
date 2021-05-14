@@ -1,5 +1,8 @@
-{ "alps": 
+{ 
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps": 
   {
+    "version":"1.0",
     "title": "Work-In-Progress (WIP) Profile",
     "doc": {"value": "Work-In-Progress (WIP) profile for RWMBook. Services SHOULD present a generalized WIP flow for client applications."},
     "descriptor" : [

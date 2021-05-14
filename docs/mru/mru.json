@@ -1,4 +1,6 @@
-{ "alps":
+{ 
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps":
   {
     "version": "1.0",
     "title": "Most Recently Used (MRU) Profile",

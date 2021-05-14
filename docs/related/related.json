@@ -1,5 +1,8 @@
-{ "alps": 
+{   
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps": 
   {
+    "version":"1.0",
     "title": "Related Actions Profile",
     "doc": {"value": "Related actions profile for RWMBook. Clients SHOULD use the link marked rel='related' to get a list of all the available related actions. The contents of the list SHOULD reflect the context of the client and the service."},
     "descriptor" : [

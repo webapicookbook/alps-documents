@@ -4,22 +4,32 @@
   {
     "version":"1.0",
     "title": "Related Actions Profile",
-    "doc": {"value": "Related actions profile for RWMBook. Clients SHOULD use the link marked rel='related' to get a list of all the available related actions. The contents of the list SHOULD reflect the context of the client and the service."},
+    "doc": {"value": "Related actions profile for [RWMBook](http://b.mamund.com/rwmbook). Clients [SHOULD](http://b.mamund.com/rfc2119) use the link marked `rel='related'` to get a list of all the available related actions. The contents of the list [SHOULD](http://b.mamund.com/rfc2119) reflect the context of the client and the service."},
     "descriptor" : [
       {"id": "href", "type": "semantic", "def": "https://schema.org/url",
+        "title": "URL of related action",
+        "tag": "ontology",
         "doc": {"value": "The URL of the most recently used action"}
       },
       {"id": "rel", "type": "semantic", "def": "https://schema.org/linkRelationship",
+        "title": "Relation value of the action link",
+        "tag": "ontology",
         "doc": {"value": "The link relation value of an available related action. This value SHOULD also include the link relation value of 'related'"}
       },
       {"id": "title", "type": "semantic", "def": "https://schema.org/title",
+        "title": "Text title of the action link",
+        "tag": "ontology",
         "doc": {"value": "Human readable title associated with the link"}
       },
       {"id": "type", "type": "semantic", "def": "https://schema.org/contentType",
+        "title": "media type hint for action link",
+        "tag": "ontology",
         "doc": {"value": "Optional media type identifier string."}
       },
       
-      {"id": "relatedlink", "type": "semantic", 
+      {"id": "relatedlink", "type": "semantic",
+        "title": "Link object",
+       "tag": "taxonomy", 
         "descriptor": [
           {"href": "#href"},
           {"href": "#rel"},
@@ -29,15 +39,19 @@
         "doc" : {"value": "Represents one or more link elements containing the available related actions"}
       },
       
-     {"id": "home", "type": "semantic", 
-         "descriptor": [
+     {"id": "home", "type": "semantic",
+        "title":"Home resource objects and actions",
+       "tag":"taxonomy",
+        "descriptor": [
           {"href": "#relatedlink"},
           {"href": "#goRelated"}
         ],
         "doc" : {"value" : "Home represents any current document or starting point in the flow"}
       },
 
-      {"id": "related", "type": "semantic", 
+      {"id": "related", "type": "semantic",
+        "title": "Related resource object and actions",
+        "tag": "taxonomy",
         "descriptor": [
           {"href": "#relatedlink"},
           {"href": "#goHome"}
@@ -45,9 +59,13 @@
       },
 
       {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "title": "Go to home resoource",
+        "tag": "choreography",
         "doc": {"value": "A safe, idempotent action to return to the Home document"}
       },
       {"id": "goRelated", "name": "mru", "rel": "mru", "type": "safe", "rt": "#related",
+        "title": "Go to related link resource",
+        "tag": "choreography",
         "doc": {"value": "An optional safe idempotent action to list the Related links as a response."}
       }
     ]

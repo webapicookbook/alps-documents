@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>updatewip (semantic)</title>
+    <title>wipitem (semantic)</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
     <style>
         .markdown-body {
@@ -22,12 +22,11 @@
     <div class="markdown-body">
         <p>Work-In-Progress (WIP) Profile: Semantic Descriptor</p>
 
-<h1>updatewip</h1>
+<h1>wipitem</h1>
 
 <ul>
 <li>type: semantic</li>
-<li>title: Update WIP Resource</li>
-<li>doc: Represents the ability to update an existing work-in-progress record.</li>
+<li>title: A single WIP record.</li>
 <li><p>tag: <a href="tag.taxonomy.html">taxonomy</a></p></li>
 <li><p>descriptor
 <table>
@@ -45,6 +44,11 @@
   <td>WIP Link property object</td>
 </tr>
 <tr>
+  <td><a href="safe.goReadWIP.html">goReadWIP</a></td>
+  <td>safe</td>
+  <td>Retrieve a single AIP resource.</td>
+</tr>
+<tr>
   <td><a href="safe.goListWIP.html">goListWIP</a></td>
   <td>safe</td>
   <td>Go to the WIP list resource.</td>
@@ -55,9 +59,29 @@
   <td>Go to the Home resource.</td>
 </tr>
 <tr>
+  <td><a href="idempotent.doUpdateWIP.html">doUpdateWIP</a></td>
+  <td>idempotent</td>
+  <td>Update a single existing WIP resource</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doStatusWIP.html">doStatusWIP</a></td>
+  <td>idempotent</td>
+  <td>Modify the status of an exsiting WIP resource</td>
+</tr>
+<tr>
   <td><a href="idempotent.doSubmitWIP.html">doSubmitWIP</a></td>
   <td>idempotent</td>
   <td>Submit (for final acceptance) a completed WIP Rresource.</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doCancelWIP.html">doCancelWIP</a></td>
+  <td>idempotent</td>
+  <td>Cancel an existing WIP resource</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doShareWIP.html">doShareWIP</a></td>
+  <td>idempotent</td>
+  <td>Share/save an existing WIP resource</td>
 </tr>
 </tbody>
 </table></p></li>

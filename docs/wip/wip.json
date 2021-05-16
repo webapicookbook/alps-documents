@@ -4,7 +4,7 @@
   {
     "version":"1.0",
     "title": "Work-In-Progress (WIP) Profile",
-    "doc": {"value": "Work-In-Progress (WIP) profile for [RWMBook](b.mamund.com/rwmbook). Services [SHOULD](http:/b.mamund.com/rfc2119) present a generalized WIP flow for managing the state of a process. For this profile, the following pre-defined link relation values [MAY](b.mamund.com/rfc2119) appear: `cancel`, `create`, `filter`, `home`, `list`, `read`, `share`, `status`, `submit`, `update`.\n\nTypically, services support the creation, update, and ultimately, the final submit of a WIP record. Additional workflow options include getting a (filtered) list of existing WIP records, fetching a single record, updating the status of a single record, and the cancelling of an existing WIP record."},
+    "doc": {"value": "Work-In-Progress (WIP) profile for [RWMBook](b.mamund.com/rwmbook). Services [SHOULD](http:/b.mamund.com/rfc2119) present a generalized WIP flow for managing the state of a process. For this profile, the following pre-defined link relation values [MAY](b.mamund.com/rfc2119) appear: `cancel`, `create`, `filter`, `home`, `list`, `read`, `share`, `status`, `submit`, `update`.\n\nTypically, services support the creation, update, and ultimately, the final submit of a WIP record. Additional workflow options include getting a (filtered) list of existing WIP records, fetching a single record, updating the status of a single record, sharing an existing WIP record for later retrieval, and the cancelling of an existing WIP record."},
     "descriptor" : [
       {"id": "href", "type": "semantic", "def": "https://schema.org/url",
       "title" : "URL of the WIP step",

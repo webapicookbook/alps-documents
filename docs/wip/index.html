@@ -22,7 +22,9 @@
     <div class="markdown-body">
         <h1>Work-In-Progress (WIP) Profile</h1>
 
-<p>Work-In-Progress (WIP) profile for RWMBook. Services SHOULD present a generalized WIP flow for client applications.</p>
+<p>Work-In-Progress (WIP) profile for <a href="b.mamund.com/rwmbook">RWMBook</a>. Services <a href="http:/b.mamund.com/rfc2119">SHOULD</a> present a generalized WIP flow for managing the state of a process. For this profile, the following pre-defined link relation values <a href="b.mamund.com/rfc2119">MAY</a> appear: <code>cancel</code>, <code>create</code>, <code>filter</code>, <code>home</code>, <code>list</code>, <code>read</code>, <code>share</code>, <code>status</code>, <code>submit</code>, <code>update</code>.<br />
+<br />
+Typically, services support the creation, update, and ultimately, the final submit of a WIP record. Additional workflow options include getting a (filtered) list of existing WIP records, fetching a single record, updating the status of a single record, and the cancelling of an existing WIP record.</p>
 
 <ul>
 <li><a href="wip.json">ALPS</a></li>
@@ -30,31 +32,38 @@
 <li>Semantic Descriptors
 
 <ul>
-<li><a href="docs/semantic.cancelwip.html">cancelwip</a> (semantic)</li>
-<li><a href="docs/semantic.createwip.html">createwip</a> (semantic)</li>
-<li><a href="docs/idempotent.doCancelWIP.html">doCancelWIP</a> (idempotent)</li>
-<li><a href="docs/idempotent.doCreateWIP.html">doCreateWIP</a> (idempotent)</li>
-<li><a href="docs/idempotent.doShareWIP.html">doShareWIP</a> (idempotent)</li>
-<li><a href="docs/idempotent.doStatusWIP.html">doStatusWIP</a> (idempotent)</li>
-<li><a href="docs/idempotent.doSubmitWIP.html">doSubmitWIP</a> (idempotent)</li>
-<li><a href="docs/idempotent.doUpdateWIP.html">doUpdateWIP</a> (idempotent)</li>
-<li><a href="docs/semantic.filterwip.html">filterwip</a> (semantic)</li>
-<li><a href="docs/safe.goFilterWIP.html">goFilterWIP</a> (safe)</li>
-<li><a href="docs/safe.goHome.html">goHome</a> (safe)</li>
-<li><a href="docs/safe.goListWIP.html">goListWIP</a> (safe)</li>
-<li><a href="docs/safe.goReadWIP.html">goReadWIP</a> (safe)</li>
-<li><a href="docs/semantic.home.html">home</a> (semantic)</li>
-<li><a href="docs/semantic.href.html">href</a> (semantic)</li>
-<li><a href="docs/semantic.listwip.html">listwip</a> (semantic)</li>
-<li><a href="docs/semantic.readwip.html">readwip</a> (semantic)</li>
-<li><a href="docs/semantic.rel.html">rel</a> (semantic)</li>
-<li><a href="docs/semantic.sharewip.html">sharewip</a> (semantic)</li>
-<li><a href="docs/semantic.statuswip.html">statuswip</a> (semantic)</li>
-<li><a href="docs/semantic.submitwip.html">submitwip</a> (semantic)</li>
-<li><a href="docs/semantic.title.html">title</a> (semantic)</li>
-<li><a href="docs/semantic.type.html">type</a> (semantic)</li>
-<li><a href="docs/semantic.updatewip.html">updatewip</a> (semantic)</li>
-<li><a href="docs/semantic.wiplink.html">wiplink</a> (semantic)</li>
+<li><a href="docs/semantic.cancelwip.html">cancelwip</a> (semantic), Cancel a WIP before completion.</li>
+<li><a href="docs/semantic.createwip.html">createwip</a> (semantic), WIP create resource</li>
+<li><a href="docs/idempotent.doCancelWIP.html">doCancelWIP</a> (idempotent), Cancel an existing WIP resource</li>
+<li><a href="docs/idempotent.doCreateWIP.html">doCreateWIP</a> (idempotent), Create a new WIP resource</li>
+<li><a href="docs/idempotent.doShareWIP.html">doShareWIP</a> (idempotent), Share/save an existing WIP resource</li>
+<li><a href="docs/idempotent.doStatusWIP.html">doStatusWIP</a> (idempotent), Modify the status of an exsiting WIP resource</li>
+<li><a href="docs/idempotent.doSubmitWIP.html">doSubmitWIP</a> (idempotent), Submit (for final acceptance) a completed WIP Rresource.</li>
+<li><a href="docs/idempotent.doUpdateWIP.html">doUpdateWIP</a> (idempotent), Update a single existing WIP resource</li>
+<li><a href="docs/semantic.filterwip.html">filterwip</a> (semantic), A filtered list of WIP records.</li>
+<li><a href="docs/safe.goFilterWIP.html">goFilterWIP</a> (safe), Get a filtered list of WIP records</li>
+<li><a href="docs/safe.goHome.html">goHome</a> (safe), Go to the Home resource.</li>
+<li><a href="docs/safe.goListWIP.html">goListWIP</a> (safe), Go to the WIP list resource.</li>
+<li><a href="docs/safe.goReadWIP.html">goReadWIP</a> (safe), Retrieve a single AIP resource.</li>
+<li><a href="docs/semantic.home.html">home</a> (semantic), Home resource.</li>
+<li><a href="docs/semantic.href.html">href</a> (semantic), URL of the WIP step</li>
+<li><a href="docs/semantic.listwip.html">listwip</a> (semantic), WIP List resource.</li>
+<li><a href="docs/semantic.readwip.html">readwip</a> (semantic), Read WIP resource.</li>
+<li><a href="docs/semantic.rel.html">rel</a> (semantic), Relationship value of the WIP link.</li>
+<li><a href="docs/semantic.sharewip.html">sharewip</a> (semantic), A WIP resource to share/save</li>
+<li><a href="docs/semantic.statuswip.html">statuswip</a> (semantic), The status of a single WIP resource</li>
+<li><a href="docs/semantic.submitwip.html">submitwip</a> (semantic), Submit a completed WIP resource.</li>
+<li><a href="docs/semantic.title.html">title</a> (semantic), Text title for the WIP link.</li>
+<li><a href="docs/semantic.type.html">type</a> (semantic), Media type hint.</li>
+<li><a href="docs/semantic.updatewip.html">updatewip</a> (semantic), Update WIP Resource</li>
+<li><a href="docs/semantic.wiplink.html">wiplink</a> (semantic), WIP Link property object</li>
+</ul></li>
+<li>Tags
+
+<ul>
+<li><a href="docs/tag.choreography.html">choreography</a></li>
+<li><a href="docs/tag.ontology.html">ontology</a></li>
+<li><a href="docs/tag.taxonomy.html">taxonomy</a></li>
 </ul></li>
 </ul>
 

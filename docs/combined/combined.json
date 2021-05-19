@@ -1,0 +1,18 @@
+{
+  "alps": {
+    "version": "1.0",
+    "title": "Combined Semantic Profiles for RWMBook",
+    "doc": {"value": "" },
+    "descriptor": [
+      {"id": "home", "type": "semantic", "rel": "home", "tag": "taxonomy",
+        "descriptor": [
+          {"href": "https://rwmbook.github.io/alps-documents/mru/mru.json#mru"},
+          {"href": "https://rwmbook.github.io/alps-documents/related/related.json#related"},
+          {"href": "https://rwmbook.github.io/alps-documents/list/list.json#list"},
+          {"href": "https://rwmbook.github.io/alps-documents/wip/wip.json#wiplist"},
+          {"href": "https://rwmbook.github.io/alps-documents/partial-submit/partial-submit.json#inputForm"}
+        ]
+      }
+    ]
+  }
+}

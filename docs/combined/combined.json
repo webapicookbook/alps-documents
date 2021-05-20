@@ -2,7 +2,7 @@
   "alps": {
     "version": "1.0",
     "title": "Combined Semantic Profiles for RWMBook",
-    "doc": {"value": "" },
+    "doc": {"value": "**THIS IS AN UNSTABLE DRAFT DOCUMENT**\n\nThis ALPS document links together all the existing ALPS semantifc profiles for the [RWMBook](http://b.mamund.com/rwmbook)." },
     "descriptor": [
       {"id": "home", "type": "semantic", "rel": "home", "tag": "taxonomy",
         "descriptor": [

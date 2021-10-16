@@ -1,0 +1,45 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="Combined Semantic Profiles for RWMBook";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    about [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>about<br />(aboutPreferences)<br /></td></tr></table>>,shape=box URL="docs/semantic.about.html" target="_parent"]
+    home [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>home<br />(about)<br />(mru)<br />(related)<br />(list)<br />(wiplist)<br />(inputForm)<br /></td></tr></table>>,shape=box URL="docs/semantic.home.html" target="_parent"]
+    inputForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>inputForm<br />(href)<br />(rel)<br />(title)<br />(type)<br />(input)<br /></td></tr></table>>,shape=box URL="docs/semantic.inputForm.html" target="_parent"]
+    list [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>list<br />(navlink)<br /></td></tr></table>>,shape=box URL="docs/semantic.list.html" target="_parent"]
+    mru [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>mru<br />(mrulink)<br /></td></tr></table>>,shape=box URL="docs/semantic.mru.html" target="_parent"]
+    related [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>related<br />(relatedlink)<br /></td></tr></table>>,shape=box URL="docs/semantic.related.html" target="_parent"]
+    wipitem [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>wipitem<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.wipitem.html" target="_parent"]
+    wiplist [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>wiplist<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.wiplist.html" target="_parent"]
+
+    about -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    completed -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    completed -> inputForm [label = <goForm, form (safe)> URL="docs/safe.goForm.html" target="_parent" fontsize=13];
+    exitList -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    inputForm -> completed [label = <doFinalSubmit, submit (idempotent)> URL="docs/idempotent.doFinalSubmit.html" target="_parent" fontsize=13];
+    inputForm -> home [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doCancelSubmit.html">doCancelSubmit (idempotent)</td></tr><tr><td align="left" href="docs/safe.goHome.html">goHome (safe)</td></tr></table>> fontsize=13];
+    inputForm -> inputForm [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doPartialSubmit.html">doPartialSubmit (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doResetSubmit.html">doResetSubmit (idempotent)</td></tr><tr><td align="left" href="docs/safe.goForm.html">goForm (safe)</td></tr></table>> fontsize=13];
+    list -> exitList [label = <goExit, collection nav exit (safe)> URL="docs/safe.goExit.html" target="_parent" fontsize=13];
+    list -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    list -> list [label=<<table  border="0"><tr><td align="left" href="docs/safe.goFirst.html">goFirst (safe)</td></tr><tr><td align="left" href="docs/safe.goLast.html">goLast (safe)</td></tr><tr><td align="left" href="docs/safe.goList.html">goList (safe)</td></tr><tr><td align="left" href="docs/safe.goNext.html">goNext (safe)</td></tr><tr><td align="left" href="docs/safe.goPrevious.html">goPrevious (safe)</td></tr></table>> fontsize=13];
+    list -> selectRecord [label = <goSelect, collection nav select (safe)> URL="docs/safe.goSelect.html" target="_parent" fontsize=13];
+    mru -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    mru -> mru [label = <goMRU, mru (safe)> URL="docs/safe.goMRU.html" target="_parent" fontsize=13];
+    related -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    selectRecord -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    wipitem -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    wipitem -> wipitem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doShareWIP.html">doShareWIP (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doStatusWIP.html">doStatusWIP (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doSubmitWIP.html">doSubmitWIP (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doUpdateWIP.html">doUpdateWIP (idempotent)</td></tr><tr><td align="left" href="docs/safe.goReadWIP.html">goReadWIP (safe)</td></tr></table>> fontsize=13];
+    wipitem -> wiplist [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doCancelWIP.html">doCancelWIP (idempotent)</td></tr><tr><td align="left" href="docs/safe.goListWIP.html">goListWIP (safe)</td></tr></table>> fontsize=13];
+    wiplist -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    wiplist -> wipitem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doCreateWIP.html">doCreateWIP (idempotent)</td></tr><tr><td align="left" href="docs/safe.goReadWIP.html">goReadWIP (safe)</td></tr></table>> fontsize=13];
+    wiplist -> wiplist [label=<<table  border="0"><tr><td align="left" href="docs/safe.goFilterWIP.html">goFilterWIP (safe)</td></tr><tr><td align="left" href="docs/safe.goListWIP.html">goListWIP (safe)</td></tr></table>> fontsize=13];
+
+    completed [label = <completed> URL="docs/semantic.completed.html" target="_parent"]
+    exitList [label = <exitList> URL="docs/semantic.exitList.html" target="_parent"]
+    selectRecord [label = <selectRecord> URL="docs/semantic.selectRecord.html" target="_parent"]
+
+}

@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <title>ALPS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+        <h1>About - Client Preferences for Service Responses</h1>
+
+<p>This is a semantic profile for <a href="http://b.mamund.com/rwmbook">RWMBook</a>. Services <a href="http://b.mamund.com/rfc2119">SHOULD</a> provide a link relation with the value of 'about'. Clients <a href="http://b.mamund.com/rfc2119">MAY</a> follow this link to get a list of all the content variation parameters supported by the service API.<br />
+<br />
+ The contents of the resulting representation <a href="http://b.mamund.com/rfc2119">SHOULD</a> reflect the available options for the current runnin context. For example, logged in users might see different values than anonymous users.</p>
+
+<ul>
+<li><a href="about.json">ALPS</a></li>
+<li><a href="docs/asd.html">Application State Diagram</a></li>
+<li>Semantic Descriptors
+
+<ul>
+<li><a href="docs/semantic.about.html">about</a> (semantic), List of client preference options this service supports</li>
+<li><a href="docs/semantic.aboutPreferences.html">aboutPreferences</a> (semantic), About object with supported client preferencs</li>
+<li><a href="docs/semantic.accept.html">accept</a> (semantic), List of supported media types for responses</li>
+<li><a href="docs/semantic.allow.html">allow</a> (semantic), HTTP methods supported for this service context</li>
+<li><a href="docs/semantic.charset.html">charset</a> (semantic), List of supported character sets that may be used responses</li>
+<li><a href="docs/semantic.encoding.html">encoding</a> (semantic), List of supported content and transfer encodings</li>
+<li><a href="docs/safe.goAbout.html">goAbout</a> (safe), Go to the About resource</li>
+<li><a href="docs/safe.goHome.html">goHome</a> (safe), Go to the Home resource</li>
+<li><a href="docs/semantic.home.html">home</a> (semantic), Home (starting point) that leads to the about resource</li>
+<li><a href="docs/semantic.language.html">language</a> (semantic), List of supported natural languages for responses</li>
+<li><a href="docs/semantic.profile.html">profile</a> (semantic), List of supported semantic profiles for this service</li>
+</ul></li>
+<li>Tags
+
+<ul>
+<li><a href="docs/tag.choreography.html">choreography</a></li>
+<li><a href="docs/tag.ontology.html">ontology</a></li>
+<li><a href="docs/tag.taxonomy.html">taxonomy</a></li>
+</ul></li>
+</ul>
+
+    </div>
+</body>
+</html>

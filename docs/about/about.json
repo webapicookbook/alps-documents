@@ -1,0 +1,84 @@
+{ 
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps":
+  {
+    "version": "1.0",
+    "title": "About - Client Preferences for Service Responses",
+    "doc": {"value": "This is a semantic profile for [RWMBook](http://b.mamund.com/rwmbook). Services [SHOULD](http://b.mamund.com/rfc2119) provide a link relation with the value of 'about'. Clients [MAY](http://b.mamund.com/rfc2119) follow this link to get a list of all the content variation parameters supported by the service API.\n\n The contents of the resulting representation [SHOULD](http://b.mamund.com/rfc2119) reflect the available options for the current runnin context. For example, logged in users might see different values than anonymous users."},
+    "descriptor" : [
+      {"id": "allow", "type": "semantic", "def": "https://datatracker.ietf.org/doc/html/rfc7231#section-7.4.1",
+        "title": "HTTP methods supported for this service context",
+        "tag":"ontology",
+        "doc": {"value": "HTTP methods supported for this service context"}
+      },
+      {"id": "accept", "type": "semantic", "def": "https://datatracker.ietf.org/doc/html/rfc7231#section-5.3.2",
+        "title": "List of supported media types for responses",
+        "tag":"ontology",
+        "doc": {"value": "List of supported media types for responses"}
+      },
+      {"id": "charset", "type": "semantic", "def": "https://www.iana.org/assignments/character-sets/character-sets.xhtml",
+        "title": "List of supported character sets that may be used responses",
+        "tag":"ontology",
+        "doc": {"value": "List of supported character sets that may be used responses"}
+      },
+      {"id": "encoding", "type": "semantic", "def": "https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding",
+        "title": "List of supported content and transfer encodings",
+        "tag":"ontology",
+        "doc": {"value": "List of supported content and transfer encodings"}
+      },
+      {"id": "language", "type": "semantic", "def": "https://datatracker.ietf.org/doc/html/rfc7231#section-5.3.5",
+        "title": "List of supported natural languages for responses",
+        "tag":"ontology",
+        "doc": {"value": "List of supported natural languages for responses"}
+      },
+      {"id": "profile", "type": "semantic", "def": "https://datatracker.ietf.org/doc/html/rfc6906",
+        "title": "List of supported semantic profiles for this service",
+        "tag":"ontology",
+        "doc": {"value": "List of supported semantic profiles for this service"}
+      },
+      
+      {"id": "aboutPreferences", "type": "semantic",
+       "title":"About object with supported client preferencs",
+      "tag":"taxonomy", 
+        "descriptor": [
+          {"href": "#allow"},
+          {"href": "#accept"},
+          {"href": "#charset"},
+          {"href": "#encoding"},
+          {"href": "#language"},
+          {"href": "#profile"}
+        ],
+        "doc" : {"value": "Represents the list of response preferences supported by this service"}
+      },
+      
+     {"id": "home", "type": "semantic",
+        "title":"Home (starting point) that leads to the about resource",
+        "tag":"taxonomy", 
+        "descriptor": [
+          {"href": "#goAbout"}
+        ],
+        "doc" : {"value" : "Home represents any current document or starting point in the flow"}
+      },
+
+      {"id": "about", "type": "semantic",
+       "title":"List of client preference options this service supports",
+       "tag":"taxonomy", 
+        "descriptor": [
+          {"href": "#aboutPreferences"},
+          {"href": "#goHome"}
+        ]
+      },
+
+      {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "title":"Go to the Home resource",
+        "tag":"choreography",
+        "doc": {"value": "A safe, idempotent action to return to the Home document"}
+      },
+      {"id": "goAbout", "name": "about", "rel": "about", "type": "safe", "rt": "#about",
+        "title":"Go to the About resource",
+        "tag":"choreography",
+        "doc": {"value": "An optional safe idempotent action to list the services supported client preference options."}
+      }
+    ]
+  }
+}

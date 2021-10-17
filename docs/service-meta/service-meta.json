@@ -3,8 +3,8 @@
   "alps":
   {
     "version": "1.0",
-    "title": "About - Client Preferences for Service Responses",
-    "doc": {"value": "This is a semantic profile for [RWMBook](http://b.mamund.com/rwmbook). Services [SHOULD](http://b.mamund.com/rfc2119) provide a link relation with the value of 'about'. Clients [MAY](http://b.mamund.com/rfc2119) follow this link to get a list of all the content variation parameters supported by the service API.\n\n The contents of the resulting representation [SHOULD](http://b.mamund.com/rfc2119) reflect the available options for the current runnin context. For example, logged in users might see different values than anonymous users."},
+    "title": "Service Metadata - Client Preferences for Service Responses",
+    "doc": {"value": "This is a semantic profile for [RWMBook](http://b.mamund.com/rwmbook). Services [SHOULD](http://b.mamund.com/rfc2119) provide a link relation with the value of 'service-meta'. Clients [MAY](http://b.mamund.com/rfc2119) follow this link to get a list of all the content variation parameters supported by the service API.\n\n The contents of the resulting representation [SHOULD](http://b.mamund.com/rfc2119) reflect the available options for the current runnin context. For example, logged in users might see different values than anonymous users."},
     "descriptor" : [
       {"id": "allow", "type": "semantic", "def": "https://datatracker.ietf.org/doc/html/rfc7231#section-7.4.1",
         "title": "HTTP methods supported for this service context",
@@ -42,8 +42,8 @@
         "doc": {"value": "List of supported semantic profiles for this service"}
       },
       
-      {"id": "aboutPreferences", "type": "semantic",
-       "title":"About object with supported client preferencs",
+      {"id": "serviceMetaPreferences", "type": "semantic",
+       "title":"service-meta object with supported client preferencs",
       "tag":"taxonomy", 
         "descriptor": [
           {"href": "#allow"},
@@ -60,16 +60,16 @@
         "title":"Home (starting point) that leads to the about resource",
         "tag":"taxonomy", 
         "descriptor": [
-          {"href": "#goAbout"}
+          {"href": "#goServiceMeta"}
         ],
         "doc" : {"value" : "Home represents any current document or starting point in the flow"}
       },
 
-      {"id": "about", "type": "semantic",
+      {"id": "serviceMeta", "type": "semantic",
        "title":"List of client preference options this service supports",
        "tag":"taxonomy", 
         "descriptor": [
-          {"href": "#aboutPreferences"},
+          {"href": "#serviceMetaPreferences"},
           {"href": "#goHome"}
         ]
       },
@@ -79,8 +79,8 @@
         "tag":"choreography",
         "doc": {"value": "A safe, idempotent action to return to the Home document"}
       },
-      {"id": "goAbout", "name": "about", "rel": "about", "type": "safe", "rt": "#about",
-        "title":"Go to the About resource",
+      {"id": "goServiceMeta", "name": "about", "rel": "about", "type": "safe", "rt": "#serviceMeta",
+        "title":"Go to the service-meta resource",
         "tag":"choreography",
         "doc": {"value": "An optional safe idempotent action to list the services supported client preference options."}
       }

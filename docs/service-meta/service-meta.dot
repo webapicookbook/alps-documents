@@ -1,0 +1,17 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="Service Metadata - Client Preferences for Service Responses";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    serviceMeta [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>serviceMeta<br />(serviceMetaPreferences)<br /></td></tr></table>>,shape=box URL="docs/semantic.serviceMeta.html" target="_parent"]
+
+    home -> serviceMeta [label = <goServiceMeta, about (safe)> URL="docs/safe.goServiceMeta.html" target="_parent" fontsize=13];
+    serviceMeta -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+
+}

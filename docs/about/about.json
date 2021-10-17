@@ -16,6 +16,11 @@
         "tag":"ontology",
         "doc": {"value": "List of supported media types for responses"}
       },
+      {"id": "enctype", "type": "semantic", "def": "https://www.w3.org/TR/html401/interact/forms.html#adef-enctype",
+        "title": "List of supported media types for request bodies",
+        "tag":"ontology",
+        "doc": {"value": "List of supported media types for request bodies"}
+      },
       {"id": "charset", "type": "semantic", "def": "https://www.iana.org/assignments/character-sets/character-sets.xhtml",
         "title": "List of supported character sets that may be used responses",
         "tag":"ontology",

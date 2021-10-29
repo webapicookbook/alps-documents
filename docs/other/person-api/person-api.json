@@ -1,0 +1,163 @@
+{ 
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps":
+  {
+    "version": "1.0",
+    "title": "Person Service API",
+    "doc": {"value": "Person Service API profile for [RWMBook](http://b.mamund.com/rwmbook)."},
+    
+    "descriptor" : [
+      {"id": "id", "type": "semantic", "def": "https://schema.org/identifier",
+        "title": "Id of the person record",
+        "tag":"ontology",
+        "doc": {"value": "The Id of the person record."}
+      },
+      {"id": "givenName", "type": "semantic", "def": "https://schema.org/givenName",
+        "title":"The given name of the person",
+        "tag":"ontology",
+        "doc": {"value": "The given name of the person"}
+      },
+      {"id": "familyName", "type": "semantic", "def": "https://schema.org/familyName",
+        "title":"The family name of the person",
+        "tag":"ontology",
+        "doc": {"value": "The family name of the person"}
+      },
+      {"id": "telephone", "type": "semantic", "def": "https://schema.org/telephone",
+        "title":"Telephone associated with the person",
+        "tag":"ontology",
+        "doc": {"value": "Telephone associated with the person"}
+      },
+      {"id": "email", "type": "semantic", "def": "https://schema.org/email",
+        "title":"Email address associated with the person",
+        "tag":"ontology",
+        "doc": {"value": "Email address associated with the person"}
+      },
+      {"id": "status", "type": "semantic", "def": "https://schema.org/status",
+        "title":"Status of the person record (active, inactive)",
+        "tag":"ontology",
+        "doc": {"value": "Status of the person record (active, inactive)"}
+      },
+      
+      {"id": "person", "type": "semantic",
+        "title":"The properties of a person record",
+        "tag":"ontology taxonomy", 
+        "descriptor": [
+          {"href": "#id"},
+          {"href": "#givenName"},
+          {"href": "#familyName"},
+          {"href": "#telephone"},
+          {"href": "#email"},
+          {"href": "#status"}
+        ],
+        "doc" : {"value": "The properties of a person record"}
+      },
+      
+     {"id": "home", "type": "semantic",
+        "title":"Home (starting point) of the person service",
+        "tag":"taxonomy", 
+        "descriptor": [
+         {"href": "#goHome"},
+         {"href": "#goList"}
+        ],
+        "doc" : {"value" : "Home (starting point) of the person service"}
+     },
+     {"id": "collection", "type": "semantic",
+        "title":"List of person records",
+        "tag":"taxonomy", 
+        "descriptor": [
+         {"href": "#person"},
+         {"href": "#goHome"},
+         {"href": "#goList"},
+         {"href": "#goFilter"},
+         {"href": "#doCreate"},
+         {"href": "#goItem"}
+        ],
+        "doc" : {"value" : "List of person records"}
+      },
+     {"id": "item", "type": "semantic",
+        "title":"Single person record",
+        "tag":"taxonomy", 
+        "descriptor": [
+          {"href": "#person"},
+          {"href": "#goHome"},
+          {"href": "#goList"},
+          {"href": "#goFilter"},
+          {"href": "#doUpdate"},
+          {"href": "#doStatus"},
+          {"href": "#doRemove"},
+          {"href": "#goItem"}
+        ],
+        "doc" : {"value" : "A single person record"}
+      },
+
+      {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "title":"Go to the Home resource",
+        "tag":"choreography",
+        "doc": {"value": "A safe, idempotent action to return to the Home document"}
+      },
+      {"id": "goList", "name": "list", "rel": "list", "type": "safe", "rt": "#collection",
+        "title":"Go to the list of person records",
+        "tag":"choreography",
+        "doc": {"value": "A safe idempotent action to go to the list of person records."}
+      },
+      {"id": "goItem", "name": "item", "rel": "item read", "type": "safe", "rt": "#item",
+        "title":"Go to a single person record",
+        "tag":"choreography",
+        "doc": {"value": "A safe idempotent action to go to a single person record."}
+      },
+      {"id": "goFilter", "name": "filter", "rel": "filter collection", "type": "safe", "rt": "#collection",
+        "title":"Filter the list of person records",
+        "tag":"choreography",
+        "doc": {"value": "A safe idempotent action to filter the list of person records."},
+        "descriptor" : [
+          {"href": "#email"},
+          {"href": "#familyName"},
+          {"href": "#status"}
+        ]
+      },
+      {"id": "doCreate", "name": "create", "rel": "create collection", "type": "unsafe", "rt": "#collection",
+        "title":"Create a new person record",
+        "tag":"choreography",
+        "doc": {"value": "An unsafe non-idempotent action to filter the list of person records."},
+        "descriptor" : [
+          {"href": "#id"},
+          {"href": "#email"},
+          {"href": "#familyName"},
+          {"href": "#telephone"},
+          {"href": "#email"},
+          {"href": "#status"}
+        ]
+      },
+      {"id": "doUpdate", "name": "update", "rel": "update item", "type": "idempotent", "rt": "#item",
+        "title":"Update an existing person record",
+        "tag":"choreography",
+        "doc": {"value": "An unsafe idempotent action to update an existing person record."},
+        "descriptor" : [
+          {"href": "#id"},
+          {"href": "#email"},
+          {"href": "#familyName"},
+          {"href": "#telephone"},
+          {"href": "#email"},
+          {"href": "#status"}
+        ]
+      },
+      {"id": "doStatus", "name": "status", "rel": "status item", "type": "idempotent", "rt": "#item",
+        "title":"Change the status of an existing person record",
+        "tag":"choreography",
+        "doc": {"value": "An unsafe idempotent action to change the status of an existing person record."},
+        "descriptor" : [
+          {"href": "#id"},
+          {"href": "#status"}
+        ]
+      },
+      {"id": "doRemove", "name": "remove", "rel": "remove item", "type": "idempotent", "rt": "#collection",
+        "title":"Remove an existing person record",
+        "tag":"choreography",
+        "doc": {"value": "An unsafe idempotent action to remove an existing person record."},
+        "descriptor" : [
+          {"href": "#id"}
+        ]
+      }
+    ]
+  }
+}

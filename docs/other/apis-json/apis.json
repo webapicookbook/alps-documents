@@ -289,15 +289,7 @@
         "title":"Navigate to the APIs.json resource","tag":"choreography", 
         "def":"http://apisjson.org/format/apisjson_0.16.txt",
         "doc": {"value":"Navigate to the APIs.json resource"}
-      },
-
-      {"id":"XXX", "type":"semantic",
-        "title":"","tag":"taxonomy", 
-        "def":"http://apisjson.org/format/apisjson_0.16.txt",
-        "doc": {"value":""}}
-        
-        
-      
+      }
     ]
   }
 }

@@ -217,9 +217,9 @@
       },
 
       {"id":"properties", "type":"semantic",
-        "title":"collection","tag":"ontology group", 
+        "title":"A list of related properties","tag":"ontology group", 
         "def":"http://apisjson.org/format/apisjson_0.16.txt",
-        "doc": {"value":"collection"},
+        "doc": {"value":"A list of related properties"},
         "descriptor" : [
           {"href" : "#name"},
           {"href" : "#type"},
@@ -230,9 +230,9 @@
       },
 
       {"id":"contact", "type":"semantic",
-        "title":"The Person or Organization (vCard)","tag":"ontology group", 
+        "title":"A list of Persons and/or Organizations (vCard)","tag":"ontology group", 
         "def":"http://apisjson.org/format/apisjson_0.16.txt",
-        "doc": {"value":"The Person or Organization (vCard)"},
+        "doc": {"value":"A list of Persons and/or Organizations (vCard)"},
         "descriptor" : [
           {"href" : "#fn"},
           {"href" : "#email"},

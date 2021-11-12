@@ -79,7 +79,7 @@
         "tag":"choreography",
         "doc": {"value": "A safe, idempotent action to return to the Home document"}
       },
-      {"id": "goMetaPreferences", "name": "about", "rel": "about", "type": "safe", "rt": "#MetaPreferences",
+      {"id": "goMetaPreferences", "name": "about", "rel": "about", "type": "safe", "rt": "#clientMetaPreferences",
         "title":"Go to the meta-preferences resource",
         "tag":"choreography",
         "doc": {"value": "An optional safe idempotent action to list the supported client preference options."}

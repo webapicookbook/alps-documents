@@ -17,9 +17,9 @@
 <g id="node1" class="node">
 <title>clientMetaPreferences</title>
 <g id="a_node1"><a xlink:href="docs/semantic.clientMetaPreferences.html" xlink:title="&lt;TABLE&gt;" target="_parent">
-<polygon fill="lightgray" stroke="black" stroke-width="2" points="212.75,-128 37.75,-128 37.75,-86 212.75,-86 212.75,-128"/>
-<text text-anchor="start" x="44.25" y="-110.8" font-family="Times,serif" font-size="14.00">clientMetaPreferences</text>
-<text text-anchor="start" x="59.25" y="-95.8" font-family="Times,serif" font-size="14.00">(MetaPreferences)</text>
+<polygon fill="lightgray" stroke="black" stroke-width="2" points="211.75,-128 36.75,-128 36.75,-86 211.75,-86 211.75,-128"/>
+<text text-anchor="start" x="43.25" y="-110.8" font-family="Times,serif" font-size="14.00">clientMetaPreferences</text>
+<text text-anchor="start" x="58.25" y="-95.8" font-family="Times,serif" font-size="14.00">(MetaPreferences)</text>
 </a>
 </g>
 </g>
@@ -27,34 +27,34 @@
 <g id="node2" class="node">
 <title>home</title>
 <g id="a_node2"><a xlink:href="docs/semantic.home.html" xlink:title="home" target="_parent">
-<polygon fill="lightgray" stroke="black" stroke-width="2" points="153.25,-36 97.25,-36 97.25,0 153.25,0 153.25,-36"/>
-<text text-anchor="middle" x="125.25" y="-14.3" font-family="Times,serif" font-size="14.00">home</text>
+<polygon fill="lightgray" stroke="black" stroke-width="2" points="152.25,-36 96.25,-36 96.25,0 152.25,0 152.25,-36"/>
+<text text-anchor="middle" x="124.25" y="-14.3" font-family="Times,serif" font-size="14.00">home</text>
 </a>
 </g>
 </g>
 <!-- clientMetaPreferences&#45;&gt;home -->
 <g id="edge1" class="edge">
 <title>clientMetaPreferences&#45;&gt;home</title>
-<g id="a_edge1"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, self (safe)" target="_parent">
-<path fill="none" stroke="black" d="M66.07,-85.88C51.93,-77.67 43.02,-67 51.25,-54 59.33,-41.25 73.44,-33.05 87.19,-27.83"/>
-<polygon fill="black" stroke="black" points="88.68,-31.02 97.05,-24.52 86.45,-24.38 88.68,-31.02"/>
+<g id="a_edge1"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, home (safe)" target="_parent">
+<path fill="none" stroke="black" d="M58.9,-85.8C44.43,-77.73 35.64,-67.17 44.25,-54 53.73,-39.5 70.69,-30.97 86.56,-25.97"/>
+<polygon fill="black" stroke="black" points="87.52,-29.34 96.23,-23.29 85.66,-22.59 87.52,-29.34"/>
 </a>
 </g>
-<g id="a_edge1&#45;label"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, self (safe)" target="_parent">
-<text text-anchor="start" x="51.25" y="-57.6" font-family="Times,serif" font-size="13.00">goHome, self (safe)</text>
+<g id="a_edge1&#45;label"><a xlink:href="docs/safe.goHome.html" xlink:title="goHome, home (safe)" target="_parent">
+<text text-anchor="start" x="44.25" y="-57.6" font-family="Times,serif" font-size="13.00">goHome, home (safe)</text>
 </a>
 </g>
 </g>
 <!-- home&#45;&gt;clientMetaPreferences -->
 <g id="edge2" class="edge">
 <title>home&#45;&gt;clientMetaPreferences</title>
-<g id="a_edge2"><a xlink:href="docs/safe.goMetaPreferences.html" xlink:title="goMetaPreferences, about (safe)" target="_parent">
-<path fill="none" stroke="black" d="M153.32,-30.25C163.36,-35.81 173.59,-43.6 179.25,-54 184.19,-63.09 180.86,-71.55 173.91,-78.89"/>
-<polygon fill="black" stroke="black" points="171.17,-76.64 165.93,-85.85 175.77,-81.92 171.17,-76.64"/>
+<g id="a_edge2"><a xlink:href="docs/safe.goMetaPreferences.html" xlink:title="goMetaPreferences, meta (safe)" target="_parent">
+<path fill="none" stroke="black" d="M152.52,-28.21C164.53,-33.69 177.34,-41.97 184.25,-54 189.72,-63.52 185.98,-72.15 178.23,-79.52"/>
+<polygon fill="black" stroke="black" points="175.81,-76.97 170.14,-85.92 180.15,-82.46 175.81,-76.97"/>
 </a>
 </g>
-<g id="a_edge2&#45;label"><a xlink:href="docs/safe.goMetaPreferences.html" xlink:title="goMetaPreferences, about (safe)" target="_parent">
-<text text-anchor="start" x="181.25" y="-57.6" font-family="Times,serif" font-size="13.00">goMetaPreferences, about (safe)</text>
+<g id="a_edge2&#45;label"><a xlink:href="docs/safe.goMetaPreferences.html" xlink:title="goMetaPreferences, meta (safe)" target="_parent">
+<text text-anchor="start" x="186.25" y="-57.6" font-family="Times,serif" font-size="13.00">goMetaPreferences, meta (safe)</text>
 </a>
 </g>
 </g>

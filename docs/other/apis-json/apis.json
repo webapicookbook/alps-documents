@@ -230,9 +230,9 @@
       },
 
       {"id":"contact", "type":"semantic",
-        "title":"","tag":"ontology group", 
+        "title":"The Person or Organization (vCard)","tag":"ontology group", 
         "def":"http://apisjson.org/format/apisjson_0.16.txt",
-        "doc": {"value":""},
+        "doc": {"value":"The Person or Organization (vCard)"},
         "descriptor" : [
           {"href" : "#fn"},
           {"href" : "#email"},

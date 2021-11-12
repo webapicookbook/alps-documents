@@ -1,0 +1,17 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="APIs.json Metadata Format";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    apisJSON [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>apisJSON<br />(name)<br />(description)<br />(image)<br />(url)<br />(tags)<br />(created)<br />(modified)<br />(apis)<br />(tools)<br />(specifications)<br />(resources)<br />(common)<br />(include)<br />(maintainers)<br /></td></tr></table>>,shape=box URL="docs/semantic.apisJSON.html" target="_parent"]
+
+    apisJSON -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    home -> apisJSON [label = <goAPIsJSON, service-meta (safe)> URL="docs/safe.goAPIsJSON.html" target="_parent" fontsize=13];
+
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+
+}

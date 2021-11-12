@@ -1,0 +1,305 @@
+{
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps" : {
+    "version" : "1.0",
+    "title" : "APIs.json Metadata Format",
+    "doc" : {"value": "*A Simple Format for Publishing API Meta Data on the Web*\n\nThe objective of the format defined in this document is to provide a lightweight means for individuals and organizations to document the location of their APIs, the associated descriptions, human and machine readable specification and ancillary information (such as licensing, maintainers and so forth). See [specification](http://apisjson.org/format/apisjson_0.16.txt) for details."},
+    
+    "descriptor": [
+      {"id":"name", "type":"semantic",
+        "title":"Name of API or collection","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Text string of human readable name for the API or collection"}},
+        
+      {"id":"description", "type":"semantic",
+        "title":"Description of the collection", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Text human readable description of the collection"}},
+
+      {"id":"type", "type":"semantic",
+        "title":"Type of collection ","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Type of collection (Index [of a single API], Collection [of multiple APIs], Blueprint [of a new API])."}},
+
+      {"id":"image", "type":"semantic",
+        "title":"Web URL leading to associated image","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Web URL leading to an image to be used to represent the collection."}},
+
+      {"id":"url", "type":"semantic",
+        "title":"Web URL","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Web URL indicating the location of this item/collection"}},
+
+      {"id":"tags", "type":"semantic",
+        "title":"Array of descriptive strings","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"This is a list of descriptive strings which identify the contents of the APIs.json file. Represented as an array."}},
+
+      {"id":"created", "type":"semantic",
+        "title":"Creation date of the file","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Creation date of the file"}},
+
+      {"id":"modified", "type":"semantic",
+        "title":"Date of last modification of this file","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Date of last modification of the file"}},
+
+      {"id":"specificationVersion",  "type":"semantic",
+        "title":"Version of APIs.json specification in use.","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Version of the APIs.json specification in use."}},
+
+      {"id":"humanUrl", "type":"semantic",
+        "title":"Web URL","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Web URL corresponding to human readable information"}},
+
+      {"id":"baseUrl", "type":"semantic",
+        "title":"Web URL","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Web URL corresponding to the root URL or primary endpoint"}},
+
+      {"id":"version", "type":"semantic",
+        "title":"String representing the version number","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"String representing the version number of the API this description refers to"}},
+
+      {"id":"mediaType", "type":"semantic",
+        "title":"IANA media type","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"IANA media type representing the property."}},
+
+      {"id":"data", "type":"semantic",
+        "title":"The data for the property","tag":"ontology", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"The data for the property. (must be url or data)"}},
+
+      {"id":"fn", "type":"semantic",
+        "title":"Full Name","tag":"ontology VCARD", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"String Value corresponding to the Full Nname name of the individual / organization."}},
+
+      {"id":"email", "type":"semantic",
+        "title":"Email Address","tag":"ontology VCARD", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"String Value corresponding to the email address of the individual / organization"}},
+
+      {"id":"org", "type":"semantic",
+        "title":"Organization","tag":"ontology VCARD", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"String Value representing the name of the organization associated with the vCard."}},
+
+      {"id":"adr", "type":"semantic",
+        "title":"Physical address","tag":"ontology VCARD", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"String Value corresponding to the physical address of the individual / organization."}},
+
+      {"id":"tel", "type":"semantic",
+        "title":"Phone number","tag":"ontology VCARD", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"String Value corresponding to the phone number including country code of the individual / organization."}},
+
+      {"id":"x-twitter", "type":"semantic",
+        "title":"org/person's account","tag":"ontology VCARD", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"String Value corresponding to the twitter username of the individual / organization (convention do not use the @ symbol)."}},
+
+      {"id":"x-github", "type":"semantic",
+        "title":"org/person's account","tag":"ontology VCARD", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"String Value corresponding to the github username of the individual / organization."}},
+
+      {"id":"photo", "type":"semantic",
+        "title":"URL","tag":"ontology VCARD", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"URL corresponding to an image which could be used to represent the individual / organization."}},
+
+      {"id":"vCard", "type":"semantic",
+        "title":"URL pointing to a vCard","tag":"ontology VCARD", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"URL pointing to a vCard Object (RFC6350)"}},
+
+      {"id":"apis", "type":"semantic",
+        "title":"List of APIs identified in the file","tag":"ontology group", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"list of APIs identified in the file"},
+        "descriptor" : [
+          {"href" : "#name"},
+          {"href" : "#description"},
+          {"href" : "#image"},
+          {"href" : "#humanUrl"},
+          {"href" : "#baseUrl"},
+          {"href" : "#version"},
+          {"href" : "#tags"},
+          {"href" : "#properties"}
+        ]
+      },
+
+      {"id":"tools", "type":"semantic",
+        "title":"List of open source tooling","tag":"ontology group", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"List of open source tooling available as part of operations"},
+        "descriptor" : [
+          {"href" : "#name"},
+          {"href" : "#description"},
+          {"href" : "#image"},
+          {"href" : "#url"},
+          {"href" : "#version"},
+          {"href" : "#tags"},
+          {"href" : "#properties"},
+          {"href" : "#contact"}
+        ]
+      },
+
+      {"id":"specifications", "type":"semantic",
+        "title":"List of open specifications","tag":"ontology group", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"List of open specifications adopted as part of operations"},
+        "descriptor" : [
+          {"href" : "#name"},
+          {"href" : "#description"},
+          {"href" : "#image"},
+          {"href" : "#url"},
+          {"href" : "#version"},
+          {"href" : "#tags"},
+          {"href" : "#properties"},
+          {"href" : "#contact"}
+        ]
+      },
+
+      {"id":"resources", "type":"semantic",
+        "title": "List of resources available for API operations.","tag":"ontology group", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"list of resources available for API operations."},
+        "descriptor" : [
+          {"href" : "#name"},
+          {"href" : "#description"},
+          {"href" : "#image"},
+          {"href" : "#url"},
+          {"href" : "#tags"},
+          {"href" : "#properties"},
+          {"href" : "#contact"}
+        ]
+      },
+
+      {"id":"common", "type":"semantic",
+        "title":"List of common properties","tag":"ontology group", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"List of common properties for use across all APIs and tools"},
+        "descriptor" : [
+          {"href" : "#name"},
+          {"href" : "#type"},
+          {"href" : "#mediaType"},
+          {"href" : "#url"}
+        ]
+      },
+
+      {"id":"include", "type":"semantic",
+        "title":"List of APIs.json files referenced.","tag":"ontology group", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"List of APIs.json files referenced."},
+        "descriptor" : [
+          {"href" : "#name"},
+          {"href" : "#url"}
+        ]
+      },
+
+      {"id":"maintainers", "type":"semantic",
+        "title":"List of people/orgs maintaining this file","tag":"ontology group", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"List of people/orgs maintaining this file"},
+        "descriptor" : [
+          {"href" : "#contact"}
+        ]
+      },
+
+      {"id":"properties", "type":"semantic",
+        "title":"collection","tag":"ontology group", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"collection"},
+        "descriptor" : [
+          {"href" : "#name"},
+          {"href" : "#type"},
+          {"href" : "#mediaType"},
+          {"href" : "#url"},
+          {"href" : "#data"},
+          {"href" : "#contact"}
+        ]
+      },
+
+      {"id":"contact", "type":"semantic",
+        "title":"","tag":"ontology group", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":""},
+        "descriptor" : [
+          {"href" : "#fn"},
+          {"href" : "#email"},
+          {"href" : "#url"},
+          {"href" : "#org"},
+          {"href" : "#adr"},
+          {"href" : "#tel"},
+          {"href" : "#x-twitter"},
+          {"href" : "#x-github"},
+          {"href" : "#photo"},
+          {"href" : "#vCard"}
+        ]
+      },
+
+      {"id":"home", "type":"semantic",
+        "title":"Home resource","tag":"taxonomy", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Home resource"},
+        "descriptor" : [
+          {"href" : "#goAPIsJSON"}
+        ]
+      },
+
+      {"id":"apisJSON", "type":"semantic",
+        "title":"APIs.json resource","tag":"taxonomy", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"APIs.json resource"},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#name"},
+          {"href": "#description"},
+          {"href": "#image"},
+          {"href": "#url"},
+          {"href": "#tags"},
+          {"href": "#created"},
+          {"href": "#modified"},
+          {"href": "#apis"},
+          {"href": "#tools"},
+          {"href": "#specifications"},
+          {"href": "#resources"},
+          {"href": "#common"},
+          {"href": "#include"},
+          {"href": "#maintainers"}
+        ]
+      },
+
+      {"id":"goHome", "type":"safe", "rt":"#home", "rel": "home",
+        "title":"Navigate to the home resource","tag":"choreography", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Navigate to the home resource"}
+      },
+
+      {"id":"goAPIsJSON", "type":"safe", "rt":"#apisJSON", "rel": "service-meta",
+        "title":"Navigate to the APIs.json resource","tag":"choreography", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":"Navigate to the APIs.json resource"}
+      },
+
+      {"id":"XXX", "type":"semantic",
+        "title":"","tag":"taxonomy", 
+        "def":"http://apisjson.org/format/apisjson_0.16.txt",
+        "doc": {"value":""}}
+        
+        
+      
+    ]
+  }
+}
+
+

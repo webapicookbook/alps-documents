@@ -7,6 +7,7 @@
       {"id": "home", "type": "semantic", "rel": "home", "tag": "taxonomy",
         "descriptor": [
           {"href": "https://rwmbook.github.io/alps-documents/meta-preferences/meta-preferences.json#clientMetaPreferences"},
+          {"href": "https://rwmbook.github.io/alps-documents/apis-json/apis.json#apisJSON"},
           {"href": "https://rwmbook.github.io/alps-documents/mru/mru.json#mru"},
           {"href": "https://rwmbook.github.io/alps-documents/related/related.json#related"},
           {"href": "https://rwmbook.github.io/alps-documents/list/list.json#list"},

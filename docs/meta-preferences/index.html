@@ -21,14 +21,14 @@
 </head>
 <body>
     <div class="markdown-body">
-        <h1>Service Metadata - Client Preferences for Service Responses</h1>
+        <h1>Meta-Preferences - Client Preferences for Service Responses</h1>
 
-<p>This is a semantic profile for <a href="http://b.mamund.com/rwmbook">RWMBook</a>. Services <a href="http://b.mamund.com/rfc2119">SHOULD</a> provide a link relation with the value of 'service-meta'. Clients <a href="http://b.mamund.com/rfc2119">MAY</a> follow this link to get a list of all the content variation parameters supported by the service API.<br />
+<p>This is a semantic profile for <a href="http://b.mamund.com/rwmbook">RWMBook</a>. Services <a href="http://b.mamund.com/rfc2119">SHOULD</a> provide a link relation with the value of 'meta'. Clients <a href="http://b.mamund.com/rfc2119">MAY</a> follow this link to get a list of all the content variation parameters supported by the service API.<br />
 <br />
  The contents of the resulting representation <a href="http://b.mamund.com/rfc2119">SHOULD</a> reflect the available options for the current runnin context. For example, logged in users might see different values than anonymous users.</p>
 
 <ul>
-<li><a href="service-meta.json">ALPS</a></li>
+<li><a href="meta-preferences.json">ALPS</a></li>
 <li><a href="docs/asd.html">Application State Diagram</a></li>
 <li>Semantic Descriptors
 
@@ -36,15 +36,15 @@
 <li><a href="docs/semantic.accept.html">accept</a> (semantic), List of supported media types for responses</li>
 <li><a href="docs/semantic.allow.html">allow</a> (semantic), HTTP methods supported for this service context</li>
 <li><a href="docs/semantic.charset.html">charset</a> (semantic), List of supported character sets that may be used responses</li>
+<li><a href="docs/semantic.clientMetaPreferences.html">clientMetaPreferences</a> (semantic), List of client preference options this service supports</li>
 <li><a href="docs/semantic.encoding.html">encoding</a> (semantic), List of supported content and transfer encodings</li>
 <li><a href="docs/semantic.enctype.html">enctype</a> (semantic), List of supported media types for request bodies</li>
 <li><a href="docs/safe.goHome.html">goHome</a> (safe), Go to the Home resource</li>
-<li><a href="docs/safe.goServiceMeta.html">goServiceMeta</a> (safe), Go to the service-meta resource</li>
+<li><a href="docs/safe.goMetaPreferences.html">goMetaPreferences</a> (safe), Go to the meta-preferences resource</li>
 <li><a href="docs/semantic.home.html">home</a> (semantic), Home (starting point) that leads to the about resource</li>
 <li><a href="docs/semantic.language.html">language</a> (semantic), List of supported natural languages for responses</li>
+<li><a href="docs/semantic.MetaPreferences.html">MetaPreferences</a> (semantic), meta object with supported client preferencs</li>
 <li><a href="docs/semantic.profile.html">profile</a> (semantic), List of supported semantic profiles for this service</li>
-<li><a href="docs/semantic.serviceMeta.html">serviceMeta</a> (semantic), List of client preference options this service supports</li>
-<li><a href="docs/semantic.serviceMetaPreferences.html">serviceMetaPreferences</a> (semantic), service-meta object with supported client preferencs</li>
 </ul></li>
 <li>Tags
 

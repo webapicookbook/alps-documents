@@ -1,0 +1,69 @@
+{
+  "alps": {
+    "version": "1.0",
+    "title": "ToDo List",
+    "doc": {
+      "value": "Simple Todo list example"
+    },
+    "name": "simpleTodo",
+    "id": "http://alps.io/profiles/mamund/todo",
+    "root": "http://api.example.org/todo",
+    "descriptor": [
+      {
+        "id": "id",
+        "type": "semantic",
+        "title": "storage id of todo item"
+      },
+      {
+        "id": "body",
+        "type": "semantic",
+        "title": "content of todo item"
+      },
+      {
+        "id": "todoItem",
+        "type": "group",
+        "title": "todo item",
+        "descriptor": [
+          {
+            "href": "#id"
+          },
+          {
+            "href": "#body"
+          }
+        ]
+      },
+      {
+        "id": "todoList",
+        "type": "safe",
+        "rt": "#todoItem",
+        "title": "return list of todo items"
+      },
+      {
+        "id": "todoAdd",
+        "type": "unsafe",
+        "rt": "#todoItem",
+        "title": "create a new todo item",
+        "descriptor": [
+          {
+            "href": "#id"
+          },
+          {
+            "href": "#body"
+          }
+        ]
+      },
+      {
+        "id": "todoRemove",
+        "type": "idempotent",
+        "ex": "delete",
+        "rt": "#todoItem",
+        "title": "remove a single todo item",
+        "descriptor": [
+          {
+            "href": "#id"
+          }
+        ]
+      }
+    ]
+  }
+}

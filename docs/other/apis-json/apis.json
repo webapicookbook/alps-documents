@@ -133,7 +133,8 @@
           {"href" : "#baseUrl"},
           {"href" : "#version"},
           {"href" : "#tags"},
-          {"href" : "#properties"}
+          {"href" : "#properties"},
+          {"href" : "#contact"}
         ]
       },
 
@@ -224,8 +225,7 @@
           {"href" : "#type"},
           {"href" : "#mediaType"},
           {"href" : "#url"},
-          {"href" : "#data"},
-          {"href" : "#contact"}
+          {"href" : "#data"}
         ]
       },
 

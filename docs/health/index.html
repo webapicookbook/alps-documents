@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <title>ALPS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+        <h1>Health Check Response Format for HTTP APIs</h1>
+
+<p><em>A service health check response format for HTTP APIs</em><br />
+<br />
+Usage of task-specific or application-specific formats creates significant challenges, disallowing any meaningful interoperability across different implementations and between different tooling. See <a href="https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06">specification</a> for details.</p>
+
+<ul>
+<li><a href="health.json">ALPS</a></li>
+<li><a href="docs/asd.html">Application State Diagram</a></li>
+<li>Semantic Descriptors
+
+<ul>
+<li><a href="docs/semantic.affectedEndpoints.html">affectedEndpoints</a> (semantic), A JSON array containing URI Templates</li>
+<li><a href="docs/semantic.checks.html">checks</a> (semantic), List of downstream dependencies</li>
+<li><a href="docs/semantic.componentId.html">componentId</a> (semantic), A unique identifier of an instance of a specific sub-component/dependency.</li>
+<li><a href="docs/semantic.componentName.html">componentName</a> (semantic), Human-readable name for the component.</li>
+<li><a href="docs/semantic.componentType.html">componentType</a> (semantic), SHOULD be present if componentName is present (component, datastore, system).</li>
+<li><a href="docs/semantic.description.html">description</a> (semantic), A human-friendly description of the service.</li>
+<li><a href="docs/safe.goHealth.html">goHealth</a> (safe), Navigate to the Health Checks resource</li>
+<li><a href="docs/safe.goHome.html">goHome</a> (safe), Navigate to the home resource</li>
+<li><a href="docs/semantic.health.html">health</a> (semantic), APIs.json resource</li>
+<li><a href="docs/semantic.home.html">home</a> (semantic), Home resource</li>
+<li><a href="docs/semantic.links.html">links</a> (semantic), An object containing link relations and URIs [RFC3986] for external links</li>
+<li><a href="docs/semantic.measurementName.html">measurementName</a> (semantic), Web URL</li>
+<li><a href="docs/semantic.notes.html">notes</a> (semantic), An array of notes relevant to current state of health</li>
+<li><a href="docs/semantic.observedUnit.html">observedUnit</a> (semantic), The unit of measurement in which observedValue is reported</li>
+<li><a href="docs/semantic.observedValue.html">observedValue</a> (semantic), Any valid JSON value</li>
+<li><a href="docs/semantic.output.html">output</a> (semantic), The raw error output, in case of 'fail' or 'warn' states.</li>
+<li><a href="docs/semantic.releaseId.html">releaseId</a> (semantic), Release/version identifier for the service.</li>
+<li><a href="docs/semantic.serviceId.html">serviceId</a> (semantic), A unique identifier of the service.</li>
+<li><a href="docs/semantic.status.html">status</a> (semantic), indicates service status (pass, fail, warn)</li>
+<li><a href="docs/semantic.time.html">time</a> (semantic), The date-time at which the reading of the observedValue was recorded.</li>
+<li><a href="docs/semantic.version.html">version</a> (semantic), Public version of the service.</li>
+</ul></li>
+<li>Tags
+
+<ul>
+<li><a href="docs/tag.checks.html">checks</a></li>
+<li><a href="docs/tag.choreography.html">choreography</a></li>
+<li><a href="docs/tag.ontology.html">ontology</a></li>
+<li><a href="docs/tag.taxonomy.html">taxonomy</a></li>
+</ul></li>
+</ul>
+
+    </div>
+</body>
+</html>

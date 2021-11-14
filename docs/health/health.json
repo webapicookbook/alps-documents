@@ -1,0 +1,150 @@
+{
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps" : {
+    "version" : "1.0",
+    "title" : "Health Check Response Format for HTTP APIs",
+    "doc" : {"value": "*A service health check response format for HTTP APIs*\n\nUsage of task-specific or application-specific formats creates significant challenges, disallowing any meaningful interoperability across different implementations and between different tooling. See [specification](https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06) for details."},
+    
+    "descriptor": [
+      {"id":"status", "type":"semantic",
+        "title":"indicates service status (pass, fail, warn)", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-3.1",
+        "doc": {"value":"indicates whether the service status is acceptable or not (pass, fail, warn)."}},
+        
+      {"id":"version", "type":"semantic",
+        "title":"Public version of the service.", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-3.2",
+        "doc": {"value":"Public version of the service."}},
+
+      {"id":"releaseId", "type":"semantic",
+        "title":"Release/version identifier for the service.","tag":"ontology", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-3.3",
+        "doc": {"value":"Release/version identifier for the service."}},
+
+      {"id":"notes", "type":"semantic",
+        "title":"An array of notes relevant to current state of health","tag":"ontology", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-3.4",
+        "doc": {"value":"An array of notes relevant to current state of health."}},
+
+      {"id":"output", "type":"semantic",
+        "title":"The raw error output, in case of 'fail' or 'warn' states.","tag":"ontology", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-3.5",
+        "doc": {"value":"The raw error output, in case of 'fail' or 'warn' states. This field SHOULD be omitted for 'pass' state."}},
+
+      {"id":"links", "type":"semantic",
+        "title":"An object containing link relations and URIs [RFC3986] for external links","tag":"ontology", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-3.7",
+        "doc": {"value":"An object containing link relations and URIs [RFC3986] for external links that MAY contain more information about the health of the endpoint."}},
+
+      {"id":"serviceId", "type":"semantic",
+        "title":"A unique identifier of the service.","tag":"ontology", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-3.8",
+        "doc": {"value":"A unique identifier of the service, in the application scope."}},
+
+      {"id":"description",  "type":"semantic",
+        "title":"A human-friendly description of the service.","tag":"ontology", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-3.9",
+        "doc": {"value":"A human-friendly description of the service."}},
+
+
+
+      {"id":"componentName", "type":"semantic",
+        "title":"Human-readable name for the component.","tag":"ontology checks", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4",
+        "doc": {"value":"Human-readable name for the component. MUST not contain a colon in the name."}},
+
+      {"id":"measurementName", "type":"semantic",
+        "title":"Web URL","tag":"ontology checks", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4",
+        "doc": {"value": "The name of the measurement type (a data point type) that the status is reported for.  MUST not contain a  colon in the name. (utilization, responseTime, connections, uptime)"}},
+
+      {"id":"componentId", "type":"semantic",
+        "title":"A unique identifier of an instance of a specific sub-component/dependency.","tag":"ontology checks", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4.1",
+        "doc": {"value":"A unique identifier of an instance of a specific sub-component/dependency of a service."}},
+
+      {"id":"componentType", "type":"semantic",
+        "title":"SHOULD be present if componentName is present (component, datastore, system).","tag":"ontology checks", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4.2",
+        "doc": {"value":"SHOULD be present if componentName is present (component, datastore, system)."}},
+
+      {"id":"observedValue", "type":"semantic",
+        "title":"Any valid JSON value","tag":"ontology checks", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4.3",
+        "doc": {"value":"Any valid JSON value, such as: string, number, object, array or literal.)"}},
+
+      {"id":"observedUnit", "type":"semantic",
+        "title":"The unit of measurement in which observedValue is reported","tag":"ontology", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4.4",
+        "doc": {"value":"The unit of measurement in which observedUnit is reported."}},
+
+      {"id":"affectedEndpoints", "type":"semantic",
+        "title":"A JSON array containing URI Templates","tag":"ontology checks", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4.6",
+        "doc": {"value":"A JSON array containing URI Templates as defined by [RFC6570]"}},
+
+      {"id":"time", "type":"semantic",
+        "title":"The date-time at which the reading of the observedValue was recorded.","tag":"ontology checks", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4.7",
+        "doc": {"value":"The date-time, in ISO8601 format, at which the reading of the observedValue was recorded."}},
+
+      {"id":"checks", "type":"semantic",
+        "title":"List of downstream dependencies","tag":"ontology checks", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4",
+        "doc": {"value":"This object MAY have a number of unique keys, one for each logical downstream dependency or sub-component."},
+        "descriptor" : [
+          {"href" : "#componentName"},
+          {"href" : "#measurementName"},
+          {"href" : "#componentId"},
+          {"href" : "#componentType"},
+          {"href" : "#observedValue"},
+          {"href" : "#observedUnit"},
+          {"href" : "#status"},
+          {"href" : "#affectedEndpoints"},
+          {"href" : "#time"},
+          {"href" : "#output"},
+          {"href" : "#links"}
+        ]
+      },
+
+      {"id":"home", "type":"semantic",
+        "title":"Home resource","tag":"taxonomy", 
+        "doc": {"value":"Home resource"},
+        "descriptor" : [
+          {"href" : "#goHealth"}
+        ]
+      },
+
+      {"id":"health", "type":"semantic",
+        "title":"APIs.json resource","tag":"taxonomy", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-5",
+        "doc": {"value":"APIs.json resource"},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#status"},
+          {"href": "#version"},
+          {"href": "#releaseId"},
+          {"href": "#notes"},
+          {"href": "#output"},
+          {"href": "#checks"},
+          {"href": "#links"},
+          {"href": "#serviceId"},
+          {"href": "#description"}
+        ]
+      },
+
+      {"id":"goHome", "type":"safe", "rt":"#home", "rel": "home",
+        "title":"Navigate to the home resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the home resource"}
+      },
+
+      {"id":"goHealth", "type":"safe", "rt":"#health", "rel": "health",
+        "title":"Navigate to the Health Checks resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the Health Checks resource"}
+      }
+      
+    ]
+  }
+}
+
+

@@ -10,7 +10,6 @@ digraph application_state_diagram {
     apisJSON [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>apisJSON<br />(name)<br />(description)<br />(image)<br />(url)<br />(tags)<br />(created)<br />(modified)<br />(apis)<br />(tools)<br />(specifications)<br />(resources)<br />(common)<br />(include)<br />(maintainers)<br /></td></tr></table>>,shape=box URL="docs/semantic.apisJSON.html" target="_parent"]
     clientMetaPreferences [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>clientMetaPreferences<br />(MetaPreferences)<br /></td></tr></table>>,shape=box URL="docs/semantic.clientMetaPreferences.html" target="_parent"]
     health [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>health<br />(status)<br />(version)<br />(releaseId)<br />(notes)<br />(output)<br />(checks)<br />(links)<br />(serviceId)<br />(description)<br /></td></tr></table>>,shape=box URL="docs/semantic.health.html" target="_parent"]
-    home [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>home<br />(clientMetaPreferences)<br />(health)<br />(apisJSON)<br />(mru)<br />(related)<br />(list)<br />(wiplist)<br />(inputForm)<br /></td></tr></table>>,shape=box URL="docs/semantic.home.html" target="_parent"]
     inputForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>inputForm<br />(href)<br />(rel)<br />(title)<br />(type)<br />(input)<br /></td></tr></table>>,shape=box URL="docs/semantic.inputForm.html" target="_parent"]
     list [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>list<br />(navlink)<br /></td></tr></table>>,shape=box URL="docs/semantic.list.html" target="_parent"]
     mru [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>mru<br />(mrulink)<br /></td></tr></table>>,shape=box URL="docs/semantic.mru.html" target="_parent"]
@@ -24,6 +23,14 @@ digraph application_state_diagram {
     completed -> inputForm [label = <goForm, form (safe)> URL="docs/safe.goForm.html" target="_parent" fontsize=13];
     exitList -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
     health -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    home -> apisJSON [label = <goAPIsJSON, service-meta (safe)> URL="docs/safe.goAPIsJSON.html" target="_parent" fontsize=13];
+    home -> clientMetaPreferences [label = <goMetaPreferences, meta (safe)> URL="docs/safe.goMetaPreferences.html" target="_parent" fontsize=13];
+    home -> health [label = <goHealth, health (safe)> URL="docs/safe.goHealth.html" target="_parent" fontsize=13];
+    home -> inputForm [label = <goForm, form (safe)> URL="docs/safe.goForm.html" target="_parent" fontsize=13];
+    home -> list [label = <goList, collection nav (safe)> URL="docs/safe.goList.html" target="_parent" fontsize=13];
+    home -> mru [label = <goMRU, mru (safe)> URL="docs/safe.goMRU.html" target="_parent" fontsize=13];
+    home -> related [label = <goRelated, mru (safe)> URL="docs/safe.goRelated.html" target="_parent" fontsize=13];
+    home -> wiplist [label = <goListWIP, list collection wip (safe)> URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
     inputForm -> completed [label = <doFinalSubmit, submit (idempotent)> URL="docs/idempotent.doFinalSubmit.html" target="_parent" fontsize=13];
     inputForm -> home [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doCancelSubmit.html">doCancelSubmit (idempotent)</td></tr><tr><td align="left" href="docs/safe.goHome.html">goHome (safe)</td></tr></table>> fontsize=13];
     inputForm -> inputForm [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doPartialSubmit.html">doPartialSubmit (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doResetSubmit.html">doResetSubmit (idempotent)</td></tr><tr><td align="left" href="docs/safe.goForm.html">goForm (safe)</td></tr></table>> fontsize=13];
@@ -42,6 +49,7 @@ digraph application_state_diagram {
     wiplist -> wipitem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doCreateWIP.html">doCreateWIP (idempotent)</td></tr><tr><td align="left" href="docs/safe.goReadWIP.html">goReadWIP (safe)</td></tr></table>> fontsize=13];
     wiplist -> wiplist [label=<<table  border="0"><tr><td align="left" href="docs/safe.goFilterWIP.html">goFilterWIP (safe)</td></tr><tr><td align="left" href="docs/safe.goListWIP.html">goListWIP (safe)</td></tr></table>> fontsize=13];
 
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
     completed [label = <completed> URL="docs/semantic.completed.html" target="_parent"]
     exitList [label = <exitList> URL="docs/semantic.exitList.html" target="_parent"]
     selectRecord [label = <selectRecord> URL="docs/semantic.selectRecord.html" target="_parent"]

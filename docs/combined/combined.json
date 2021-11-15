@@ -6,14 +6,14 @@
     "descriptor": [
       {"id": "home", "type": "semantic", "rel": "home", "tag": "taxonomy",
         "descriptor": [
-          {"href": "https://rwmbook.github.io/alps-documents/meta-preferences/meta-preferences.json#clientMetaPreferences"},
-          {"href": "https://rwmbook.github.io/alps-documents/health/health.json#health"},
-          {"href": "https://rwmbook.github.io/alps-documents/apis-json/apis.json#apisJSON"},
-          {"href": "https://rwmbook.github.io/alps-documents/mru/mru.json#mru"},
-          {"href": "https://rwmbook.github.io/alps-documents/related/related.json#related"},
-          {"href": "https://rwmbook.github.io/alps-documents/list/list.json#list"},
-          {"href": "https://rwmbook.github.io/alps-documents/wip/wip.json#wiplist"},
-          {"href": "https://rwmbook.github.io/alps-documents/partial-submit/partial-submit.json#inputForm"}
+          {"href": "https://rwmbook.github.io/alps-documents/meta-preferences/meta-preferences.json#goMetaPreferences"},
+          {"href": "https://rwmbook.github.io/alps-documents/health/health.json#goHealth"},
+          {"href": "https://rwmbook.github.io/alps-documents/apis-json/apis.json#goAPIsJSON"},
+          {"href": "https://rwmbook.github.io/alps-documents/mru/mru.json#goMRU"},
+          {"href": "https://rwmbook.github.io/alps-documents/related/related.json#goRelated"},
+          {"href": "https://rwmbook.github.io/alps-documents/list/list.json#goList"},
+          {"href": "https://rwmbook.github.io/alps-documents/wip/wip.json#goListWIP"},
+          {"href": "https://rwmbook.github.io/alps-documents/partial-submit/partial-submit.json#goForm"}
         ]
       }
     ]

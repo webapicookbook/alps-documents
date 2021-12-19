@@ -8,6 +8,7 @@
         "descriptor": [
           {"href": "https://rwmbook.github.io/alps-documents/meta-preferences/meta-preferences.json#goMetaPreferences"},
           {"href": "https://rwmbook.github.io/alps-documents/health/health.json#goHealth"},
+          {"href": "https://rwmbook.github.io/alps-documents/query-metadata/query-metadata.json#goQueryMetadata"},
           {"href": "https://rwmbook.github.io/alps-documents/apis-json/apis.json#goAPIsJSON"},
           {"href": "https://rwmbook.github.io/alps-documents/mru/mru.json#goMRU"},
           {"href": "https://rwmbook.github.io/alps-documents/related/related.json#goRelated"},

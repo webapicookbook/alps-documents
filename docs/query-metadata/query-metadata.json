@@ -1,0 +1,100 @@
+{
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps" : {
+    "version" : "1.0",
+    "title" : "Data-Centric Query Metadata",
+    "doc" : {"value": "*Data-Centric Query Metadata*\n\nThis ALPS profile documents helpful metadata properties for data-centric HTTP queries. They can be used by API consumers to better understand how their HTTP data-centric queries were interpreted and processed."},
+   
+    "descriptor": [
+      {"id":"q-status", "type":"semantic",
+        "title":"Query status","tag":"ontology",  
+        "def":"",
+        "doc": {"value":"This is a simple description of the status of the requested query(success, cancelled, timeout, etc.)"}},
+        
+      {"id":"q-sent", "type":"semantic",
+        "title":"Query sent", "tag":"ontology", 
+        "def":"",
+        "doc": {"value":"A copy of the HTTP query string or HTTP request body sent by the API client application to the service interface."}},
+
+      {"id":"q-executed", "type":"semantic",
+        "title":"Actual query executed ","tag":"ontology", 
+        "def":"",
+        "doc": {"value":"Actual query exefuted by the underlying service (e.g. SELECT... statement, etc.)."}},
+
+      {"id":"q-count", "type":"semantic",
+        "title":"Estimated size of the result set","tag":"ontology", 
+        "def":"",
+        "doc": {"value":"The estimated total number of records selected in the query."}},
+
+      {"id":"q-seconds", "type":"semantic",
+        "title":"Elapsed time for query execution (in seconds)","tag":"ontology", 
+        "def":"",
+        "doc": {"value":"The total time (in seconds) that it took for the service behind the interface to execute the query."}},
+
+      {"id":"q-datetime", "type":"semantic",
+        "title":"Date-Time the query was executed ","tag":"ontology", 
+        "def":"",
+        "doc": {"value":"The recorded date/time the query was executed."}},
+
+      {"id":"q-score", "type":"semantic",
+        "title":"Results relevance scoring","tag":"ontology", 
+        "def":"",
+        "doc": {"value":"Indication of the relevance of the query results that may be returned from the query engine (e.g. Lucene scoring)."}},
+
+      {"id":"q-source",  "type":"semantic",
+        "title":"Data source(s)","tag":"ontology", 
+        "def":"",
+        "doc": {"value":"The data sources that were used in fulfilling the query."}},
+
+      {"id":"q-suggest", "type":"semantic",
+        "title":"Query suggestions","tag":"ontology", 
+        "def":"",
+        "doc": {"value":"Suggestions to help client applications improve the quality of their results. This might be suggestions to include or exclude certain fields, add/rmeove ranges, etc."}},
+
+      {"id":"q-location", "type":"semantic",
+        "title":"Replay URL","tag":"ontology", 
+        "def":"",
+        "doc": {"value": "A unique URL to replay the same query."}},
+
+      {"id":"home", "type":"semantic",
+        "title":"Home resource","tag":"taxonomy", 
+        "doc": {"value":"Home resource"},
+        "descriptor" : [
+          {"href" : "#goQueryMetadata"}
+        ]
+      },
+
+      {"id":"queryMetadata", "type":"semantic",
+        "title":"Health Check resource","tag":"taxonomy", 
+        "def":"https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-5",
+        "doc": {"value":"APIs.json resource"},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#q-status"},
+          {"href": "#q-sent"},
+          {"href": "#q-executed"},
+          {"href": "#q-count"},
+          {"href": "#q-seconds"},
+          {"href": "#q-datetime"},
+          {"href": "#q-score"},
+          {"href": "#q-source"},
+          {"href": "#q-suggest"},
+          {"href": "#q-location"}
+        ]
+      },
+
+      {"id":"goHome", "type":"safe", "rt":"#home", "rel": "home",
+        "title":"Navigate to the home resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the home resource"}
+      },
+
+      {"id":"goQueryMetadata", "type":"safe", "rt":"#queryMetadata", "rel": "query-metadata",
+        "title":"Navigate to the Query Metadata resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the Query Metadata resource"}
+      }
+      
+    ]
+  }
+}
+
+

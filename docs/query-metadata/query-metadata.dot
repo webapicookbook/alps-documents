@@ -1,0 +1,17 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="Data-Centric Query Metadata";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    queryMetadata [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>queryMetadata<br />(q-status)<br />(q-sent)<br />(q-executed)<br />(q-count)<br />(q-seconds)<br />(q-datetime)<br />(q-score)<br />(q-source)<br />(q-suggest)<br />(q-location)<br /></td></tr></table>>,shape=box URL="docs/semantic.queryMetadata.html" target="_parent"]
+
+    home -> queryMetadata [label = <goQueryMetadata, query-metadata (safe)> URL="docs/safe.goQueryMetadata.html" target="_parent" fontsize=13];
+    queryMetadata -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+
+}

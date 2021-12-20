@@ -1,0 +1,111 @@
+{ 
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps":
+  {
+    "version": "1.0",
+    "title": "Email Updater API",
+    "doc": {"value": "simple email updating service interface for for [RWMBook](http://b.mamund.com/rwmbook)."},
+    
+    "descriptor" : [
+      {"id": "id", "type": "semantic", "def": "https://schema.org/identifier",
+        "title": "Id of the email record",
+        "tag":"ontology",
+        "doc": {"value": "Id of the email record."}
+      },
+      {"id": "name", "type": "semantic", "def": "https://schema.org/name",
+        "title":"Full name of the person",
+        "tag":"ontology",
+        "doc": {"value": "Full name of the person"}
+      },
+      {"id": "email", "type": "semantic", "def": "https://schema.org/email",
+        "title":"Email address associated with the person",
+        "tag":"ontology",
+        "doc": {"value": "Email address associated with the person"}
+      },
+      
+      {"id": "email-record", "type": "semantic",
+        "title":"The properties of an email record",
+        "tag":"ontology taxonomy", 
+        "descriptor": [
+          {"href": "#id"},
+          {"href": "#name"},
+          {"href": "#email"}
+        ],
+        "doc" : {"value": "The properties of anemail record"}
+      },
+      
+     {"id": "home", "type": "semantic",
+        "title":"Home (starting point) of the email updater service",
+        "tag":"taxonomy", 
+        "descriptor": [
+         {"href": "#goHome"},
+         {"href": "#goList"}
+        ],
+        "doc" : {"value" : "Home (starting point) of the email updater service"}
+     },
+     {"id": "collection", "type": "semantic",
+        "title":"List of email records",
+        "tag":"taxonomy", 
+        "descriptor": [
+         {"href": "#id"},
+         {"href": "#name"},
+         {"href": "#email"},
+         {"href": "#goHome"},
+         {"href": "#goList"},
+         {"href": "#goFilter"},
+         {"href": "#goItem"}
+        ],
+        "doc" : {"value" : "List of email records"}
+      },
+     {"id": "item", "type": "semantic",
+        "title":"Single email record",
+        "tag":"taxonomy", 
+        "descriptor": [
+         {"href": "#id"},
+         {"href": "#name"},
+         {"href": "#email"},
+          {"href": "#goHome"},
+          {"href": "#goList"},
+          {"href": "#goFilter"},
+          {"href": "#doUpdate"},
+          {"href": "#goItem"}
+        ],
+        "doc" : {"value" : "A single email record"}
+      },
+
+      {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "title":"Go to the Home resource",
+        "tag":"choreography",
+        "doc": {"value": "A safe, idempotent action to return to the Home document"}
+      },
+      {"id": "goList", "name": "list", "rel": "list", "type": "safe", "rt": "#collection",
+        "title":"Go to the list of email records",
+        "tag":"choreography",
+        "doc": {"value": "A safe idempotent action to go to the list of email records."}
+      },
+      {"id": "goItem", "name": "item", "rel": "item read", "type": "safe", "rt": "#item",
+        "title":"Go to a single email record",
+        "tag":"choreography",
+        "doc": {"value": "A safe idempotent action to go to a single email record."}
+      },
+      {"id": "goFilter", "name": "filter", "rel": "filter collection", "type": "safe", "rt": "#collection",
+        "title":"Filter the list of email records",
+        "tag":"choreography",
+        "doc": {"value": "A safe idempotent action to filter the list of email records."},
+        "descriptor" : [
+          {"href": "#email"},
+          {"href": "#name"}
+        ]
+      },
+      {"id": "doUpdate", "name": "update", "rel": "update item", "type": "idempotent", "rt": "#item",
+        "title":"Update an existing email record",
+        "tag":"choreography",
+        "doc": {"value": "An unsafe idempotent action to update an existing email record."},
+        "descriptor" : [
+          {"href": "#id"},
+          {"href": "#email"}
+        ]
+      }
+    ]
+  }
+}

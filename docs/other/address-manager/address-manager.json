@@ -1,0 +1,159 @@
+{ 
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps":
+  {
+    "version": "1.0",
+    "title": "Address Manager API",
+    "doc": {"value": "Basic address managment service interface for for [RWMBook](http://b.mamund.com/rwmbook)."},
+    
+    "descriptor" : [
+      {"id": "id", "type": "semantic", "def": "https://schema.org/identifier",
+        "title": "Id of the address record",
+        "tag":"ontology",
+        "doc": {"value": "Id of the address record."}
+      },
+      {"id": "name", "type": "semantic", "def": "https://schema.org/name",
+        "title":"Full name of the person",
+        "tag":"ontology",
+        "doc": {"value": "Full name of the person assocaigtedd with the address."}
+      },
+      {"id": "street", "type": "semantic", "def": "https://schema.org/streetAddress",
+        "title":"The street address.",
+        "tag":"ontology",
+        "doc": {"value": "The street address. For example, 1600 Amphitheatre Pkwy."}
+      },
+      {"id": "city", "type": "semantic", "def": "https://schema.org/addressLocality",
+        "title":"The locality in which the street address is, and which is in the region.",
+        "tag":"ontology",
+        "doc": {"value": "The locality in which the street address is, and which is in the region. For example, Mountain View."}
+      },
+      {"id": "state", "type": "semantic", "def": "https://schema.org/addressRegion",
+        "title":"The region in which the locality is.",
+        "tag":"ontology",
+        "doc": {"value": "The region in which the locality is. For example, California"}
+      },
+      {"id": "zipcode", "type": "semantic", "def": "https://schema.org/postalCode",
+        "title":"The postal code.",
+        "tag":"ontology",
+        "doc": {"value": "The postal code. For example, 94043."}
+      },
+      {"id": "email", "type": "semantic", "def": "https://schema.org/email",
+        "title":"Email address associated with the address",
+        "tag":"ontology",
+        "doc": {"value": "Email address associated with the address"}
+      },
+            
+     {"id": "home", "type": "semantic",
+        "title":"Home (starting point) of the address manager service",
+        "tag":"taxonomy", 
+        "descriptor": [
+         {"href": "#goHome"},
+         {"href": "#goList"}
+        ],
+        "doc" : {"value" : "Home (starting point) of the address manager service"}
+     },
+     {"id": "collection", "type": "semantic",
+        "title":"List of email records",
+        "tag":"taxonomy", 
+        "descriptor": [
+         {"href": "#id"},
+         {"href": "#name"},
+         {"href": "#street"},
+         {"href": "#city"},
+         {"href": "#state"},
+         {"href": "#zipcode"},
+         {"href": "#email"},
+         {"href": "#goHome"},
+         {"href": "#goList"},
+         {"href": "#goFilter"},
+         {"href": "#goItem"},
+         {"href": "#doCreate"}
+        ],
+        "doc" : {"value" : "List of email records"}
+      },
+     {"id": "item", "type": "semantic",
+        "title":"Single email record",
+        "tag":"taxonomy", 
+        "descriptor": [
+         {"href": "#id"},
+         {"href": "#name"},
+         {"href": "#street"},
+         {"href": "#city"},
+         {"href": "#state"},
+         {"href": "#zipcode"},
+         {"href": "#email"},
+          {"href": "#goHome"},
+          {"href": "#goList"},
+          {"href": "#goFilter"},
+          {"href": "#doUpdate"},
+          {"href": "#doRemove"},
+          {"href": "#goItem"}
+        ],
+        "doc" : {"value" : "A single email record"}
+      },
+
+      {"id": "goHome", "name": "home", "rel": "self", "type": "safe", "rt":"#home",
+        "title":"Go to the Home resource",
+        "tag":"choreography",
+        "doc": {"value": "A safe, idempotent action to return to the Home document"}
+      },
+      {"id": "goList", "name": "list", "rel": "list", "type": "safe", "rt": "#collection",
+        "title":"Go to the list of email records",
+        "tag":"choreography",
+        "doc": {"value": "A safe idempotent action to go to the list of email records."}
+      },
+      {"id": "goItem", "name": "item", "rel": "item read", "type": "safe", "rt": "#item",
+        "title":"Go to a single email record",
+        "tag":"choreography",
+        "doc": {"value": "A safe idempotent action to go to a single email record."}
+      },
+      {"id": "goFilter", "name": "filter", "rel": "filter collection", "type": "safe", "rt": "#collection",
+        "title":"Filter the list of email records",
+        "tag":"choreography",
+        "doc": {"value": "A safe idempotent action to filter the list of email records."},
+        "descriptor" : [
+          {"href": "#email"},
+          {"href": "#name"},
+          {"href": "#city"},
+          {"href": "#state"}
+        ]
+      },
+      {"id": "doCreate", "name": "create", "rel": "create collection", "type": "unsafe", "rt": "#collection",
+        "title":"Create a new address record",
+        "tag":"choreography",
+        "doc": {"value": "An unsafe non-idempotent action to filter the list of address records."},
+        "descriptor" : [
+         {"href": "#id"},
+         {"href": "#name"},
+         {"href": "#street"},
+         {"href": "#city"},
+         {"href": "#state"},
+         {"href": "#zipcode"},
+         {"href": "#email"}
+        ]
+      },
+      {"id": "doUpdate", "name": "update", "rel": "update item", "type": "idempotent", "rt": "#item",
+        "title":"Update an existing email record",
+        "tag":"choreography",
+        "doc": {"value": "An unsafe idempotent action to update an existing email record."},
+        "descriptor" : [
+         {"href": "#id"},
+         {"href": "#name"},
+         {"href": "#street"},
+         {"href": "#city"},
+         {"href": "#state"},
+         {"href": "#zipcode"},
+         {"href": "#email"}
+        ]
+      },
+      {"id": "doRemove", "name": "remove", "rel": "remove item", "type": "idempotent", "rt": "#collection",
+        "title":"Remove an existing address record",
+        "tag":"choreography",
+        "doc": {"value": "An unsafe idempotent action to remove an existing address record."},
+        "descriptor" : [
+          {"href": "#id"}
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="Address Manager API";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    collection [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>collection<br />(id)<br />(name)<br />(street)<br />(city)<br />(state)<br />(zipcode)<br />(email)<br /></td></tr></table>>,shape=box URL="docs/semantic.collection.html" target="_parent"]
+    item [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>item<br />(id)<br />(name)<br />(street)<br />(city)<br />(state)<br />(zipcode)<br />(email)<br /></td></tr></table>>,shape=box URL="docs/semantic.item.html" target="_parent"]
+
+    collection -> collection [label=<<table  border="0"><tr><td align="left" href="docs/unsafe.doCreate.html">doCreate (unsafe)</td></tr><tr><td align="left" href="docs/safe.goFilter.html">goFilter (safe)</td></tr><tr><td align="left" href="docs/safe.goList.html">goList (safe)</td></tr></table>> fontsize=13];
+    collection -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    collection -> item [label = <goItem, item read (safe)> URL="docs/safe.goItem.html" target="_parent" fontsize=13];
+    home -> collection [label = <goList, list (safe)> URL="docs/safe.goList.html" target="_parent" fontsize=13];
+    home -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    item -> collection [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doRemove.html">doRemove (idempotent)</td></tr><tr><td align="left" href="docs/safe.goFilter.html">goFilter (safe)</td></tr><tr><td align="left" href="docs/safe.goList.html">goList (safe)</td></tr></table>> fontsize=13];
+    item -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    item -> item [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doUpdate.html">doUpdate (idempotent)</td></tr><tr><td align="left" href="docs/safe.goItem.html">goItem (safe)</td></tr></table>> fontsize=13];
+
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+
+}

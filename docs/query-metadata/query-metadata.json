@@ -21,6 +21,11 @@
         "def":"",
         "doc": {"value":"Actual query exefuted by the underlying service (e.g. SELECT... statement, etc.)."}},
 
+      {"id":"q-returned", "type":"semantic",
+        "title":"The number of records returned in this response.","tag":"ontology", 
+        "def":"",
+        "doc": {"value":"The number of records returned in this response. This may be a subset of the total number of records matching the query criteria."}},
+
       {"id":"q-count", "type":"semantic",
         "title":"Estimated size of the result set","tag":"ontology", 
         "def":"",
@@ -73,6 +78,7 @@
           {"href": "#q-status"},
           {"href": "#q-sent"},
           {"href": "#q-executed"},
+          {"href": "#q-returned"},
           {"href": "#q-count"},
           {"href": "#q-seconds"},
           {"href": "#q-datetime"},

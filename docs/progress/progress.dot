@@ -1,0 +1,21 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="Workflow Progress";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    progressCollection [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>progressCollection<br />(progressRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.progressCollection.html" target="_parent"]
+    progressItem [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>progressItem<br />(progressRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.progressItem.html" target="_parent"]
+
+    progressCollection -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    progressCollection -> progressItem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doProgressWrite.html">doProgressWrite (idempotent)</td></tr><tr><td align="left" href="docs/safe.goProgressItem.html">goProgressItem (safe)</td></tr></table>> fontsize=13];
+    progressItem -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    progressItem -> progressCollection [label = <goProgressCollection, collection (safe)> URL="docs/safe.goProgressCollection.html" target="_parent" fontsize=13];
+    progressItem -> progressItem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doProgressCancel.html">doProgressCancel (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doProgressContinue.html">doProgressContinue (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doProgressRestart.html">doProgressRestart (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doProgressStart.html">doProgressStart (idempotent)</td></tr></table>> fontsize=13];
+
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+
+}

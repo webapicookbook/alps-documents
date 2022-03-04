@@ -1,0 +1,96 @@
+{ 
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps": 
+  {
+    "version" : "1.0",
+    "title" : "Workflow Progress",
+    "doc" : {"value" : "*A workflow progress monitor nresource*\n\nWhen suppporting multi-resource workflows, you SHOULD publish a `progress` resource that shows the progress of the workflow. This resource MAY also offer realted operations such as `refresh`, `cancel`, `start`, `restart`, `stop` and other commands"},
+
+    "descriptor" : [
+      {"id":"id", "type":"semantic", "tag":"ontology",
+        "title":"Workflow step identifier",
+        "def":"http://exmple.org/defs/#id",
+        "doc":{"value":"This is the unique identifier of a single action or step within a workflow."}
+      },
+      {"id":"date-time", "type":"semantic", "tag":"ontology"},
+      {"id":"status", "type":"semantic", "tag":"ontology"},
+      {"id":"description", "type":"semantic", "tag":"ontology"},
+      {"id":"href", "type":"semantic", "tag":"ontology"},
+
+      {"id":"progressRecord", "type":"semantic",
+        "descriptor": [
+          {"href":"#id"},
+          {"href":"#date-time"},
+          {"href":"#status"},
+          {"href":"#description"},
+          {"href":"#href"}
+        ]
+      },
+
+      {"id":"home", "type":"semantic", "tag":"taxonomy",
+        "descriptor": [      
+        ]
+      },
+      {"id":"progressCollection", "type":"semantic", "tag":"taxonomy",
+        "descriptor": [
+          {"href":"#progressRecord"},
+          {"href":"#goHome"},
+          {"href":"#goProgressItem"},
+          {"href":"#doProgressWrite"}
+        ]
+      },
+      {"id":"progressItem", "type":"semantic", "tag":"taxonomy",
+        "descriptor": [
+          {"href":"#progressRecord"},
+          {"href":"#goHome"},
+          {"href":"#goProgressCollection"},
+          {"href":"#doProgressStart"},
+          {"href":"#doProgressRestart"},
+          {"href":"#doProgressContinue"},
+          {"href":"#doProgressCancel"}
+        ] 
+      },
+
+      {"id":"goHome", "type":"safe", "tag": "choreography", 
+        "rt":"#home", "rel":"home", 
+        "descriptor": [
+        ]
+      },
+      {"id":"goProgressCollection", "type":"safe", "tag":"choreography", 
+        "rt":"#progressCollection", "rel":"collection",
+        "descriptor": [
+        ]
+      },
+      {"id":"goProgressItem", "type":"safe", "tag":"choreography", 
+        "rt":"#progressItem", "rel":"item",
+        "descriptor": [
+        ]
+      },
+      {"id":"doProgressWrite", "type":"idempotent", "tag":"choreography", 
+        "rt":"#progressItem", "rel":"write",
+        "descriptor": [
+        ]
+      },
+      {"id":"doProgressStart", "type":"idempotent", "tag":"choreography", 
+        "rt":"#progressItem", "rel":"start",
+        "descriptor": [
+        ]
+      },
+      {"id":"doProgressRestart", "type":"idempotent", "tag":"choreography", 
+        "rt":"#progressItem", "rel":"restart",
+        "descriptor":[
+        ]
+      },
+      {"id":"doProgressCancel", "type":"idempotent", "tag":"choreography", 
+        "rt":"#progressItem", "rel":"cancel",
+        "descriptor": [
+        ]
+      },
+      {"id":"doProgressContinue", "type":"idempotent", "tag":"choreography", 
+        "rt":"#progressItem", "rel":"continue",
+        "descriptor": [
+        ]
+      }   
+    ]  
+  } 
+}

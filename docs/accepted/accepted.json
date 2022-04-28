@@ -1,0 +1,162 @@
+{
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps" : {
+    "version" : "1.0",
+    "title" : "Delayed Response for Completing HTTP Requests",
+    "doc" : {"value": "*A pattern for using `202 Accepted` to support delayed HTTP responses*\n\nIn cases where the HTTP response will be delayed (due to extended processing, multi-step workflow, etc.) you can use the *Accepted* pattern to return `202 Accepted` from the service (along with additional metadata) until the work is actually completed (e.g. `200 OK`) or has failed (e.g. `HTTP 400/500` response)."},
+    
+    "descriptor": [
+      {"id":"identifier", "type":"semantic", "tag":"ontology",
+        "title":"unique identifier for this delayed response.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"Unique value for this delayed response (usually a UUID)."}},
+        
+      {"id":"URL", "type":"semantic", "tag":"ontology",
+        "title":"URL of this delayed response document", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to this document."}},
+
+      {"id":"completedURL", "type":"semantic", "tag":"ontology",
+        "title":"URL of the completed status resource", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the resource that represents the completed work."}},
+
+      {"id":"failedURL", "type":"semantic", "tag":"ontology",
+        "title":"URL of the failed status resource", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the resource that represents the failed work."}},
+
+      {"id":"description", "type":"semantic", "tag":"ontology",
+        "title":"Human-readable text that describes this document.", 
+        "def":"https://schema.org/description",
+        "doc": {"value":"The human-readable text that describes this document."}},
+
+      {"id":"refresh", "type":"semantic", "tag":"ontology",
+        "title":"A value (in milliseconds) that represents the refresh interval",
+        "def":"https://rwmbook.github.io/ontology/refresh",
+        "doc": {"value":"The number of milliseconds to wait before attempting to refresh this document."}},
+
+      {"id":"percentCompleted", "type":"semantic", "tag":"ontology", 
+        "title":"A value (0-100) of completion.",
+        "def":"https://rwmbook.github.io/ontology/percent-complete",
+        "doc": {"value":"A value (0-100) that represents the estimated level of completion for the task requested work."}},
+
+      {"id":"status", "type":"semantic", "tag":"ontology",
+        "title":"Indicates document status (pending, working, completed, failed)", 
+        "def":"https://schema.org/status",
+        "doc": {"value":"A value that indicates the status of the task represented by this document (pending, working, completed, failed"}},
+
+      {"id":"dateCreated", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the date/time (UTC) this delayed response was first created).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this delayed record was created (in UTC)."}},
+
+      {"id":"dateUpdated", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the last date/time (UTC) this delayed response was modified).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this delayed record was last modified (in UTC)."}},
+
+      {"id":"dateEstimated", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the date/time (UTC) this this delayed request is expected to complete.", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this delayed request will be completed (in UTC)."}},
+
+      {"id":"acceptedRecord", "type":"semantic", "tag":"taxonomy",
+        "title":"A single accepted record",
+        "def":"https://rwmbook.github.io/accepted-record",
+        "doc": {"value":"A complete +accepted+ record that is returned for a delayed response"},
+        "descriptor" : [
+          {"href" : "#identifier"},
+          {"href" : "#URL"},
+          {"href" : "#completedURL"},
+          {"href" : "#failedURL"},
+          {"href" : "#description"},
+          {"href" : "#refresh"},
+          {"href" : "#percentCompleted"},
+          {"href" : "#status"},
+          {"href" : "#dateCreated"},
+          {"href" : "#dateUpdated"},
+          {"href" : "#dateEstimated"}
+        ]
+      },
+
+      {"id":"home", "type":"semantic",
+        "title":"Home resource","tag":"taxonomy", 
+        "doc": {"value":"Home resource"},
+        "descriptor" : [
+          {"href" : "#goAccepted"}
+        ]
+      },
+
+      {"id":"accepted", "type":"semantic",
+        "title":"Delayed Response resource","tag":"taxonomy", 
+        "doc": {"value":"Delayed response resource"},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#doCancel"},
+          {"href": "#goCompleted"},
+          {"href": "#goFailed"},
+          {"href": "#acceptedRecord"}
+        ]
+      },
+
+      {"id":"completed", "type":"semantic",
+        "title":"Requested completed resource","tag":"taxonomy", 
+        "doc": {"value":"Requested completed resource. This is available when the requested work is successfully completed."},
+        "descriptor" : [
+          {"href": "#goHome"}
+        ]
+      },
+
+      {"id":"failed", "type":"semantic",
+        "title":"Requested failed resource","tag":"taxonomy", 
+        "doc": {"value":"Requested failed resource. This is available when the requested work has failed."},
+        "descriptor" : [
+          {"href": "#goHome"}
+        ]
+      },
+
+      {"id":"cancel", "type":"semantic",
+        "title":"Requested cancel resource","tag":"taxonomy", 
+        "doc": {"value":"Requested cancel resource. This is available when the requested work has been cancelled."},
+        "descriptor" : [
+          {"href": "#goHome"}
+        ]
+      },
+
+      {"id":"goHome", "type":"safe", "rt":"#home", "rel": "home",
+        "title":"Navigate to the home resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the home resource"}
+      },
+
+      {"id":"doCancel", "type":"idempotent", "rt":"#cancel", "rel": "cancel",
+        "title":"Request to cancel this outstanding delayed task (using DELETE)","tag":"choreography", 
+        "doc": {"value":"Use this action to cancel the outstanding delayed request. Usually applied to a FORM that includes URL, method, and other metadata. Not all request may support this action."},
+        "descriptor": [
+          {"href":"#identifier"}
+        ]
+      }, 
+
+      {"id":"goAccepted", "type":"safe", "rt":"#accepted", "rel": "accepted",
+        "title":"Navigate to the delayed response resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the Delayed response resource"},
+        "descriptor": [
+          {"href":"#identifier"}
+        ]
+      }, 
+      
+      {"id":"goCompleted", "type":"safe", "rt":"#completed", "rel": "completed",
+        "title":"Navigate to the completed resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the completed resource"}
+      },
+
+      {"id":"goFailed", "type":"safe", "rt":"#failed", "rel": "failed",
+        "title":"Navigate to the failed resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the failed resource"}
+      }
+      
+    ]
+  }
+}
+
+

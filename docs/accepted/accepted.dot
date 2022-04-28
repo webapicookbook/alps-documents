@@ -1,0 +1,26 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="Delayed Response for Completing HTTP Requests";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    accepted [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>accepted<br />(acceptedRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.accepted.html" target="_parent"]
+
+    accepted -> cancel [label = <doCancel, cancel (idempotent)> URL="docs/idempotent.doCancel.html" target="_parent" fontsize=13];
+    accepted -> completed [label = <goCompleted, completed (safe)> URL="docs/safe.goCompleted.html" target="_parent" fontsize=13];
+    accepted -> failed [label = <goFailed, failed (safe)> URL="docs/safe.goFailed.html" target="_parent" fontsize=13];
+    accepted -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    cancel -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    completed -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    failed -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    home -> accepted [label = <goAccepted, accepted (safe)> URL="docs/safe.goAccepted.html" target="_parent" fontsize=13];
+
+    cancel [label = <cancel> URL="docs/semantic.cancel.html" target="_parent"]
+    completed [label = <completed> URL="docs/semantic.completed.html" target="_parent"]
+    failed [label = <failed> URL="docs/semantic.failed.html" target="_parent"]
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+
+}

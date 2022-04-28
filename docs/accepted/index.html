@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <title>ALPS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+        <h1>Delayed Response for Completing HTTP Requests</h1>
+
+<p><em>A pattern for using <code>202 Accepted</code> to support delayed HTTP responses</em><br />
+<br />
+In cases where the HTTP response will be delayed (due to extended processing, multi-step workflow, etc.) you can use the <em>Accepted</em> pattern to return <code>202 Accepted</code> from the service (along with additional metadata) until the work is actually completed (e.g. <code>200 OK</code>) or has failed (e.g. <code>HTTP 400/500</code> response).</p>
+
+<ul>
+<li><a href="accepted.json">ALPS</a></li>
+<li><a href="docs/asd.html">Application State Diagram</a></li>
+<li>Semantic Descriptors
+
+<ul>
+<li><a href="docs/semantic.accepted.html">accepted</a> (semantic), Delayed Response resource</li>
+<li><a href="docs/semantic.acceptedRecord.html">acceptedRecord</a> (semantic), A single accepted record</li>
+<li><a href="docs/semantic.cancel.html">cancel</a> (semantic), Requested cancel resource</li>
+<li><a href="docs/semantic.completed.html">completed</a> (semantic), Requested completed resource</li>
+<li><a href="docs/semantic.completedURL.html">completedURL</a> (semantic), URL of the completed status resource</li>
+<li><a href="docs/semantic.dateCreated.html">dateCreated</a> (semantic), Indicates the date/time (UTC) this delayed response was first created).</li>
+<li><a href="docs/semantic.dateEstimated.html">dateEstimated</a> (semantic), Indicates the date/time (UTC) this this delayed request is expected to complete).</li>
+<li><a href="docs/semantic.dateUpdated.html">dateUpdated</a> (semantic), Indicates the last date/time (UTC) this delayed response was modified).</li>
+<li><a href="docs/semantic.description.html">description</a> (semantic), Human-readable text that describes this document.</li>
+<li><a href="docs/idempotent.doCancel.html">doCancel</a> (idempotent), Request to cancel this outstanding delayed task (using DELETE)</li>
+<li><a href="docs/semantic.failed.html">failed</a> (semantic), Requested failed resource</li>
+<li><a href="docs/semantic.failedURL.html">failedURL</a> (semantic), URL of the failed status resource</li>
+<li><a href="docs/safe.goAccepted.html">goAccepted</a> (safe), Navigate to the delayed response resource</li>
+<li><a href="docs/safe.goCompleted.html">goCompleted</a> (safe), Navigate to the completed resource</li>
+<li><a href="docs/safe.goFailed.html">goFailed</a> (safe), Navigate to the failed resource</li>
+<li><a href="docs/safe.goHome.html">goHome</a> (safe), Navigate to the home resource</li>
+<li><a href="docs/semantic.home.html">home</a> (semantic), Home resource</li>
+<li><a href="docs/semantic.identifier.html">identifier</a> (semantic), unique identifier for this delayed response.</li>
+<li><a href="docs/semantic.percentCompleted.html">percentCompleted</a> (semantic), A value (0-100) of completion.</li>
+<li><a href="docs/semantic.refresh.html">refresh</a> (semantic), A value (in milliseconds) that represents the refresh interval</li>
+<li><a href="docs/semantic.status.html">status</a> (semantic), Indicates document status (pending, working, completed, failed)</li>
+<li><a href="docs/semantic.URL.html">URL</a> (semantic), URL of this delayed response document</li>
+</ul></li>
+<li>Tags
+
+<ul>
+<li><a href="docs/tag.choreography.html">choreography</a></li>
+<li><a href="docs/tag.ontology.html">ontology</a></li>
+<li><a href="docs/tag.taxonomy.html">taxonomy</a></li>
+</ul></li>
+</ul>
+
+    </div>
+</body>
+</html>

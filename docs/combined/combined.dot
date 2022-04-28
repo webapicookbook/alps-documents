@@ -7,23 +7,30 @@ digraph application_state_diagram {
   ];
   node [shape = box, style = "bold,filled" fillcolor="lightgray"];
 
+    accepted [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>accepted<br />(acceptedRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.accepted.html" target="_parent"]
     apisJSON [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>apisJSON<br />(name)<br />(description)<br />(image)<br />(url)<br />(tags)<br />(created)<br />(modified)<br />(apis)<br />(tools)<br />(specifications)<br />(resources)<br />(common)<br />(include)<br />(maintainers)<br /></td></tr></table>>,shape=box URL="docs/semantic.apisJSON.html" target="_parent"]
     clientMetaPreferences [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>clientMetaPreferences<br />(MetaPreferences)<br /></td></tr></table>>,shape=box URL="docs/semantic.clientMetaPreferences.html" target="_parent"]
     health [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>health<br />(status)<br />(version)<br />(releaseId)<br />(notes)<br />(output)<br />(checks)<br />(links)<br />(serviceId)<br />(description)<br /></td></tr></table>>,shape=box URL="docs/semantic.health.html" target="_parent"]
     inputForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>inputForm<br />(href)<br />(rel)<br />(title)<br />(type)<br />(input)<br /></td></tr></table>>,shape=box URL="docs/semantic.inputForm.html" target="_parent"]
     list [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>list<br />(navlink)<br /></td></tr></table>>,shape=box URL="docs/semantic.list.html" target="_parent"]
     mru [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>mru<br />(mrulink)<br /></td></tr></table>>,shape=box URL="docs/semantic.mru.html" target="_parent"]
-    queryMetadata [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>queryMetadata<br />(q-status)<br />(q-sent)<br />(q-executed)<br />(q-count)<br />(q-seconds)<br />(q-datetime)<br />(q-score)<br />(q-source)<br />(q-suggest)<br />(q-location)<br /></td></tr></table>>,shape=box URL="docs/semantic.queryMetadata.html" target="_parent"]
+    queryMetadata [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>queryMetadata<br />(q-status)<br />(q-sent)<br />(q-executed)<br />(q-returned)<br />(q-count)<br />(q-seconds)<br />(q-datetime)<br />(q-score)<br />(q-source)<br />(q-suggest)<br />(q-location)<br /></td></tr></table>>,shape=box URL="docs/semantic.queryMetadata.html" target="_parent"]
     related [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>related<br />(relatedlink)<br /></td></tr></table>>,shape=box URL="docs/semantic.related.html" target="_parent"]
     wipitem [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>wipitem<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.wipitem.html" target="_parent"]
     wiplist [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>wiplist<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.wiplist.html" target="_parent"]
 
+    accepted -> cancel [label = <doCancel, cancel (idempotent)> URL="docs/idempotent.doCancel.html" target="_parent" fontsize=13];
+    accepted -> completed [label = <goCompleted, completed (safe)> URL="docs/safe.goCompleted.html" target="_parent" fontsize=13];
+    accepted -> failed [label = <goFailed, failed (safe)> URL="docs/safe.goFailed.html" target="_parent" fontsize=13];
+    accepted -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
     apisJSON -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    cancel -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
     clientMetaPreferences -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
     completed -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
-    completed -> inputForm [label = <goForm, form (safe)> URL="docs/safe.goForm.html" target="_parent" fontsize=13];
     exitList -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    failed -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
     health -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    home -> accepted [label = <goAccepted, accepted (safe)> URL="docs/safe.goAccepted.html" target="_parent" fontsize=13];
     home -> apisJSON [label = <goAPIsJSON, service-meta (safe)> URL="docs/safe.goAPIsJSON.html" target="_parent" fontsize=13];
     home -> clientMetaPreferences [label = <goMetaPreferences, meta (safe)> URL="docs/safe.goMetaPreferences.html" target="_parent" fontsize=13];
     home -> health [label = <goHealth, health (safe)> URL="docs/safe.goHealth.html" target="_parent" fontsize=13];
@@ -52,8 +59,10 @@ digraph application_state_diagram {
     wiplist -> wipitem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doCreateWIP.html">doCreateWIP (idempotent)</td></tr><tr><td align="left" href="docs/safe.goReadWIP.html">goReadWIP (safe)</td></tr></table>> fontsize=13];
     wiplist -> wiplist [label=<<table  border="0"><tr><td align="left" href="docs/safe.goFilterWIP.html">goFilterWIP (safe)</td></tr><tr><td align="left" href="docs/safe.goListWIP.html">goListWIP (safe)</td></tr></table>> fontsize=13];
 
-    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+    cancel [label = <cancel> URL="docs/semantic.cancel.html" target="_parent"]
     completed [label = <completed> URL="docs/semantic.completed.html" target="_parent"]
+    failed [label = <failed> URL="docs/semantic.failed.html" target="_parent"]
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
     exitList [label = <exitList> URL="docs/semantic.exitList.html" target="_parent"]
     selectRecord [label = <selectRecord> URL="docs/semantic.selectRecord.html" target="_parent"]
 

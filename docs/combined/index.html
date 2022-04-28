@@ -34,24 +34,32 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 
 <ul>
 <li><a href="docs/semantic.accept.html">accept</a> (semantic), List of supported media types for responses</li>
+<li><a href="docs/semantic.accepted.html">accepted</a> (semantic), Delayed Response resource</li>
+<li><a href="docs/semantic.acceptedRecord.html">acceptedRecord</a> (semantic), A single accepted record</li>
 <li><a href="docs/semantic.adr.html">adr</a> (semantic), Physical address</li>
 <li><a href="docs/semantic.affectedEndpoints.html">affectedEndpoints</a> (semantic), A JSON array containing URI Templates</li>
 <li><a href="docs/semantic.allow.html">allow</a> (semantic), HTTP methods supported for this service context</li>
 <li><a href="docs/semantic.apis.html">apis</a> (semantic), List of APIs identified in the file</li>
 <li><a href="docs/semantic.apisJSON.html">apisJSON</a> (semantic), APIs.json resource</li>
 <li><a href="docs/semantic.baseUrl.html">baseUrl</a> (semantic), Web URL</li>
+<li><a href="docs/semantic.cancel.html">cancel</a> (semantic), Requested cancel resource</li>
 <li><a href="docs/semantic.charset.html">charset</a> (semantic), List of supported character sets that may be used responses</li>
 <li><a href="docs/semantic.checks.html">checks</a> (semantic), List of downstream dependencies</li>
 <li><a href="docs/semantic.clientMetaPreferences.html">clientMetaPreferences</a> (semantic), List of client preference options this service supports</li>
 <li><a href="docs/semantic.common.html">common</a> (semantic), List of common properties</li>
-<li><a href="docs/semantic.completed.html">completed</a> (semantic), Completed state and actions</li>
+<li><a href="docs/semantic.completed.html">completed</a> (semantic), Requested completed resource</li>
+<li><a href="docs/semantic.completedURL.html">completedURL</a> (semantic), URL of the completed status resource</li>
 <li><a href="docs/semantic.componentId.html">componentId</a> (semantic), A unique identifier of an instance of a specific sub-component/dependency.</li>
 <li><a href="docs/semantic.componentName.html">componentName</a> (semantic), Human-readable name for the component.</li>
 <li><a href="docs/semantic.componentType.html">componentType</a> (semantic), SHOULD be present if componentName is present (component, datastore, system).</li>
 <li><a href="docs/semantic.contact.html">contact</a> (semantic)</li>
 <li><a href="docs/semantic.created.html">created</a> (semantic), Creation date of the file</li>
 <li><a href="docs/semantic.data.html">data</a> (semantic), The data for the property</li>
+<li><a href="docs/semantic.dateCreated.html">dateCreated</a> (semantic), Indicates the date/time (UTC) this delayed response was first created).</li>
+<li><a href="docs/semantic.dateEstimated.html">dateEstimated</a> (semantic), Indicates the date/time (UTC) this this delayed request is expected to complete.</li>
+<li><a href="docs/semantic.dateUpdated.html">dateUpdated</a> (semantic), Indicates the last date/time (UTC) this delayed response was modified).</li>
 <li><a href="docs/semantic.description.html">description</a> (semantic), A human-friendly description of the service.</li>
+<li><a href="docs/idempotent.doCancel.html">doCancel</a> (idempotent), Request to cancel this outstanding delayed task (using DELETE)</li>
 <li><a href="docs/idempotent.doCancelSubmit.html">doCancelSubmit</a> (idempotent), Cancel (abandon) form submission</li>
 <li><a href="docs/idempotent.doCancelWIP.html">doCancelWIP</a> (idempotent), Cancel an existing WIP resource</li>
 <li><a href="docs/idempotent.doCreateWIP.html">doCreateWIP</a> (idempotent), Create a new WIP resource</li>
@@ -65,9 +73,14 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/semantic.email.html">email</a> (semantic), Email Address</li>
 <li><a href="docs/semantic.encoding.html">encoding</a> (semantic), List of supported content and transfer encodings</li>
 <li><a href="docs/semantic.exitList.html">exitList</a> (semantic), The controlled exit state (after you leave the list).</li>
+<li><a href="docs/semantic.failed.html">failed</a> (semantic), Requested failed resource</li>
+<li><a href="docs/semantic.failedURL.html">failedURL</a> (semantic), URL of the failed status resource</li>
 <li><a href="docs/semantic.fn.html">fn</a> (semantic), Full Name</li>
+<li><a href="docs/safe.goAccepted.html">goAccepted</a> (safe), Navigate to the delayed response resource</li>
 <li><a href="docs/safe.goAPIsJSON.html">goAPIsJSON</a> (safe), Navigate to the APIs.json resource</li>
+<li><a href="docs/safe.goCompleted.html">goCompleted</a> (safe), Navigate to the completed resource</li>
 <li><a href="docs/safe.goExit.html">goExit</a> (safe), Exist the list.</li>
+<li><a href="docs/safe.goFailed.html">goFailed</a> (safe), Navigate to the failed resource</li>
 <li><a href="docs/safe.goFilterWIP.html">goFilterWIP</a> (safe), Get a filtered list of WIP records</li>
 <li><a href="docs/safe.goFirst.html">goFirst</a> (safe), Move to the first page in the list.</li>
 <li><a href="docs/safe.goForm.html">goForm</a> (safe), Go to the input form</li>
@@ -88,6 +101,7 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/semantic.home.html">home</a> (semantic)</li>
 <li><a href="docs/semantic.href.html">href</a> (semantic), URL of the form.</li>
 <li><a href="docs/semantic.humanUrl.html">humanUrl</a> (semantic), Web URL</li>
+<li><a href="docs/semantic.identifier.html">identifier</a> (semantic), unique identifier for this delayed response.</li>
 <li><a href="docs/semantic.image.html">image</a> (semantic), Web URL leading to associated image</li>
 <li><a href="docs/semantic.include.html">include</a> (semantic), List of APIs.json files referenced.</li>
 <li><a href="docs/semantic.input.html">input</a> (semantic), Input for the submit form</li>
@@ -109,6 +123,7 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/semantic.observedValue.html">observedValue</a> (semantic), Any valid JSON value</li>
 <li><a href="docs/semantic.org.html">org</a> (semantic), Organization</li>
 <li><a href="docs/semantic.output.html">output</a> (semantic), The raw error output, in case of 'fail' or 'warn' states.</li>
+<li><a href="docs/semantic.percentCompleted.html">percentCompleted</a> (semantic), A value (0-100) of completion.</li>
 <li><a href="docs/semantic.photo.html">photo</a> (semantic), URL</li>
 <li><a href="docs/semantic.profile.html">profile</a> (semantic), List of supported semantic profiles for this service</li>
 <li><a href="docs/semantic.properties.html">properties</a> (semantic), collection</li>
@@ -116,6 +131,7 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/semantic.q-datetime.html">q-datetime</a> (semantic), Date-Time the query was executed</li>
 <li><a href="docs/semantic.q-executed.html">q-executed</a> (semantic), Actual query executed</li>
 <li><a href="docs/semantic.q-location.html">q-location</a> (semantic), Replay URL</li>
+<li><a href="docs/semantic.q-returned.html">q-returned</a> (semantic), The number of records returned in this response.</li>
 <li><a href="docs/semantic.q-score.html">q-score</a> (semantic), Results relevance scoring</li>
 <li><a href="docs/semantic.q-seconds.html">q-seconds</a> (semantic), Elapsed time for query execution (in seconds)</li>
 <li><a href="docs/semantic.q-sent.html">q-sent</a> (semantic), Query sent</li>
@@ -123,6 +139,7 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/semantic.q-status.html">q-status</a> (semantic), Query status</li>
 <li><a href="docs/semantic.q-suggest.html">q-suggest</a> (semantic), Query suggestions</li>
 <li><a href="docs/semantic.queryMetadata.html">queryMetadata</a> (semantic), Health Check resource</li>
+<li><a href="docs/semantic.refresh.html">refresh</a> (semantic), A value (in milliseconds) that represents the refresh interval</li>
 <li><a href="docs/semantic.rel.html">rel</a> (semantic), Relation value of the form URL</li>
 <li><a href="docs/semantic.related.html">related</a> (semantic), Related resource object and actions</li>
 <li><a href="docs/semantic.relatedlink.html">relatedlink</a> (semantic), Link object</li>
@@ -138,6 +155,7 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/semantic.title.html">title</a> (semantic), Text title of the form URL</li>
 <li><a href="docs/semantic.tools.html">tools</a> (semantic), List of open source tooling</li>
 <li><a href="docs/semantic.type.html">type</a> (semantic), media type string of form URL</li>
+<li><a href="docs/semantic.URL.html">URL</a> (semantic), URL of this delayed response document</li>
 <li><a href="docs/semantic.url.html">url</a> (semantic), Web URL</li>
 <li><a href="docs/semantic.vCard.html">vCard</a> (semantic), URL pointing to a vCard</li>
 <li><a href="docs/semantic.version.html">version</a> (semantic), Public version of the service.</li>

@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>completed (semantic)</title>
+    <title>accepted (semantic)</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
     <style>
@@ -23,12 +23,12 @@
     <div class="markdown-body">
         <p>Combined Semantic Profiles for RWMBook: Semantic Descriptor</p>
 
-<h1>completed</h1>
+<h1>accepted</h1>
 
 <ul>
 <li>type: semantic</li>
-<li>title: Requested completed resource</li>
-<li>doc: Requested completed resource. This is available when the requested work is successfully completed.</li>
+<li>title: Delayed Response resource</li>
+<li>doc: Delayed response resource</li>
 <li>tag: <a href="tag.taxonomy.html">taxonomy</a></li>
 <li>descriptor
 <table>
@@ -41,9 +41,29 @@
 </thead>
 <tbody>
 <tr>
+  <td><a href="semantic.acceptedRecord.html">acceptedRecord</a></td>
+  <td>semantic</td>
+  <td>A single accepted record</td>
+</tr>
+<tr>
   <td><a href="safe.goHome.html">goHome</a></td>
   <td>safe</td>
   <td>Go to the Home resource</td>
+</tr>
+<tr>
+  <td><a href="safe.goCompleted.html">goCompleted</a></td>
+  <td>safe</td>
+  <td>Navigate to the completed resource</td>
+</tr>
+<tr>
+  <td><a href="safe.goFailed.html">goFailed</a></td>
+  <td>safe</td>
+  <td>Navigate to the failed resource</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doCancel.html">doCancel</a></td>
+  <td>idempotent</td>
+  <td>Request to cancel this outstanding delayed task (using DELETE)</td>
 </tr>
 </tbody>
 </table></li>

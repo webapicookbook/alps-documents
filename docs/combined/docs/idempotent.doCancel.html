@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>completed (semantic)</title>
+    <title>doCancel (idempotent)</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
     <style>
@@ -23,13 +23,15 @@
     <div class="markdown-body">
         <p>Combined Semantic Profiles for RWMBook: Semantic Descriptor</p>
 
-<h1>completed</h1>
+<h1>doCancel</h1>
 
 <ul>
-<li>type: semantic</li>
-<li>title: Requested completed resource</li>
-<li>doc: Requested completed resource. This is available when the requested work is successfully completed.</li>
-<li>tag: <a href="tag.taxonomy.html">taxonomy</a></li>
+<li>type: idempotent</li>
+<li>title: Request to cancel this outstanding delayed task (using DELETE)</li>
+<li>doc: Use this action to cancel the outstanding delayed request. Usually applied to a FORM that includes URL, method, and other metadata. Not all request may support this action.</li>
+<li>rel: cancel</li>
+<li>tag: <a href="tag.choreography.html">choreography</a></li>
+<li>rt: <a href="semantic.cancel.html">cancel</a></li>
 <li>descriptor
 <table>
 <thead>
@@ -41,9 +43,9 @@
 </thead>
 <tbody>
 <tr>
-  <td><a href="safe.goHome.html">goHome</a></td>
-  <td>safe</td>
-  <td>Go to the Home resource</td>
+  <td><a href="semantic.identifier.html">identifier</a></td>
+  <td>semantic</td>
+  <td>unique identifier for this delayed response.</td>
 </tr>
 </tbody>
 </table></li>

@@ -1,0 +1,182 @@
+<alps version="1.0">
+  <title>
+    ALPS document describing DISCO services
+  </title>
+  <doc>
+    This is the ALPS document for an adhoc specification called DISCO (Discovering Interoperative Services for Continuous Operation). DISCO is a simple language for managing the adding/removing of services as well as the ability to search ("find") and make connections with ("bind") registered services.
+    
+    Allows services to register/unreg themselves in a shared, searchable registry of available services.
+    Allows services (including the registry) to perform a "ping" health-check
+    Allows services to "find/bind" to other services based on profile and mediaType criteria
+    
+    See http://open-disco.org for details.
+  </doc>
+  
+  <!-- data elements -->
+  <descriptor id="registryURL" type="semantic" title="URL of registry" tag="ontology"/>
+  <descriptor id="registryID" type="semantic" title="unique registry id of the service" tag="ontology"/>
+  <descriptor id="regDateTime" type="semantic" title="UTC date/time when the service registered" tag="ontology" />
+  <descriptor id="serviceURL" type="semantic" title="URL of service" tag="ontology" />
+  <descriptor id="serviceName" type="semantic" title="text name of service, non-unique"  tag="ontology"/>
+  <descriptor id="status" type="semantic" title="current status of service [up, down, unknown" tag="ontology" />
+  <descriptor id="semanticProfile" type="semantic" title="space separated list of profile URIs" tag="ontology" />
+  <descriptor id="mediaType" type="semantic" title="space separated list of mediaType identifiers" tag="ontology" />
+  <descriptor id="healthURL" type="semantic" title="URL to use when sending health-check pings" tag="ontology" />
+  <descriptor id="healthTTL" type="semantic" title="time-to-live (in seconds) for a valid health-check response" tag="ontology" />
+  <descriptor id="healthLastPing" type="semantic" title="last date/time registry receigved a ping from the service" tag="ontology" />
+  <descriptor id="bindCount" type="semantic" title="count (estimate) of clients using this service" tag="ontology" />
+  <descriptor id="renewURL" type="semantic" title="URL to use when renewing the registry entry" tag="ontology" />
+  <descriptor id="renewTTL" type="semantic" title="time-to-live (in seconds) for a valid renewal" tag="ontology" />
+  <descriptor id="renewLastPing" type="semantic" title="last date/time of successful renewal" tag="ontology" />
+
+  <!-- containers -->
+  <descriptor id="registryBlock" type="semantic" title="Collection of DISCO metadata" tag="taxonomy">
+    <descriptor href="#registryURL" />
+    <descriptor href="#registryID" />
+    <descriptor href="#regDateTime" />
+    <descriptor href="#serviceURL" />
+    <descriptor href="#serviceName" />
+    <descriptor href="#status" />
+    <descriptor href="#semanticProfile" />
+    <descriptor href="#mediaType" />
+    <descriptor href="#healthURL" />
+    <descriptor href="#healthTTL" />
+    <descriptor href="#healthLastPing" />
+    <descriptor href="#renewURL" />
+    <descriptor href="#renewTTL" />
+    <descriptor href="#renewLastPing" />
+    <descriptor href="#bindCount" />
+  </descriptor>
+  
+  <descriptor id="home" type="semantic" title="shared home page" tag="taxonomy">
+    <descriptor href="#goDashboard" />
+  </descriptor>
+  
+  <descriptor id="dashboard" type="semantic" title="Displays that status of running services" tag="taxonomy">
+    <descriptor href="#registryBlock" />
+    <descriptor href="#goHome" />
+    <descriptor href="#goItemLink" />
+    <descriptor href="#goRegisterLink" />
+    <descriptor href="#doRegisterForm" />
+    <descriptor href="#goUnregisterLink" />
+    <descriptor href="#doUnregisterForm" />
+    <descriptor href="#goRenewLink" />
+    <descriptor href="#doRenewForm" />
+    <descriptor href="#goHealthLink" />
+    <descriptor href="#goHealthForm" />
+    <descriptor href="#goFindLink" />
+    <descriptor href="#goFindForm" />
+    <descriptor href="#goBindLink" />
+    <descriptor href="#doBindForm" />
+  </descriptor>
+
+  <descriptor id="itemForm" type="semantic" title="input for to get an item" tag="taxonomy">
+    <doc>
+      returns a single registered item
+    </doc>
+    <descriptor href="#registryID" />
+    <descriptor href="#goDashboard" />
+    <descriptor href="#goHome" />    
+  </descriptor>
+  
+  <descriptor id="registerForm" type="semantic" title="input for registering a service" tag="taxonomy">
+    <doc>
+      register a service in the shared registry
+    </doc>
+    <descriptor href="#registryURL" />
+    <descriptor href="#serviceURL" />
+    <descriptor href="#serviceName" />
+    <descriptor href="#semanticProfile" />
+    <descriptor href="#mediaType" />
+    <descriptor href="#healthTTL" />
+    <descriptor href="#goDashboard" />
+  </descriptor>  
+
+  <descriptor id="unregisterForm" type="semantic" title="returns HTTP status code" tag="taxonomy">
+    <doc>
+      unregister a service in the shared registry
+    </doc>
+    <descriptor href="#registryURL" />
+    <descriptor href="#registryID" />
+    <descriptor href="#goDashboard" />
+    <descriptor href="#goHome" />    
+  </descriptor>
+
+  <descriptor id="renewForm" type="semantic" title="sends a renewal request *from* a running service to the registry" tag="taxonomy">
+    <doc>
+      sends a renewal request *from* a running service to the registry
+    </doc>
+    <descriptor href="#registryURL" />
+    <descriptor href="#registryID" />
+    <descriptor href="#goDashboard" />
+    <descriptor href="#goHome" />    
+  </descriptor>
+
+  <descriptor id="healthForm" name="ping" type="semantic" title="send a health-check ping *to* a running service" tag="taxonomy">
+    <doc>
+      send a health-check ping *to* a running service
+    </doc>
+    <descriptor href="#healthURL" />
+    <descriptor href="#goDashboard" />
+    <descriptor href="#goHome" />    
+  </descriptor>
+
+  <descriptor id="findForm" name="find" type="semantic" rt="#dashboard" title="ask for a filtered list of registered services that match the supplied criteria" tag="taxonomy">
+    <doc>
+      ask for a filtered list of registered services that match the supplied criteria
+    </doc>
+    <descriptor href="#registryURL" />
+    <descriptor href="#registryID" />
+    <descriptor href="#regDateTime" />
+    <descriptor href="#serviceURL" />
+    <descriptor href="#serviceName" />
+    <descriptor href="#status" />
+    <descriptor href="#semanticProfile" />
+    <descriptor href="#mediaType" />
+    <descriptor href="#healthURL" />
+    <descriptor href="#healthTTL" />
+    <descriptor href="#healthLastPing" />
+    <descriptor href="#renewURL" />
+    <descriptor href="#renewTTL" />
+    <descriptor href="#renewLastPing" />
+    <descriptor href="#bindCount" />
+    <descriptor href="#goDashboard" />
+    <descriptor href="#goHome" />    
+  </descriptor>
+
+  <descriptor id="bindForm" name="bind" type="semantic" title="assert a claim to using a service (sent to the registry)" tag="taxonomy">
+    <doc>
+      assert a claim to using a service (sent to the registry)
+    </doc>
+    <descriptor href="#registryURL" />
+    <descriptor href="#registryID" />
+    <descriptor href="#goDashboard" />
+    <descriptor href="#goHome" />    
+  </descriptor>
+  
+  <!-- actions -->
+  <descriptor id="goHome" type="safe" rt="#home" title="returns to home page" tag="choreography"/>
+  <descriptor id="goDashboard" type="safe" rt="#dashboard" title="returns registry dashboard" tag="choreography"/>
+
+  <descriptor id="goItemLink" type="safe" rt="#itemForm" title="returns item form" tag="choreography" />
+  <descriptor id="goItemForm" name="item" type="safe" rt="#dashboard" title="input form for finding a single service" tag="choreography" />
+
+  <descriptor id="goRegisterLink" type="safe" rt="#registerForm" title="returns register form" tag="choreography"/>
+  <descriptor id="doRegisterForm" name="register" type="unsafe" rt="#dashboard" title="input form for registering an availbale service" tag="choreography"/>
+
+  <descriptor id="goUnregisterLink" type="safe" rt="#unregisterForm" title="returns unregister form" tag="choreography"/>
+  <descriptor id="doUnregisterForm" name="unregister" type="idempotent" rt="#dashboard" title="returns HTTP status code" tag="choreography" />
+
+  <descriptor id="goRenewLink" type="safe" rt="#renewForm" title="returns renewal form" tag="choreography" />
+  <descriptor id="doRenewForm" type="unsafe" rt="#dashboard" title="input form to renewing a service registration" tag="choreography" />
+
+  <descriptor id="goHealthLink" type="safe" rt="#healthForm" title="returns health-check form" tag="choreography"/>
+  <descriptor id="goHealthForm" name="ping" type="safe" rt="#dashboard" title="input form for pinging health status of a service" tag="choreography" />
+
+  <descriptor id="goFindLink" type="safe" rt="#findForm" title="returns find form" tag="choreography"/>
+  <descriptor id="goFindForm" name="find" type="safe" rt="#dashboard" title="input form for finding available services" tag="choreography" />
+
+  <descriptor id="goBindLink" type="safe" rt="#bindForm" title="returns bind form" tag="choreography"/>
+  <descriptor id="doBindForm" name="bind" type="idempotent" rt="#dashboard" title="input form for performing a bind operation" tag="choreography" />
+  
+</alps>

@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+    <title>ALPS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+        <h1>ALPS document describing DISCO services</h1>
+
+<p>This is the ALPS document for an adhoc specification called DISCO (Discovering Interoperative Services for Continuous Operation). DISCO is a simple language for managing the adding/removing of services as well as the ability to search (&quot;find&quot;) and make connections with (&quot;bind&quot;) registered services.<br />
+    <br />
+    Allows services to register/unreg themselves in a shared, searchable registry of available services.<br />
+    Allows services (including the registry) to perform a &quot;ping&quot; health-check<br />
+    Allows services to &quot;find/bind&quot; to other services based on profile and mediaType criteria<br />
+    <br />
+    See http://open-disco.org for details.</p>
+
+<ul>
+<li><a href="disco.xml">ALPS</a></li>
+<li><a href="docs/asd.html">Application State Diagram</a></li>
+<li>Semantic Descriptors
+
+<ul>
+<li><a href="docs/semantic.bindCount.html">bindCount</a> (semantic), count (estimate) of clients using this service</li>
+<li><a href="docs/semantic.bindForm.html">bindForm</a> (semantic), assert a claim to using a service (sent to the registry)</li>
+<li><a href="docs/semantic.dashboard.html">dashboard</a> (semantic), Displays that status of running services</li>
+<li><a href="docs/idempotent.doBindForm.html">doBindForm</a> (idempotent), input form for performing a bind operation</li>
+<li><a href="docs/unsafe.doRegisterForm.html">doRegisterForm</a> (unsafe), input form for registering an availbale service</li>
+<li><a href="docs/unsafe.doRenewForm.html">doRenewForm</a> (unsafe), input form to renewing a service registration</li>
+<li><a href="docs/idempotent.doUnregisterForm.html">doUnregisterForm</a> (idempotent), returns HTTP status code</li>
+<li><a href="docs/semantic.findForm.html">findForm</a> (semantic), ask for a filtered list of registered services that match the supplied criteria</li>
+<li><a href="docs/safe.goBindLink.html">goBindLink</a> (safe), returns bind form</li>
+<li><a href="docs/safe.goDashboard.html">goDashboard</a> (safe), returns registry dashboard</li>
+<li><a href="docs/safe.goFindForm.html">goFindForm</a> (safe), input form for finding available services</li>
+<li><a href="docs/safe.goFindLink.html">goFindLink</a> (safe), returns find form</li>
+<li><a href="docs/safe.goHealthForm.html">goHealthForm</a> (safe), input form for pinging health status of a service</li>
+<li><a href="docs/safe.goHealthLink.html">goHealthLink</a> (safe), returns health-check form</li>
+<li><a href="docs/safe.goHome.html">goHome</a> (safe), returns to home page</li>
+<li><a href="docs/safe.goItemForm.html">goItemForm</a> (safe), input form for finding a single service</li>
+<li><a href="docs/safe.goItemLink.html">goItemLink</a> (safe), returns item form</li>
+<li><a href="docs/safe.goRegisterLink.html">goRegisterLink</a> (safe), returns register form</li>
+<li><a href="docs/safe.goRenewLink.html">goRenewLink</a> (safe), returns renewal form</li>
+<li><a href="docs/safe.goUnregisterLink.html">goUnregisterLink</a> (safe), returns unregister form</li>
+<li><a href="docs/semantic.healthForm.html">healthForm</a> (semantic), send a health-check ping <em>to</em> a running service</li>
+<li><a href="docs/semantic.healthLastPing.html">healthLastPing</a> (semantic), last date/time registry receigved a ping from the service</li>
+<li><a href="docs/semantic.healthTTL.html">healthTTL</a> (semantic), time-to-live (in seconds) for a valid health-check response</li>
+<li><a href="docs/semantic.healthURL.html">healthURL</a> (semantic), URL to use when sending health-check pings</li>
+<li><a href="docs/semantic.home.html">home</a> (semantic), shared home page</li>
+<li><a href="docs/semantic.itemForm.html">itemForm</a> (semantic), input for to get an item</li>
+<li><a href="docs/semantic.mediaType.html">mediaType</a> (semantic), space separated list of mediaType identifiers</li>
+<li><a href="docs/semantic.regDateTime.html">regDateTime</a> (semantic), UTC date/time when the service registered</li>
+<li><a href="docs/semantic.registerForm.html">registerForm</a> (semantic), input for registering a service</li>
+<li><a href="docs/semantic.registryBlock.html">registryBlock</a> (semantic), Collection of DISCO metadata</li>
+<li><a href="docs/semantic.registryID.html">registryID</a> (semantic), unique registry id of the service</li>
+<li><a href="docs/semantic.registryURL.html">registryURL</a> (semantic), URL of registry</li>
+<li><a href="docs/semantic.renewForm.html">renewForm</a> (semantic), sends a renewal request <em>from</em> a running service to the registry</li>
+<li><a href="docs/semantic.renewLastPing.html">renewLastPing</a> (semantic), last date/time of successful renewal</li>
+<li><a href="docs/semantic.renewTTL.html">renewTTL</a> (semantic), time-to-live (in seconds) for a valid renewal</li>
+<li><a href="docs/semantic.renewURL.html">renewURL</a> (semantic), URL to use when renewing the registry entry</li>
+<li><a href="docs/semantic.semanticProfile.html">semanticProfile</a> (semantic), space separated list of profile URIs</li>
+<li><a href="docs/semantic.serviceName.html">serviceName</a> (semantic), text name of service, non-unique</li>
+<li><a href="docs/semantic.serviceURL.html">serviceURL</a> (semantic), URL of service</li>
+<li><a href="docs/semantic.status.html">status</a> (semantic), current status of service [up, down, unknown</li>
+<li><a href="docs/semantic.unregisterForm.html">unregisterForm</a> (semantic), returns HTTP status code</li>
+</ul></li>
+<li>Tags
+
+<ul>
+<li><a href="docs/tag.choreography.html">choreography</a></li>
+<li><a href="docs/tag.ontology.html">ontology</a></li>
+<li><a href="docs/tag.taxonomy.html">taxonomy</a></li>
+</ul></li>
+</ul>
+
+    </div>
+</body>
+</html>

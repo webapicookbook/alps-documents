@@ -1,0 +1,45 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="ALPS document describing DISCO services";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    bindForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>bindForm<br />(registryURL)<br />(registryID)<br /></td></tr></table>>,shape=box URL="docs/semantic.bindForm.html" target="_parent"]
+    dashboard [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>dashboard<br />(registryBlock)<br /></td></tr></table>>,shape=box URL="docs/semantic.dashboard.html" target="_parent"]
+    findForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>findForm<br />(registryURL)<br />(registryID)<br />(regDateTime)<br />(serviceURL)<br />(serviceName)<br />(status)<br />(semanticProfile)<br />(mediaType)<br />(healthURL)<br />(healthTTL)<br />(healthLastPing)<br />(renewURL)<br />(renewTTL)<br />(renewLastPing)<br />(bindCount)<br /></td></tr></table>>,shape=box URL="docs/semantic.findForm.html" target="_parent"]
+    healthForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>healthForm<br />(healthURL)<br /></td></tr></table>>,shape=box URL="docs/semantic.healthForm.html" target="_parent"]
+    itemForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>itemForm<br />(registryID)<br /></td></tr></table>>,shape=box URL="docs/semantic.itemForm.html" target="_parent"]
+    registerForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>registerForm<br />(registryURL)<br />(serviceURL)<br />(serviceName)<br />(semanticProfile)<br />(mediaType)<br />(healthTTL)<br /></td></tr></table>>,shape=box URL="docs/semantic.registerForm.html" target="_parent"]
+    renewForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>renewForm<br />(registryURL)<br />(registryID)<br /></td></tr></table>>,shape=box URL="docs/semantic.renewForm.html" target="_parent"]
+    unregisterForm [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>unregisterForm<br />(registryURL)<br />(registryID)<br /></td></tr></table>>,shape=box URL="docs/semantic.unregisterForm.html" target="_parent"]
+
+    bindForm -> dashboard [label = <goDashboard (safe)> URL="docs/safe.goDashboard.html" target="_parent" fontsize=13];
+    bindForm -> home [label = <goHome (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    dashboard -> bindForm [label = <goBindLink (safe)> URL="docs/safe.goBindLink.html" target="_parent" fontsize=13];
+    dashboard -> dashboard [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doBindForm.html">doBindForm (idempotent)</td></tr><tr><td align="left" href="docs/unsafe.doRegisterForm.html">doRegisterForm (unsafe)</td></tr><tr><td align="left" href="docs/unsafe.doRenewForm.html">doRenewForm (unsafe)</td></tr><tr><td align="left" href="docs/idempotent.doUnregisterForm.html">doUnregisterForm (idempotent)</td></tr><tr><td align="left" href="docs/safe.goFindForm.html">goFindForm (safe)</td></tr><tr><td align="left" href="docs/safe.goHealthForm.html">goHealthForm (safe)</td></tr></table>> fontsize=13];
+    dashboard -> findForm [label = <goFindLink (safe)> URL="docs/safe.goFindLink.html" target="_parent" fontsize=13];
+    dashboard -> healthForm [label = <goHealthLink (safe)> URL="docs/safe.goHealthLink.html" target="_parent" fontsize=13];
+    dashboard -> home [label = <goHome (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    dashboard -> itemForm [label = <goItemLink (safe)> URL="docs/safe.goItemLink.html" target="_parent" fontsize=13];
+    dashboard -> registerForm [label = <goRegisterLink (safe)> URL="docs/safe.goRegisterLink.html" target="_parent" fontsize=13];
+    dashboard -> renewForm [label = <goRenewLink (safe)> URL="docs/safe.goRenewLink.html" target="_parent" fontsize=13];
+    dashboard -> unregisterForm [label = <goUnregisterLink (safe)> URL="docs/safe.goUnregisterLink.html" target="_parent" fontsize=13];
+    findForm -> dashboard [label = <goDashboard (safe)> URL="docs/safe.goDashboard.html" target="_parent" fontsize=13];
+    findForm -> home [label = <goHome (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    healthForm -> dashboard [label = <goDashboard (safe)> URL="docs/safe.goDashboard.html" target="_parent" fontsize=13];
+    healthForm -> home [label = <goHome (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    home -> dashboard [label = <goDashboard (safe)> URL="docs/safe.goDashboard.html" target="_parent" fontsize=13];
+    itemForm -> dashboard [label = <goDashboard (safe)> URL="docs/safe.goDashboard.html" target="_parent" fontsize=13];
+    itemForm -> home [label = <goHome (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    registerForm -> dashboard [label = <goDashboard (safe)> URL="docs/safe.goDashboard.html" target="_parent" fontsize=13];
+    renewForm -> dashboard [label = <goDashboard (safe)> URL="docs/safe.goDashboard.html" target="_parent" fontsize=13];
+    renewForm -> home [label = <goHome (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    unregisterForm -> dashboard [label = <goDashboard (safe)> URL="docs/safe.goDashboard.html" target="_parent" fontsize=13];
+    unregisterForm -> home [label = <goHome (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+
+}

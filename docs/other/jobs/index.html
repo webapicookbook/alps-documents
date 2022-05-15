@@ -27,7 +27,7 @@
 <br />
  This profile provides a basic set of actions and metadata for orchestrating independent services on the open web.<br />
 <br />
-Each <strong>job</strong> contains one or more <strong>tasks</strong>. The set of <strong>tasks</strong> in each <strong>job</strong> MUST be able to run in parallel. Each <strong>task</strong> SHOULD be <em>repeatable</em> and <em>reversible</em>. Each <strong>job</strong> SHOULD be <em>restartable</em> and <em>reentrant</em>.<br />
+Each <a href="https://rwmbook.github.io/alps-documents/other/jobs/docs/semantic.jobRecord.html"><strong>job</strong></a> contains one or more <a href="https://rwmbook.github.io/alps-documents/other/jobs/docs/semantic.taskRecord.html"><strong>tasks</strong></a>. The set of <strong>tasks</strong> in each <strong>job</strong> MUST be able to run in parallel. Each <strong>task</strong> SHOULD be <em>repeatable</em> and <em>reversible</em>. Each <strong>job</strong> SHOULD be <em>restartable</em> and <em>reentrant</em>.<br />
 <br />
 To run a <strong>job</strong>, the <strong>job</strong> document should be submitted to a <em>workflow engine</em>. Upon recieving the document the workflow engine will return a <code>202 Accepted</code> while the tasks are processed and will eventually return a <code>200 OK</code> or a <code>4xx/5xx</code> HTTP status with the completed response. Upon completion of a <strong>job</strong>, that <strong>job</strong> document MAY be archived for future reference (or re-execution) and the appropriate link (<code>jobSuccessURL</code> or <code>jobFailedURL</code>) is activated.<br />
 <br />

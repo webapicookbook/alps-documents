@@ -1,0 +1,31 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="RESTful Job Control";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    jobCancelled [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>jobCancelled<br />(jobRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.jobCancelled.html" target="_parent"]
+    jobFailed [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>jobFailed<br />(jobRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.jobFailed.html" target="_parent"]
+    jobItem [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>jobItem<br />(jobRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.jobItem.html" target="_parent"]
+    jobList [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>jobList<br />(jobRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.jobList.html" target="_parent"]
+    jobSuccess [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>jobSuccess<br />(jobRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.jobSuccess.html" target="_parent"]
+
+    home -> jobList [label = <goJobList, jobs collection (safe)> URL="docs/safe.goJobList.html" target="_parent" fontsize=13];
+    jobCancelled -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    jobFailed -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    jobItem -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    jobItem -> jobCancelled [label = <doJobCancel, job cancel (idempotent)> URL="docs/idempotent.doJobCancel.html" target="_parent" fontsize=13];
+    jobItem -> jobFailed [label = <doJobFailed, jobs failed (idempotent)> URL="docs/idempotent.doJobFailed.html" target="_parent" fontsize=13];
+    jobItem -> jobItem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doJobRemove.html">doJobRemove (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doJobUpdate.html">doJobUpdate (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doTaskCancel.html">doTaskCancel (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doTaskRerun.html">doTaskRerun (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doTaskRollback.html">doTaskRollback (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doTaskStart.html">doTaskStart (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doTaskUpdate.html">doTaskUpdate (idempotent)</td></tr></table>> fontsize=13];
+    jobItem -> jobSuccess [label = <doJobSuccess, jobs success (idempotent)> URL="docs/idempotent.doJobSuccess.html" target="_parent" fontsize=13];
+    jobList -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    jobList -> jobItem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doJobCreate.html">doJobCreate (idempotent)</td></tr><tr><td align="left" href="docs/safe.goJobItem.html">goJobItem (safe)</td></tr></table>> fontsize=13];
+    jobList -> jobList [label = <goJobFilter, jobs search (safe)> URL="docs/safe.goJobFilter.html" target="_parent" fontsize=13];
+    jobSuccess -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+
+}

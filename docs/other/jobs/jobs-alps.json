@@ -1,0 +1,327 @@
+{
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps" : {
+    "version" : "1.0",
+    "title" : "RESTful Job Control",
+    "doc" : {"value": "*A recipe for supporting  general workflow management for independent service interfaces*\n\n This profile provides a basic set of actions and metadata for orchestrating independent services on the open web."},
+    
+    "descriptor": [
+      {"id":"jobID", "type":"semantic", "tag":"ontology",
+        "title":"unique identifier for this job resource.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"Unique value for this job resource (usually a UUID)."}},
+
+      {"id":"stateID", "type":"semantic", "tag":"ontology",
+        "title":"unique identifier for the state resource for this job.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"Unique value for the staste resource for this job (usually a UUID)."}},
+
+      {"id":"jobURL", "type":"semantic", "tag":"ontology",
+        "title":"URL of this job resource document", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to this job resource document."}},
+        
+      {"id":"jobStatus", "type":"semantic", "tag":"ontology",
+        "title":"Indicates resource status (pending, working, completed, failed)", 
+        "def":"https://schema.org/status",
+        "doc": {"value":"A value that indicates the status of the task represented by this resource (pending, working, completed, failed"}},
+
+      {"id":"jobDescription", "type":"semantic", "tag":"ontology",
+        "title":"Human-readable text that describes this document.", 
+        "def":"https://schema.org/description",
+        "doc": {"value":"The human-readable text that describes this document."}},
+
+      {"id":"jobDateCreated", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the date/time (UTC) this resource was first created).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this resource was created (in UTC)."}},
+
+      {"id":"jobDateUpdated", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the last date/time (UTC) this resource was modified).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this resource was last modified (in UTC)."}},
+
+      {"id":"jobMaxTTL", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the maximum amount of time (in *seconds*) this resource is considered valid.", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The amount of time (in *seconds*) resource considered valid. After this time runs out (jobDateCreated + jobMaxTTL), this job may be refreshed, cancelled, ignored, etc."}},
+
+      {"id":"taskID", "type":"semantic", "tag":"ontology",
+        "title":"unique identifier for this task.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"Unique value for this task  (usually a UUID)."}},
+
+      {"id":"taskURL", "type":"semantic", "tag":"ontology",
+        "title":"URL of the task resrouce", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the resource that represents the job task."}},
+
+      {"id":"taskStatus", "type":"semantic", "tag":"ontology",
+        "title":"Indicates resource status (pending, working, completed, failed)", 
+        "def":"https://schema.org/status",
+        "doc": {"value":"A value that indicates the status of the task represented by this resource (pending, working, completed, failed"}},
+
+      {"id":"taskDescription", "type":"semantic", "tag":"ontology",
+        "title":"Human-readable text that describes this task.", 
+        "def":"https://schema.org/description",
+        "doc": {"value":"The human-readable text that describes this task."}},
+
+      {"id":"taskStartDateTime", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the date/time (UTC) processing started.", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this (UTC) processing for this taks was started."}},
+
+      {"id":"taskStopDateTime", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the date/time (UTC) processing stopped).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time procecssing for this task was stopped (in UTC)."}},
+
+      {"id":"taskMessage", "type":"semantic", "tag":"ontology",
+        "title":"Human-readable text that contains any messages related to the task.", 
+        "def":"https://schema.org/description",
+        "doc": {"value":"The human-readable text that contains any message/info available related to the task. Typically this will contain status updates, completion notes, etc."}},
+
+      {"id":"taskMaxTTL", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the maximum amount of time (in *seconds*) this task is considered valid.", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The amount of time (in *seconds*) this task is considered valid. After this time runs out (taskStartDateTime + taskMaxTTL), this job may be refreshed, cancelled, ignored, etc."}},
+
+      {"id":"taskStartURL", "type":"semantic", "tag":"ontology",
+        "title":"Starting URL of the task", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the starting resoruce of this task."}},
+
+      {"id":"taskRollbackURL", "type":"semantic", "tag":"ontology",
+        "title":"Rollback URL of the task", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the resource that can perform a rollback of this task."}},
+
+      {"id":"taskRerunURL", "type":"semantic", "tag":"ontology",
+        "title":"Forced Rerun URL of the task", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the URL that can perform a fored rerun (even if completed) of this task."}},
+
+      {"id":"taskRecord", "type":"semantic", "tag":"taxonomy",
+        "title":"A single task record (part of a job)",
+        "def":"https://rwmbook.github.io/job-task-record",
+        "doc": {"value":"A complete +task+ record that is part of a job"},
+        "descriptor" : [
+          {"href" : "#taskID"},
+          {"href" : "#taskURL"},
+          {"href" : "#taskDescription"},
+          {"href" : "#taskStatus"},
+          {"href" : "#taskStartDateTime"},
+          {"href" : "#taskStopDateTime"},
+          {"href" : "#taskMaxTTL"},
+          {"href" : "#taskMessage"},
+          {"href" : "#taskStartURL"},
+          {"href" : "#taskRollbackURL"},
+          {"href" : "#taskRerunURL"}
+        ]
+      },
+
+      {"id":"jobRecord", "type":"semantic", "tag":"taxonomy",
+        "title":"A single job record (which has a collection of tasks)",
+        "def":"https://rwmbook.github.io/job-task-record",
+        "doc": {"value":"A complete +job+ record including the collection of tasks."},
+        "descriptor" : [
+          {"href" : "#jobID"},
+          {"href" : "#jobURL"},
+          {"href" : "#jobDescription"},
+          {"href" : "#jobStatus"},
+          {"href" : "#jobDateCreated"},
+          {"href" : "#jobDateUpdated"},
+          {"href" : "#jobMaxTTL"},
+          {"href" : "#taskRecord"}
+        ]
+      },
+
+      {"id":"home", "type":"semantic",
+        "title":"Home resource","tag":"taxonomy", 
+        "doc": {"value":"Home resource"},
+        "descriptor" : [
+          {"href" : "#goJobList"}
+        ]
+      },
+
+      {"id":"jobList", "type":"semantic",
+        "title":"Job list resource","tag":"taxonomy", 
+        "doc": {"value":"Job resource"},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#doJobCreate"},
+          {"href": "#goJobFilter"},
+          {"href": "#goJobItem"},
+          {"href": "#jobRecord"}
+        ]
+      },
+
+      {"id":"jobItem", "type":"semantic",
+        "title":"Job item resource","tag":"taxonomy", 
+        "doc": {"value":"Job resource"},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#doJobUpdate"},
+          {"href": "#doJobRemove"},
+          {"href": "#doJobSuccess"},
+          {"href": "#doJobCancel"},
+          {"href": "#doJobFailed"},
+          {"href": "#doTaskStart"},
+          {"href": "#doTaskRollback"},
+          {"href": "#doTaskCancel"},
+          {"href": "#doTaskUpdate"},
+          {"href": "#doTaskRerun"},
+          {"href": "#jobRecord"}
+        ]
+      },
+
+      {"id":"jobSuccess", "type":"semantic",
+        "title":"Successful job completion resource","tag":"taxonomy", 
+        "doc": {"value":"successful job completion resource. This is available when the requested work is successfully completed."},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#jobRecord"}
+        ]
+      },
+
+      {"id":"jobFailed", "type":"semantic",
+        "title":"Failed job resource","tag":"taxonomy", 
+        "doc": {"value":"Failed job resource. This is available when the requested work has failed."},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#jobRecord"}
+        ]
+      },
+
+      {"id":"jobCancelled", "type":"semantic",
+        "title":"Cancelled job resource","tag":"taxonomy", 
+        "doc": {"value":"Cancelled job resource. This is available when the requested work has been cancelled."},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#jobRecord"}
+        ]
+      },
+
+      {"id":"goHome", "type":"safe", "rt":"#home", "rel": "home",
+        "title":"Navigate to the home resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the home resource"}
+      },
+
+      {"id":"goJobList", "type":"safe", "rt":"#jobList", "rel": "jobs collection",
+        "title":"Navigate to the jobs resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the jobs resource"}
+      },
+
+      {"id":"goJobFilter", "type":"safe", "rt":"#jobList", "rel": "jobs search",
+        "title":"Filter the jobs list resource","tag":"choreography", 
+        "doc": {"value":"Filter the jobs list resource"}
+      },
+
+      {"id":"goJobItem", "type":"safe", "rt":"#jobItem", "rel": "jobs item",
+        "title":"Navigate to the job item resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the job item resource"}
+      },
+
+      {"id":"doJobCreate", "type":"idempotent", "rt":"#jobItem", "rel" : "jobs create",
+        "title":"Create a new job record.","tag":"choreography",
+        "doc":{"value":"Create a new job record for the collection."},
+        "descriptor": [
+          {"href":"#jobRecord"}
+        ]
+      },
+
+      {"id":"doJobRemove", "type":"idempotent", "rt":"#jobItem", "rel" : "jobs remove",
+        "title":"remove job record (via DELETE).","tag":"choreography",
+        "doc":{"value":"Rmeve an existing job record from the collection (using DELETE)."},
+        "descriptor": [
+          {"href":"#jobID"}
+        ]
+      },
+      
+      {"id":"doJobCancel", "type":"idempotent", "rt":"#jobCancelled", "rel": "job cancel",
+        "title":"Request to cancel this outstanding job (using DELETE)","tag":"choreography", 
+        "doc": {"value":"Use this action to cancel the outstanding delayed request. Usually applied to a FORM that includes URL, method, and other metadata. Not all request may support this action."},
+        "descriptor": [
+          {"href":"#jobID"}
+        ]
+      }, 
+
+      {"id":"doJobSuccess", "type":"idempotent", "rt":"#jobSuccess", "rel": "jobs success",
+        "title":"Navigate to the delayed response resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the Delayed response resource"},
+        "descriptor": [
+          {"href":"#jobID"}
+        ]
+      }, 
+      
+      {"id":"doJobFailed", "type":"idempotent", "rt":"#jobFailed", "rel": "jobs failed",
+        "title":"Navigate to the failed resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the failed resource"},
+        "descriptor": [
+          {"href":"#jobID"}
+        ]
+      },
+      
+      {"id":"doJobUpdate", "type":"idempotent", "rt":"#jobItem", "rel": "jobs update",
+        "title":"Update existing job item resource","tag":"choreography", 
+        "doc": {"value":"Update an exsiting job item resource"},
+        "descriptor": [
+          {"href":"#jobRecord"}
+        ]
+      },
+      
+      {"id":"doTaskStart", "type":"idempotent", "rt":"#jobItem", "rel": "task start",
+        "title":"Start a task", "tag":"choreography",
+        "doc":{"value":"Start the selected task."},
+        "descriptor": [
+          {"href":"#jobID"},
+          {"href":"#taskID"},
+          {"href":"#stateID"}
+        ]
+      },
+      
+      {"id":"doTaskRollback", "type":"idempotent", "rt":"#jobItem", "rel": "task rollback",
+        "title":"Rollback the task", "tag":"choreography",
+        "doc":{"value":"Rollback the selected task."},
+        "descriptor": [
+          {"href":"#jobID"},
+          {"href":"#taskID"},
+          {"href":"#stateID"}
+        ]
+      },
+      
+      {"id":"doTaskCancel", "type":"idempotent", "rt":"#jobItem", "rel": "task cancel",
+        "title":"Cancel the task", "tag":"choreography",
+        "doc":{"value":"Cancel the selected task."},
+        "descriptor": [
+          {"href":"#jobID"},
+          {"href":"#taskID"},
+          {"href":"#stateID"}
+        ]
+      },
+      
+      {"id":"doTaskUpdate", "type":"idempotent", "rt":"#jobItem", "rel": "task update",
+        "title":"Update the task", "tag":"choreography",
+        "doc":{"value":"Update the selected task."},
+        "descriptor": [
+          {"href":"#jobID"},
+          {"href":"#stateID"},
+          {"href":"#taskRecord"}
+        ]
+      },
+      
+      {"id":"doTaskRerun", "type":"idempotent", "rt":"#jobItem", "rel": "task rerun",
+        "title":"Force rerun the task", "tag":"choreography",
+        "doc":{"value":"Force rerun the selected task."},
+        "descriptor": [
+          {"href":"#jobID"},
+          {"href":"#stateID"},
+          {"href":"#taskRecord"}
+        ]
+      }
+      
+    ]
+  }
+}
+
+

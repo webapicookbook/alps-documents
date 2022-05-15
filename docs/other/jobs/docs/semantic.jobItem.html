@@ -1,0 +1,113 @@
+<html lang="en">
+<head>
+    <title>jobItem (semantic)</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+        <p>RESTful Job Control: Semantic Descriptor</p>
+
+<h1>jobItem</h1>
+
+<ul>
+<li>type: semantic</li>
+<li>title: Job item resource</li>
+<li>doc: Job resource</li>
+<li>tag: <a href="tag.taxonomy.html">taxonomy</a></li>
+<li>descriptor
+<table>
+<thead>
+<tr>
+  <th>id</th>
+  <th>type</th>
+  <th>title</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="semantic.jobRecord.html">jobRecord</a></td>
+  <td>semantic</td>
+  <td>A single job record (which has a collection of tasks)</td>
+</tr>
+<tr>
+  <td><a href="safe.goHome.html">goHome</a></td>
+  <td>safe</td>
+  <td>Navigate to the home resource</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doJobUpdate.html">doJobUpdate</a></td>
+  <td>idempotent</td>
+  <td>Update existing job item resource</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doJobRemove.html">doJobRemove</a></td>
+  <td>idempotent</td>
+  <td>remove job record (via DELETE).</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doJobSuccess.html">doJobSuccess</a></td>
+  <td>idempotent</td>
+  <td>Navigate to the delayed response resource</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doJobCancel.html">doJobCancel</a></td>
+  <td>idempotent</td>
+  <td>Request to cancel this outstanding job (using DELETE)</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doJobFailed.html">doJobFailed</a></td>
+  <td>idempotent</td>
+  <td>Navigate to the failed resource</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doTaskStart.html">doTaskStart</a></td>
+  <td>idempotent</td>
+  <td>Start a task</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doTaskRollback.html">doTaskRollback</a></td>
+  <td>idempotent</td>
+  <td>Rollback the task</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doTaskCancel.html">doTaskCancel</a></td>
+  <td>idempotent</td>
+  <td>Cancel the task</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doTaskUpdate.html">doTaskUpdate</a></td>
+  <td>idempotent</td>
+  <td>Update the task</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doTaskRerun.html">doTaskRerun</a></td>
+  <td>idempotent</td>
+  <td>Force rerun the task</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+
+<hr />
+
+<p><a href="../index.html">home</a> | <a href="../jobs-alps.svg">asd</a></p>
+
+    </div>
+</body>
+</html>

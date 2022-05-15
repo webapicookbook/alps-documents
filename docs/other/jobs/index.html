@@ -25,7 +25,17 @@
 
 <p><em>A recipe for supporting  general workflow management for independent service interfaces</em><br />
 <br />
- This profile provides a basic set of actions and metadata for orchestrating independent services on the open web.</p>
+ This profile provides a basic set of actions and metadata for orchestrating independent services on the open web.<br />
+<br />
+Each <strong>job</strong> contains one or more <strong>tasks</strong>. The set of <strong>tasks</strong> in each <strong>job</strong> MUST be able to run in parallel. Each <strong>task</strong> SHOULD be <em>repeatable</em> and <em>reversible</em>. Each <strong>job</strong> SHOULD be <em>restartable</em> and <em>reentrant</em>.<br />
+<br />
+To run a <strong>job</strong>, the <strong>job</strong> document should be submitted to a <em>workflow engine</em>. Upon recieving the document the workflow engine will return a <code>202 Accepted</code> while the tasks are processed and will eventually return a <code>200 OK</code> or a <code>4xx/5xx</code> HTTP status with the completed response. Upon completion of a <strong>job</strong>, that <strong>job</strong> document MAY be archived for future reference (or re-execution) and the appropriate link (<code>jobSuccessURL</code> or <code>jobFailedURL</code>) is activated.<br />
+<br />
+Workflow engines  MUST be prepared to handle the <code>taskURL</code>, <code>taskRollbackURL</code>, and <code>taskRerunURL</code> properties as well as monitor/update progress via <code>taskStatus</code> and <code>jobStatus</code>. The engine SHOULD also monitor the <code>jobMaxTTL</code> and <code>taskMaxTTL</code> values and cancel jobs where the maximum run time has been exceeded.<br />
+<br />
+<strong>Tasks</strong> that need to be run in a fixed sequence MUST be separated into individual <strong>job</strong> documents and those <strong>job</strong> documents can be run in fixed order as each <strong>job</strong> successfully completes.<br />
+<br />
+For more on <strong>RESTful Job Control</strong> see <a href="http://b.mamund/rwmbook">RESTful Web API Patterns and Practices Cookbook</a></p>
 
 <ul>
 <li><a href="jobs-alps.json">ALPS</a></li>
@@ -54,6 +64,7 @@
 <li><a href="docs/semantic.jobDateUpdated.html">jobDateUpdated</a> (semantic), Indicates the last date/time (UTC) this resource was modified).</li>
 <li><a href="docs/semantic.jobDescription.html">jobDescription</a> (semantic), Human-readable text that describes this document.</li>
 <li><a href="docs/semantic.jobFailed.html">jobFailed</a> (semantic), Failed job resource</li>
+<li><a href="docs/semantic.jobFailedURL.html">jobFailedURL</a> (semantic), URL to follow after a failed job run of this job resource</li>
 <li><a href="docs/semantic.jobID.html">jobID</a> (semantic), unique identifier for this job resource.</li>
 <li><a href="docs/semantic.jobItem.html">jobItem</a> (semantic), Job item resource</li>
 <li><a href="docs/semantic.jobList.html">jobList</a> (semantic), Job list resource</li>
@@ -61,6 +72,7 @@
 <li><a href="docs/semantic.jobRecord.html">jobRecord</a> (semantic), A single job record (which has a collection of tasks)</li>
 <li><a href="docs/semantic.jobStatus.html">jobStatus</a> (semantic), Indicates resource status (pending, working, completed, failed)</li>
 <li><a href="docs/semantic.jobSuccess.html">jobSuccess</a> (semantic), Successful job completion resource</li>
+<li><a href="docs/semantic.jobSuccessURL.html">jobSuccessURL</a> (semantic), URL to follow after successful completion of this job resource</li>
 <li><a href="docs/semantic.jobURL.html">jobURL</a> (semantic), URL of this job resource document</li>
 <li><a href="docs/semantic.stateID.html">stateID</a> (semantic), unique identifier for the state resource for this job.</li>
 <li><a href="docs/semantic.taskDescription.html">taskDescription</a> (semantic), Human-readable text that describes this task.</li>

@@ -3,7 +3,7 @@
   "alps" : {
     "version" : "1.0",
     "title" : "RESTful Job Control",
-    "doc" : {"value": "*A recipe for supporting  general workflow management for independent service interfaces*\n\n This profile provides a basic set of actions and metadata for orchestrating independent services on the open web.\n\nEach [**job**](https://rwmbook.github.io/alps-documents/other/jobs/docs/semantic.jobRecord.html) contains one or more [**tasks**](https://rwmbook.github.io/alps-documents/other/jobs/docs/semantic.taskRecord.html). The set of **tasks** in each **job** MUST be able to run in parallel. Each **task** SHOULD be _repeatable_ and _reversible_. Each **job** SHOULD be _restartable_ and _reentrant_.\n\nTo run a **job**, the **job** document should be submitted to a _workflow engine_. Upon recieving the document the workflow engine will return a `202 Accepted` while the tasks are processed and will eventually return a `200 OK` or a `4xx/5xx` HTTP status with the completed response. Upon completion of a **job**, that **job** document MAY be archived for future reference (or re-execution) and the appropriate link (`jobSuccessURL` or `jobFailedURL`) is activated.\n\nWorkflow engines  MUST be prepared to handle the `taskURL`, `taskRollbackURL`, and `taskRerunURL` properties as well as monitor/update progress via `taskStatus` and `jobStatus`. The engine SHOULD also monitor the `jobMaxTTL` and `taskMaxTTL` values and cancel jobs where the maximum run time has been exceeded.\n\n**Tasks** that need to be run in a fixed sequence MUST be separated into individual **job** documents and those **job** documents can be run in fixed order as each **job** successfully completes.\n\nFor more on **RESTful Job Control** see [RESTful Web API Patterns and Practices Cookbook](http://b.mamund.com/rwmbook)."},
+    "doc" : {"value": "*A recipe for supporting  general workflow management for independent service interfaces*\n\n This profile provides a basic set of actions and metadata for orchestrating independent services on the open web.\n\nEach [**job**](https://rwmbook.github.io/alps-documents/other/jobs/docs/semantic.jobRecord.html) contains one or more [**tasks**](https://rwmbook.github.io/alps-documents/other/jobs/docs/semantic.taskRecord.html). The set of **tasks** in each **job** MUST be able to run in parallel. Each **task** SHOULD be _repeatable_ and _reversible_. Each **job** SHOULD be _restartable_ and _reentrant_.\n\nTo run a **job**, the **job** document should be submitted to a _workflow engine_. Upon recieving the document the workflow engine will return a `202 Accepted` while the tasks are processed and will eventually return a `200 OK` or a `4xx/5xx` HTTP status with the completed response. Upon completion of a **job**, that **job** document MAY be archived for future reference (or re-execution) and the appropriate link (`jobSuccessURL` or `jobFailedURL`) SHOULD be activated.\n\nCompliant Workflow engines MUST be prepared to handle the `taskURL`, `taskRollbackURL`, and `taskRerunURL` properties as well as monitor/update progress via `taskStatus` and `jobStatus`. The engines SHOULD also monitor the `jobMaxTTL` and `taskMaxTTL` values and cancel jobs where the maximum run time has been exceeded.\n\n**Tasks** that need to be run in a fixed sequence MUST be separated into individual **job** documents and those **job** documents can be run in fixed order as each **job** successfully completes.\n\n**NOTE:** Workflow _authoring_ services MAY be separate from workflow _execution_ services. The editor and the engine don't need to be hosted within the same service interface.\n\nFor more on **RESTful Job Control** see [RESTful Web API Patterns and Practices Cookbook](http://b.mamund.com/rwmbook)."},
     
     "descriptor": [
       {"id":"jobID", "type":"semantic", "tag":"ontology",
@@ -112,9 +112,9 @@
         "doc": {"value":"This URL points to the URL that can perform a fored rerun (even if completed) of this task."}},
 
       {"id":"taskRecord", "type":"semantic", "tag":"taxonomy",
-        "title":"A single task record (part of a job)",
+        "title":"A task record (part of a job)",
         "def":"https://rwmbook.github.io/job-task-record",
-        "doc": {"value":"A complete +task+ record that is part of a job"},
+        "doc": {"value":"A complete task record that is part of a job"},
         "descriptor" : [
           {"href" : "#taskID"},
           {"href" : "#taskURL"},
@@ -131,9 +131,9 @@
       },
 
       {"id":"jobRecord", "type":"semantic", "tag":"taxonomy",
-        "title":"A single job record (which has a collection of tasks)",
+        "title":"A job record (which has a collection of tasks)",
         "def":"https://rwmbook.github.io/job-task-record",
-        "doc": {"value":"A complete +job+ record including the collection of tasks."},
+        "doc": {"value":"A complete job record including the collection of tasks."},
         "descriptor" : [
           {"href" : "#jobID"},
           {"href" : "#jobURL"},

@@ -29,11 +29,13 @@
 <br />
 Each <a href="https://rwmbook.github.io/alps-documents/other/jobs/docs/semantic.jobRecord.html"><strong>job</strong></a> contains one or more <a href="https://rwmbook.github.io/alps-documents/other/jobs/docs/semantic.taskRecord.html"><strong>tasks</strong></a>. The set of <strong>tasks</strong> in each <strong>job</strong> MUST be able to run in parallel. Each <strong>task</strong> SHOULD be <em>repeatable</em> and <em>reversible</em>. Each <strong>job</strong> SHOULD be <em>restartable</em> and <em>reentrant</em>.<br />
 <br />
-To run a <strong>job</strong>, the <strong>job</strong> document should be submitted to a <em>workflow engine</em>. Upon recieving the document the workflow engine will return a <code>202 Accepted</code> while the tasks are processed and will eventually return a <code>200 OK</code> or a <code>4xx/5xx</code> HTTP status with the completed response. Upon completion of a <strong>job</strong>, that <strong>job</strong> document MAY be archived for future reference (or re-execution) and the appropriate link (<code>jobSuccessURL</code> or <code>jobFailedURL</code>) is activated.<br />
+To run a <strong>job</strong>, the <strong>job</strong> document should be submitted to a <em>workflow engine</em>. Upon recieving the document the workflow engine will return a <code>202 Accepted</code> while the tasks are processed and will eventually return a <code>200 OK</code> or a <code>4xx/5xx</code> HTTP status with the completed response. Upon completion of a <strong>job</strong>, that <strong>job</strong> document MAY be archived for future reference (or re-execution) and the appropriate link (<code>jobSuccessURL</code> or <code>jobFailedURL</code>) SHOULD be activated.<br />
 <br />
-Workflow engines  MUST be prepared to handle the <code>taskURL</code>, <code>taskRollbackURL</code>, and <code>taskRerunURL</code> properties as well as monitor/update progress via <code>taskStatus</code> and <code>jobStatus</code>. The engine SHOULD also monitor the <code>jobMaxTTL</code> and <code>taskMaxTTL</code> values and cancel jobs where the maximum run time has been exceeded.<br />
+Compliant Workflow engines MUST be prepared to handle the <code>taskURL</code>, <code>taskRollbackURL</code>, and <code>taskRerunURL</code> properties as well as monitor/update progress via <code>taskStatus</code> and <code>jobStatus</code>. The engines SHOULD also monitor the <code>jobMaxTTL</code> and <code>taskMaxTTL</code> values and cancel jobs where the maximum run time has been exceeded.<br />
 <br />
 <strong>Tasks</strong> that need to be run in a fixed sequence MUST be separated into individual <strong>job</strong> documents and those <strong>job</strong> documents can be run in fixed order as each <strong>job</strong> successfully completes.<br />
+<br />
+<strong>NOTE:</strong> Workflow <em>authoring</em> services MAY be separate from workflow <em>execution</em> services. The editor and the engine don't need to be hosted within the same service interface.<br />
 <br />
 For more on <strong>RESTful Job Control</strong> see <a href="http://b.mamund.com/rwmbook">RESTful Web API Patterns and Practices Cookbook</a>.</p>
 
@@ -69,7 +71,7 @@ For more on <strong>RESTful Job Control</strong> see <a href="http://b.mamund.co
 <li><a href="docs/semantic.jobItem.html">jobItem</a> (semantic), Job item resource</li>
 <li><a href="docs/semantic.jobList.html">jobList</a> (semantic), Job list resource</li>
 <li><a href="docs/semantic.jobMaxTTL.html">jobMaxTTL</a> (semantic), Indicates the maximum amount of time (in <em>seconds</em>) this resource is considered valid.</li>
-<li><a href="docs/semantic.jobRecord.html">jobRecord</a> (semantic), A single job record (which has a collection of tasks)</li>
+<li><a href="docs/semantic.jobRecord.html">jobRecord</a> (semantic), A job record (which has a collection of tasks)</li>
 <li><a href="docs/semantic.jobStatus.html">jobStatus</a> (semantic), Indicates resource status (pending, working, completed, failed)</li>
 <li><a href="docs/semantic.jobSuccess.html">jobSuccess</a> (semantic), Successful job completion resource</li>
 <li><a href="docs/semantic.jobSuccessURL.html">jobSuccessURL</a> (semantic), URL to follow after successful completion of this job resource</li>
@@ -79,7 +81,7 @@ For more on <strong>RESTful Job Control</strong> see <a href="http://b.mamund.co
 <li><a href="docs/semantic.taskID.html">taskID</a> (semantic), unique identifier for this task.</li>
 <li><a href="docs/semantic.taskMaxTTL.html">taskMaxTTL</a> (semantic), Indicates the maximum amount of time (in <em>seconds</em>) this task is considered valid.</li>
 <li><a href="docs/semantic.taskMessage.html">taskMessage</a> (semantic), Human-readable text that contains any messages related to the task.</li>
-<li><a href="docs/semantic.taskRecord.html">taskRecord</a> (semantic), A single task record (part of a job)</li>
+<li><a href="docs/semantic.taskRecord.html">taskRecord</a> (semantic), A task record (part of a job)</li>
 <li><a href="docs/semantic.taskRerunURL.html">taskRerunURL</a> (semantic), Forced Rerun URL of the task</li>
 <li><a href="docs/semantic.taskRollbackURL.html">taskRollbackURL</a> (semantic), Rollback URL of the task</li>
 <li><a href="docs/semantic.taskStartDateTime.html">taskStartDateTime</a> (semantic), Indicates the date/time (UTC) processing started.</li>

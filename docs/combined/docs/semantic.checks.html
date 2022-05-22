@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+    <title>checks (semantic)</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+        <p>Combined Semantic Profiles for RWMBook: Semantic Descriptor</p>
+
+<h1>checks</h1>
+
+<ul>
+<li>type: semantic</li>
+<li>title: List of downstream dependencies</li>
+<li>doc: This object MAY have a number of unique keys, one for each logical downstream dependency or sub-component.</li>
+<li>def: <a href="https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4">https://datatracker.ietf.org/doc/html/draft-inadarei-api-health-check-06#section-4</a></li>
+<li>tag: <a href="tag.ontology.html">ontology</a>, <a href="tag.checks.html">checks</a></li>
+<li>descriptor
+<table>
+<thead>
+<tr>
+  <th>id</th>
+  <th>type</th>
+  <th>title</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="semantic.componentName.html">componentName</a></td>
+  <td>semantic</td>
+  <td>Human-readable name for the component.</td>
+</tr>
+<tr>
+  <td><a href="semantic.measurementName.html">measurementName</a></td>
+  <td>semantic</td>
+  <td>Web URL</td>
+</tr>
+<tr>
+  <td><a href="semantic.componentId.html">componentId</a></td>
+  <td>semantic</td>
+  <td>A unique identifier of an instance of a specific sub-component/dependency.</td>
+</tr>
+<tr>
+  <td><a href="semantic.componentType.html">componentType</a></td>
+  <td>semantic</td>
+  <td>SHOULD be present if componentName is present (component, datastore, system).</td>
+</tr>
+<tr>
+  <td><a href="semantic.observedValue.html">observedValue</a></td>
+  <td>semantic</td>
+  <td>Any valid JSON value</td>
+</tr>
+<tr>
+  <td><a href="semantic.observedUnit.html">observedUnit</a></td>
+  <td>semantic</td>
+  <td>The unit of measurement in which observedValue is reported</td>
+</tr>
+<tr>
+  <td><a href="semantic.status.html">status</a></td>
+  <td>semantic</td>
+  <td>indicates service status (pass, fail, warn)</td>
+</tr>
+<tr>
+  <td><a href="semantic.affectedEndpoints.html">affectedEndpoints</a></td>
+  <td>semantic</td>
+  <td>A JSON array containing URI Templates</td>
+</tr>
+<tr>
+  <td><a href="semantic.time.html">time</a></td>
+  <td>semantic</td>
+  <td>The date-time at which the reading of the observedValue was recorded.</td>
+</tr>
+<tr>
+  <td><a href="semantic.output.html">output</a></td>
+  <td>semantic</td>
+  <td>The raw error output, in case of 'fail' or 'warn' states.</td>
+</tr>
+<tr>
+  <td><a href="semantic.links.html">links</a></td>
+  <td>semantic</td>
+  <td>An object containing link relations and URIs [RFC3986] for external links</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+
+<hr />
+
+<p><a href="../index.html">home</a> | <a href="../combined.svg">asd</a></p>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<html lang="en">
+<head>
+    <title>ALPS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+        <h1>Combined Semantic Profiles for RWMBook</h1>
+
+<p><strong>THIS IS AN UNSTABLE DRAFT DOCUMENT</strong><br />
+<br />
+This ALPS document links together all the existing ALPS semantifc profiles for the <a href="http://b.mamund.com/rwmbook">RWMBook</a>.</p>
+
+<ul>
+<li><a href="combined.json">ALPS</a></li>
+<li><a href="docs/asd.html">Application State Diagram</a></li>
+<li>Semantic Descriptors
+
+<ul>
+<li><a href="docs/semantic.accept.html">accept</a> (semantic), List of supported media types for responses</li>
+<li><a href="docs/semantic.accepted.html">accepted</a> (semantic), Delayed Response resource</li>
+<li><a href="docs/semantic.acceptedRecord.html">acceptedRecord</a> (semantic), A single accepted record</li>
+<li><a href="docs/semantic.adr.html">adr</a> (semantic), Physical address</li>
+<li><a href="docs/semantic.affectedEndpoints.html">affectedEndpoints</a> (semantic), A JSON array containing URI Templates</li>
+<li><a href="docs/semantic.allow.html">allow</a> (semantic), HTTP methods supported for this service context</li>
+<li><a href="docs/semantic.apis.html">apis</a> (semantic), List of APIs identified in the file</li>
+<li><a href="docs/semantic.apisJSON.html">apisJSON</a> (semantic), APIs.json resource</li>
+<li><a href="docs/semantic.baseUrl.html">baseUrl</a> (semantic), Web URL</li>
+<li><a href="docs/semantic.cacheTTL.html">cacheTTL</a> (semantic), How long (in milliseconds) the response should be cached by the client</li>
+<li><a href="docs/semantic.cachingDirectives.html">cachingDirectives</a> (semantic), Additional caching directives for the query</li>
+<li><a href="docs/semantic.cancel.html">cancel</a> (semantic), Requested cancel resource</li>
+<li><a href="docs/semantic.charset.html">charset</a> (semantic), List of supported character sets that may be used responses</li>
+<li><a href="docs/semantic.checks.html">checks</a> (semantic), List of downstream dependencies</li>
+<li><a href="docs/semantic.clientMetaPreferences.html">clientMetaPreferences</a> (semantic), List of client preference options this service supports</li>
+<li><a href="docs/semantic.common.html">common</a> (semantic), List of common properties</li>
+<li><a href="docs/semantic.completed.html">completed</a> (semantic), Requested completed resource</li>
+<li><a href="docs/semantic.completedURL.html">completedURL</a> (semantic), URL of the completed status resource</li>
+<li><a href="docs/semantic.componentId.html">componentId</a> (semantic), A unique identifier of an instance of a specific sub-component/dependency.</li>
+<li><a href="docs/semantic.componentName.html">componentName</a> (semantic), Human-readable name for the component.</li>
+<li><a href="docs/semantic.componentType.html">componentType</a> (semantic), SHOULD be present if componentName is present (component, datastore, system).</li>
+<li><a href="docs/semantic.contact.html">contact</a> (semantic)</li>
+<li><a href="docs/semantic.created.html">created</a> (semantic), Creation date of the file</li>
+<li><a href="docs/semantic.data.html">data</a> (semantic), The data for the property</li>
+<li><a href="docs/semantic.dateCreated.html">dateCreated</a> (semantic), Indicates the date/time (UTC) this delayed response was first created).</li>
+<li><a href="docs/semantic.dateEstimated.html">dateEstimated</a> (semantic), Indicates the date/time (UTC) this this delayed request is expected to complete.</li>
+<li><a href="docs/semantic.dateUpdated.html">dateUpdated</a> (semantic), Indicates the last date/time (UTC) this delayed response was modified).</li>
+<li><a href="docs/semantic.description.html">description</a> (semantic), A human-friendly description of the service.</li>
+<li><a href="docs/idempotent.doCancel.html">doCancel</a> (idempotent), Request to cancel this outstanding delayed task (using DELETE)</li>
+<li><a href="docs/idempotent.doCancelSubmit.html">doCancelSubmit</a> (idempotent), Cancel (abandon) form submission</li>
+<li><a href="docs/idempotent.doCancelWIP.html">doCancelWIP</a> (idempotent), Cancel an existing WIP resource</li>
+<li><a href="docs/idempotent.doCreateWIP.html">doCreateWIP</a> (idempotent), Create a new WIP resource</li>
+<li><a href="docs/idempotent.doFinalSubmit.html">doFinalSubmit</a> (idempotent), Final (completed) submit of the form</li>
+<li><a href="docs/idempotent.doPartialSubmit.html">doPartialSubmit</a> (idempotent), Submit data using this form</li>
+<li><a href="docs/idempotent.doReplayCreate.html">doReplayCreate</a> (idempotent), Create a new replay resource..</li>
+<li><a href="docs/idempotent.doReplayRemove.html">doReplayRemove</a> (idempotent), Remove an existing replay resource..</li>
+<li><a href="docs/idempotent.doReplayUpdate.html">doReplayUpdate</a> (idempotent), Update an existing replay resource..</li>
+<li><a href="docs/idempotent.doResetSubmit.html">doResetSubmit</a> (idempotent), Reset form inputs to intitial state</li>
+<li><a href="docs/idempotent.doShareWIP.html">doShareWIP</a> (idempotent), Share/save an existing WIP resource</li>
+<li><a href="docs/idempotent.doStatusWIP.html">doStatusWIP</a> (idempotent), Modify the status of an exsiting WIP resource</li>
+<li><a href="docs/idempotent.doSubmitWIP.html">doSubmitWIP</a> (idempotent), Submit (for final acceptance) a completed WIP Rresource.</li>
+<li><a href="docs/idempotent.doUpdateWIP.html">doUpdateWIP</a> (idempotent), Update a single existing WIP resource</li>
+<li><a href="docs/semantic.email.html">email</a> (semantic), Email Address</li>
+<li><a href="docs/semantic.encoding.html">encoding</a> (semantic), List of supported content and transfer encodings</li>
+<li><a href="docs/semantic.exitList.html">exitList</a> (semantic), The controlled exit state (after you leave the list).</li>
+<li><a href="docs/semantic.failed.html">failed</a> (semantic), Requested failed resource</li>
+<li><a href="docs/semantic.failedURL.html">failedURL</a> (semantic), URL of the failed status resource</li>
+<li><a href="docs/semantic.fn.html">fn</a> (semantic), Full Name</li>
+<li><a href="docs/safe.goAccepted.html">goAccepted</a> (safe), Navigate to the delayed response resource</li>
+<li><a href="docs/safe.goAPIsJSON.html">goAPIsJSON</a> (safe), Navigate to the APIs.json resource</li>
+<li><a href="docs/safe.goCompleted.html">goCompleted</a> (safe), Navigate to the completed resource</li>
+<li><a href="docs/safe.goExit.html">goExit</a> (safe), Exist the list.</li>
+<li><a href="docs/safe.goFailed.html">goFailed</a> (safe), Navigate to the failed resource</li>
+<li><a href="docs/safe.goFilterWIP.html">goFilterWIP</a> (safe), Get a filtered list of WIP records</li>
+<li><a href="docs/safe.goFirst.html">goFirst</a> (safe), Move to the first page in the list.</li>
+<li><a href="docs/safe.goForm.html">goForm</a> (safe), Go to the input form</li>
+<li><a href="docs/safe.goHealth.html">goHealth</a> (safe), Navigate to the Health Checks resource</li>
+<li><a href="docs/safe.goHome.html">goHome</a> (safe), Go to the Home resource</li>
+<li><a href="docs/safe.goLast.html">goLast</a> (safe), Move to the last page in the list.</li>
+<li><a href="docs/safe.goList.html">goList</a> (safe), Go to the list (usually, the start of the list).</li>
+<li><a href="docs/safe.goListWIP.html">goListWIP</a> (safe), Go to the WIP list resource.</li>
+<li><a href="docs/safe.goMetaPreferences.html">goMetaPreferences</a> (safe), Go to the meta-preferences resource</li>
+<li><a href="docs/safe.goMRU.html">goMRU</a> (safe), Go to the MRU resource</li>
+<li><a href="docs/safe.goNext.html">goNext</a> (safe), Move forward to the next page in the last</li>
+<li><a href="docs/safe.goPrevious.html">goPrevious</a> (safe), Move back to the previous page in the list.</li>
+<li><a href="docs/safe.goQueryMetadata.html">goQueryMetadata</a> (safe), Navigate to the Query Metadata resource</li>
+<li><a href="docs/safe.goReadWIP.html">goReadWIP</a> (safe), Retrieve a single AIP resource.</li>
+<li><a href="docs/safe.goRelated.html">goRelated</a> (safe), Go to related link resource</li>
+<li><a href="docs/safe.goReplayFilter.html">goReplayFilter</a> (safe), Supports filtering the list of stored replay resources</li>
+<li><a href="docs/safe.goReplayItem.html">goReplayItem</a> (safe), Navigates to a single stored replay resources.</li>
+<li><a href="docs/safe.goReplayList.html">goReplayList</a> (safe), Navigates to the list of stored replay resources</li>
+<li><a href="docs/safe.goReplayQuery.html">goReplayQuery</a> (safe), Executes a stored replay resources.</li>
+<li><a href="docs/safe.goSelect.html">goSelect</a> (safe), Select an item from the list</li>
+<li><a href="docs/semantic.health.html">health</a> (semantic), Health Check resource</li>
+<li><a href="docs/semantic.home.html">home</a> (semantic)</li>
+<li><a href="docs/semantic.href.html">href</a> (semantic), URL of the form.</li>
+<li><a href="docs/semantic.humanUrl.html">humanUrl</a> (semantic), Web URL</li>
+<li><a href="docs/semantic.identifier.html">identifier</a> (semantic), unique identifier for this delayed response.</li>
+<li><a href="docs/semantic.image.html">image</a> (semantic), Web URL leading to associated image</li>
+<li><a href="docs/semantic.include.html">include</a> (semantic), List of APIs.json files referenced.</li>
+<li><a href="docs/semantic.input.html">input</a> (semantic), Input for the submit form</li>
+<li><a href="docs/semantic.inputForm.html">inputForm</a> (semantic), Form object and actions</li>
+<li><a href="docs/semantic.language.html">language</a> (semantic), List of supported natural languages for responses</li>
+<li><a href="docs/semantic.links.html">links</a> (semantic), An object containing link relations and URIs [RFC3986] for external links</li>
+<li><a href="docs/semantic.list.html">list</a> (semantic), The list and all the options.</li>
+<li><a href="docs/semantic.maintainers.html">maintainers</a> (semantic), List of people/orgs maintaining this file</li>
+<li><a href="docs/semantic.measurementName.html">measurementName</a> (semantic), Web URL</li>
+<li><a href="docs/semantic.mediaType.html">mediaType</a> (semantic), IANA media type</li>
+<li><a href="docs/semantic.MetaPreferences.html">MetaPreferences</a> (semantic), meta object with supported client preferencs</li>
+<li><a href="docs/semantic.modified.html">modified</a> (semantic), Date of last modification of this file</li>
+<li><a href="docs/semantic.mru.html">mru</a> (semantic), MRU link and action</li>
+<li><a href="docs/semantic.mrulink.html">mrulink</a> (semantic), MRU link object and actions</li>
+<li><a href="docs/semantic.name.html">name</a> (semantic), Name of API or collection</li>
+<li><a href="docs/semantic.navlink.html">navlink</a> (semantic), List navigation link object.</li>
+<li><a href="docs/semantic.notes.html">notes</a> (semantic), An array of notes relevant to current state of health</li>
+<li><a href="docs/semantic.observedUnit.html">observedUnit</a> (semantic), The unit of measurement in which observedValue is reported</li>
+<li><a href="docs/semantic.observedValue.html">observedValue</a> (semantic), Any valid JSON value</li>
+<li><a href="docs/semantic.org.html">org</a> (semantic), Organization</li>
+<li><a href="docs/semantic.output.html">output</a> (semantic), The raw error output, in case of 'fail' or 'warn' states.</li>
+<li><a href="docs/semantic.percentCompleted.html">percentCompleted</a> (semantic), A value (0-100) of completion.</li>
+<li><a href="docs/semantic.photo.html">photo</a> (semantic), URL</li>
+<li><a href="docs/semantic.profile.html">profile</a> (semantic), List of supported semantic profiles for this service</li>
+<li><a href="docs/semantic.properties.html">properties</a> (semantic), collection</li>
+<li><a href="docs/semantic.q-count.html">q-count</a> (semantic), Estimated size of the result set</li>
+<li><a href="docs/semantic.q-datetime.html">q-datetime</a> (semantic), Date-Time the query was executed</li>
+<li><a href="docs/semantic.q-executed.html">q-executed</a> (semantic), Actual query executed</li>
+<li><a href="docs/semantic.q-location.html">q-location</a> (semantic), Replay URL</li>
+<li><a href="docs/semantic.q-returned.html">q-returned</a> (semantic), The number of records returned in this response.</li>
+<li><a href="docs/semantic.q-score.html">q-score</a> (semantic), Results relevance scoring</li>
+<li><a href="docs/semantic.q-seconds.html">q-seconds</a> (semantic), Elapsed time for query execution (in seconds)</li>
+<li><a href="docs/semantic.q-sent.html">q-sent</a> (semantic), Query sent</li>
+<li><a href="docs/semantic.q-source.html">q-source</a> (semantic), Data source(s)</li>
+<li><a href="docs/semantic.q-status.html">q-status</a> (semantic), Query status</li>
+<li><a href="docs/semantic.q-suggest.html">q-suggest</a> (semantic), Query suggestions</li>
+<li><a href="docs/semantic.queryMetadata.html">queryMetadata</a> (semantic), Health Check resource</li>
+<li><a href="docs/semantic.refresh.html">refresh</a> (semantic), A value (in milliseconds) that represents the refresh interval</li>
+<li><a href="docs/semantic.rel.html">rel</a> (semantic), Relation value of the form URL</li>
+<li><a href="docs/semantic.related.html">related</a> (semantic), Related resource object and actions</li>
+<li><a href="docs/semantic.relatedlink.html">relatedlink</a> (semantic), Link object</li>
+<li><a href="docs/semantic.releaseId.html">releaseId</a> (semantic), Release/version identifier for the service.</li>
+<li><a href="docs/semantic.replayItem.html">replayItem</a> (semantic), Replay item resource</li>
+<li><a href="docs/semantic.replayList.html">replayList</a> (semantic), Replay list resource</li>
+<li><a href="docs/semantic.replayRecord.html">replayRecord</a> (semantic), A single query reply record</li>
+<li><a href="docs/semantic.replayResults.html">replayResults</a> (semantic), Query results resource</li>
+<li><a href="docs/semantic.resourceQuery.html">resourceQuery</a> (semantic), complete (original) query resource</li>
+<li><a href="docs/semantic.resources.html">resources</a> (semantic), List of resources available for API operations.</li>
+<li><a href="docs/semantic.selectRecord.html">selectRecord</a> (semantic), A single record from the list.</li>
+<li><a href="docs/semantic.serviceId.html">serviceId</a> (semantic), A unique identifier of the service.</li>
+<li><a href="docs/semantic.specifications.html">specifications</a> (semantic), List of open specifications</li>
+<li><a href="docs/semantic.status.html">status</a> (semantic), indicates service status (pass, fail, warn)</li>
+<li><a href="docs/semantic.tags.html">tags</a> (semantic), Array of descriptive strings</li>
+<li><a href="docs/semantic.tel.html">tel</a> (semantic), Phone number</li>
+<li><a href="docs/semantic.time.html">time</a> (semantic), The date-time at which the reading of the observedValue was recorded.</li>
+<li><a href="docs/semantic.title.html">title</a> (semantic), Text title of the form URL</li>
+<li><a href="docs/semantic.tools.html">tools</a> (semantic), List of open source tooling</li>
+<li><a href="docs/semantic.type.html">type</a> (semantic), media type string of form URL</li>
+<li><a href="docs/semantic.URL.html">URL</a> (semantic), URL of this delayed response document</li>
+<li><a href="docs/semantic.url.html">url</a> (semantic), Web URL</li>
+<li><a href="docs/semantic.vCard.html">vCard</a> (semantic), URL pointing to a vCard</li>
+<li><a href="docs/semantic.version.html">version</a> (semantic), Public version of the service.</li>
+<li><a href="docs/semantic.wipitem.html">wipitem</a> (semantic), A single WIP record.</li>
+<li><a href="docs/semantic.wiplink.html">wiplink</a> (semantic), WIP Link property object</li>
+<li><a href="docs/semantic.wiplist.html">wiplist</a> (semantic), WIP List resource</li>
+<li><a href="docs/semantic.x-github.html">x-github</a> (semantic), org/person's account</li>
+<li><a href="docs/semantic.x-twitter.html">x-twitter</a> (semantic), org/person's account</li>
+</ul></li>
+<li>Tags
+
+<ul>
+<li><a href="docs/tag.VCARD.html">VCARD</a></li>
+<li><a href="docs/tag.checks.html">checks</a></li>
+<li><a href="docs/tag.choreography.html">choreography</a></li>
+<li><a href="docs/tag.group.html">group</a></li>
+<li><a href="docs/tag.ontology.html">ontology</a></li>
+<li><a href="docs/tag.taxonomy.html">taxonomy</a></li>
+</ul></li>
+</ul>
+
+    </div>
+</body>
+</html>

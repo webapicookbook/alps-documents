@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>doRemove (idempotent)</title>
+    <title>goReplayQuery (safe)</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
     <style>
@@ -23,15 +23,15 @@
     <div class="markdown-body">
         <p>Store and Replay Complex Queries: Semantic Descriptor</p>
 
-<h1>doRemove</h1>
+<h1>goReplayQuery</h1>
 
 <ul>
-<li>type: idempotent</li>
-<li>title: Remove an existing replay resource..</li>
-<li>doc: Remove an existing replay resource.</li>
-<li>rel: remove</li>
+<li>type: safe</li>
+<li>title: Executes a stored replay resources.</li>
+<li>doc: Executes a single stored replay resources.</li>
+<li>rel: results</li>
 <li>tag: <a href="tag.choreography.html">choreography</a></li>
-<li>rt: <a href="semantic.replayList.html">replayList</a></li>
+<li>rt: <a href="semantic.replayResults.html">replayResults</a></li>
 <li>descriptor
 <table>
 <thead>
@@ -43,9 +43,9 @@
 </thead>
 <tbody>
 <tr>
-  <td><a href="semantic.identifier.html">identifier</a></td>
+  <td><a href="semantic.replayItem.html">replayItem</a></td>
   <td>semantic</td>
-  <td>unique identifier for the stored query.</td>
+  <td>Replay item resource</td>
 </tr>
 </tbody>
 </table></li>

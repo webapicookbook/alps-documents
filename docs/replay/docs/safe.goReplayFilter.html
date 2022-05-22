@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>doUpdate (idempotent)</title>
+    <title>goReplayFilter (safe)</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
     <style>
@@ -23,15 +23,15 @@
     <div class="markdown-body">
         <p>Store and Replay Complex Queries: Semantic Descriptor</p>
 
-<h1>doUpdate</h1>
+<h1>goReplayFilter</h1>
 
 <ul>
-<li>type: idempotent</li>
-<li>title: Update an existing replay resource..</li>
-<li>doc: Updates an existing replay resource.</li>
-<li>rel: update</li>
+<li>type: safe</li>
+<li>title: Supports filtering the list of stored replay resources</li>
+<li>doc: Supports filtering the list of stored replay resources.</li>
+<li>rel: replayFilter search</li>
 <li>tag: <a href="tag.choreography.html">choreography</a></li>
-<li>rt: <a href="semantic.replayItem.html">replayItem</a></li>
+<li>rt: <a href="semantic.replayList.html">replayList</a></li>
 <li>descriptor
 <table>
 <thead>
@@ -43,9 +43,9 @@
 </thead>
 <tbody>
 <tr>
-  <td><a href="semantic.replayItem.html">replayItem</a></td>
+  <td><a href="semantic.replayList.html">replayList</a></td>
   <td>semantic</td>
-  <td>Replay item resource</td>
+  <td>Replay list resource</td>
 </tr>
 </tbody>
 </table></li>

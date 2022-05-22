@@ -66,7 +66,7 @@
         "title":"Home resource","tag":"taxonomy", 
         "doc": {"value":"Home resource"},
         "descriptor" : [
-          {"href" : "#goList"}
+          {"href" : "#goReplayList"}
         ]
       },
 
@@ -75,11 +75,11 @@
         "doc": {"value":"Replay list resource"},
         "descriptor" : [
           {"href": "#goHome"},
-          {"href": "#goFilter"},
-          {"href": "#doCreate"},
-          {"href": "#goItem"},
-          {"href": "#goQuery"},
-          {"href": "#goList"},
+          {"href": "#goReplayFilter"},
+          {"href": "#doReplayCreate"},
+          {"href": "#goReplayItem"},
+          {"href": "#goReplayQuery"},
+          {"href": "#goReplayList"},
           {"href": "#replayRecord"}
         ]
       },
@@ -89,12 +89,12 @@
         "doc": {"value":"Replay item resource. This has all the information needed to replay a stored query."},
         "descriptor" : [
           {"href": "#goHome"},
-          {"href": "#goItem"},
-          {"href": "#doUpdate"},
-          {"href": "#doRemove"},
-          {"href": "#goQuery"},
-          {"href": "#goList"},
-          {"href": "#goFilter"},
+          {"href": "#goReplayItem"},
+          {"href": "#doReplayUpdate"},
+          {"href": "#doReplayRemove"},
+          {"href": "#goReplayQuery"},
+          {"href": "#goReplayList"},
+          {"href": "#goReplayFilter"},
           {"href": "#replayRecord"}
         ]
       },
@@ -110,7 +110,7 @@
         "doc": {"value":"Navigate to the home resource"}
       },
 
-      {"id":"goList", "type":"safe", "rt":"#replayList", "rel": "replayList collection",
+      {"id":"goReplayList", "type":"safe", "rt":"#replayList", "rel": "replayList collection",
         "title":"Navigates to the list of stored replay resources","tag":"choreography", 
         "doc": {"value":"Navigate ot the list of stored replay resources."},
         "descriptor": [
@@ -118,7 +118,7 @@
         ]
       }, 
  
-      {"id":"goFilter", "type":"safe", "rt":"#replayList", "rel": "replayFilter search",
+      {"id":"goReplayFilter", "type":"safe", "rt":"#replayList", "rel": "replayFilter search",
         "title":"Supports filtering the list of stored replay resources","tag":"choreography", 
         "doc": {"value":"Supports filtering the list of stored replay resources."},
         "descriptor": [
@@ -126,7 +126,7 @@
         ]
       }, 
       
-      {"id":"goItem", "type":"safe", "rt":"#replayItem", "rel": "replayItem item",
+      {"id":"goReplayItem", "type":"safe", "rt":"#replayItem", "rel": "replayItem item",
         "title":"Navigates to a single stored replay resources.","tag":"choreography", 
         "doc": {"value":"Navigate to a single stored replay resources."},
         "descriptor": [
@@ -134,7 +134,7 @@
         ]
       },
 
-      {"id":"goQuery", "type":"safe", "rt":"#replayResults", "rel": "results",
+      {"id":"goReplayQuery", "type":"safe", "rt":"#replayResults", "rel": "results",
         "title":"Executes a stored replay resources.","tag":"choreography", 
         "doc": {"value":"Executes a single stored replay resources."},
         "descriptor": [
@@ -143,7 +143,7 @@
       },
 
 
-      {"id":"doCreate", "type":"idempotent", "rt":"#replayItem", "rel": "create",
+      {"id":"doReplayCreate", "type":"idempotent", "rt":"#replayItem", "rel": "create",
         "title":"Create a new replay resource..","tag":"choreography", 
         "doc": {"value":"Create a new replay resource."},
         "descriptor": [
@@ -151,7 +151,7 @@
         ]
       },
 
-      {"id":"doUpdate", "type":"idempotent", "rt":"#replayItem", "rel": "update",
+      {"id":"doReplayUpdate", "type":"idempotent", "rt":"#replayItem", "rel": "update",
         "title":"Update an existing replay resource..","tag":"choreography", 
         "doc": {"value":"Updates an existing replay resource."},
         "descriptor": [
@@ -159,7 +159,7 @@
         ]
       },
 
-      {"id":"doRemove", "type":"idempotent", "rt":"#replayList", "rel": "remove",
+      {"id":"doReplayRemove", "type":"idempotent", "rt":"#replayList", "rel": "remove",
         "title":"Remove an existing replay resource..","tag":"choreography", 
         "doc": {"value":"Remove an existing replay resource."},
         "descriptor": [

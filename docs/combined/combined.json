@@ -16,7 +16,7 @@
           {"href": "https://rwmbook.github.io/alps-documents/wip/wip.json#goListWIP"},
           {"href": "https://rwmbook.github.io/alps-documents/accepted/accepted.json#goAccepted"},
           {"href": "https://rwmbook.github.io/alps-documents/partial-submit/partial-submit.json#goForm"},
-          {"href": "https://rwmbook.github.io/alps-documents/replay/replay.json#goList"}
+          {"href": "https://rwmbook.github.io/alps-documents/replay/replay.json#goReplayList"}
         ]
       }
     ]

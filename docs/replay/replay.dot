@@ -1,0 +1,26 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="Store and Replay Complex Queries";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    replayItem [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>replayItem<br />(replayRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.replayItem.html" target="_parent"]
+    replayList [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>replayList<br />(replayRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.replayList.html" target="_parent"]
+
+    home -> replayList [label = <goList, replayList collection (safe)> URL="docs/safe.goList.html" target="_parent" fontsize=13];
+    replayItem -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    replayItem -> replayItem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doUpdate.html">doUpdate (idempotent)</td></tr><tr><td align="left" href="docs/safe.goItem.html">goItem (safe)</td></tr></table>> fontsize=13];
+    replayItem -> replayList [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doRemove.html">doRemove (idempotent)</td></tr><tr><td align="left" href="docs/safe.goFilter.html">goFilter (safe)</td></tr><tr><td align="left" href="docs/safe.goList.html">goList (safe)</td></tr></table>> fontsize=13];
+    replayItem -> replayResults [label = <goQuery, results (safe)> URL="docs/safe.goQuery.html" target="_parent" fontsize=13];
+    replayList -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    replayList -> replayItem [label=<<table  border="0"><tr><td align="left" href="docs/idempotent.doCreate.html">doCreate (idempotent)</td></tr><tr><td align="left" href="docs/safe.goItem.html">goItem (safe)</td></tr></table>> fontsize=13];
+    replayList -> replayList [label=<<table  border="0"><tr><td align="left" href="docs/safe.goFilter.html">goFilter (safe)</td></tr><tr><td align="left" href="docs/safe.goList.html">goList (safe)</td></tr></table>> fontsize=13];
+    replayList -> replayResults [label = <goQuery, results (safe)> URL="docs/safe.goQuery.html" target="_parent" fontsize=13];
+
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+    replayResults [label = <replayResults> URL="docs/semantic.replayResults.html" target="_parent"]
+
+}

@@ -1,0 +1,173 @@
+{
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps" : {
+    "version" : "1.0",
+    "title" : "Store and Replay Complex Queries",
+    "doc" : {"value": "*A pattern for capturing and storing complex filter queries for later replay*\n\nA workflow pattern that supports storing complex queries as unqiue resources and then returning the URLs for these query resources for later replay. The pattern includes actions for managing the list of stored queries."},
+    
+    "descriptor": [
+      {"id":"identifier", "type":"semantic", "tag":"ontology",
+        "title":"unique identifier for the stored query.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"Unique value for a stored query (usually a UUID)."}},
+        
+      {"id":"URL", "type":"semantic", "tag":"ontology",
+        "title":"URL of this delayed response document", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to this document."}},
+
+      {"id":"resourceQuery", "type":"semantic", "tag":"ontology",
+        "title":"complete (original) query resource", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This is the original query statement that was submitted. I can now be used to replay the query without the caller sending the query statement."}},
+
+      {"id":"cacheTTL", "type":"semantic", "tag":"ontology",
+        "title":"How long (in milliseconds) the response should be cached by the client", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"The value, in milliseconds, represents how long the query response should be cached by the client. If this value is zero or missing, the response SHOULD NOT be cached by the client."}},
+
+      {"id":"cachingDirectives", "type":"semantic","tag":"ontology",
+        "title":"Additional caching directives for the query",
+        "def":"https://rwmbook.github.com/cachingDirectives",
+        "doc":{"value":"Additional cachingDirectives to use when sending the query response. If this field is blank or missing, there are no additional caching directives."}},
+
+      {"id":"description", "type":"semantic", "tag":"ontology",
+        "title":"Human-readable text that describes this stored query.", 
+        "def":"https://schema.org/description",
+        "doc": {"value":"The human-readable text that describes this stored query."}},
+
+      {"id":"dateCreated", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the date/time (UTC) this delayed response was first created).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this delayed record was created (in UTC)."}},
+
+      {"id":"dateUpdated", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the last date/time (UTC) this delayed response was modified).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this delayed record was last modified (in UTC)."}},
+
+      {"id":"replayRecord", "type":"semantic", "tag":"taxonomy",
+        "title":"A single query reply record",
+        "def":"https://rwmbook.github.io/replay-record",
+        "doc": {"value":"A complete replay query record that is stored for later replay"},
+        "descriptor" : [
+          {"href" : "#identifier"},
+          {"href" : "#URL"},
+          {"href" : "#resourceQuery"},
+          {"href" : "#cacheTTL"},
+          {"href" : "#cachingDirectives"},
+          {"href" : "#description"},
+          {"href" : "#dateCreated"},
+          {"href" : "#dateUpdated"}
+        ]
+      },
+
+      {"id":"home", "type":"semantic",
+        "title":"Home resource","tag":"taxonomy", 
+        "doc": {"value":"Home resource"},
+        "descriptor" : [
+          {"href" : "#goList"}
+        ]
+      },
+
+      {"id":"replayList", "type":"semantic",
+        "title":"Replay list resource","tag":"taxonomy", 
+        "doc": {"value":"Replay list resource"},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#goFilter"},
+          {"href": "#doCreate"},
+          {"href": "#goItem"},
+          {"href": "#goQuery"},
+          {"href": "#goList"},
+          {"href": "#replayRecord"}
+        ]
+      },
+
+      {"id":"replayItem", "type":"semantic",
+        "title":"Replay item resource","tag":"taxonomy", 
+        "doc": {"value":"Replay item resource. This has all the information needed to replay a stored query."},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#goItem"},
+          {"href": "#doUpdate"},
+          {"href": "#doRemove"},
+          {"href": "#goQuery"},
+          {"href": "#goList"},
+          {"href": "#goFilter"},
+          {"href": "#replayRecord"}
+        ]
+      },
+
+      {"id":"replayResults", "type":"semantic",
+        "title":"Query results resource","tag":"taxonomy", 
+        "doc": {"value":"Query results resource"}
+      },
+
+
+      {"id":"goHome", "type":"safe", "rt":"#home", "rel": "home",
+        "title":"Navigate to the home resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the home resource"}
+      },
+
+      {"id":"goList", "type":"safe", "rt":"#replayList", "rel": "replayList collection",
+        "title":"Navigates to the list of stored replay resources","tag":"choreography", 
+        "doc": {"value":"Navigate ot the list of stored replay resources."},
+        "descriptor": [
+          {"href":"#replayList"}
+        ]
+      }, 
+ 
+      {"id":"goFilter", "type":"safe", "rt":"#replayList", "rel": "replayFilter search",
+        "title":"Supports filtering the list of stored replay resources","tag":"choreography", 
+        "doc": {"value":"Supports filtering the list of stored replay resources."},
+        "descriptor": [
+          {"href":"#replayList"}
+        ]
+      }, 
+      
+      {"id":"goItem", "type":"safe", "rt":"#replayItem", "rel": "replayItem item",
+        "title":"Navigates to a single stored replay resources.","tag":"choreography", 
+        "doc": {"value":"Navigate to a single stored replay resources."},
+        "descriptor": [
+          {"href":"#replayItem"}
+        ]
+      },
+
+      {"id":"goQuery", "type":"safe", "rt":"#replayResults", "rel": "results",
+        "title":"Executes a stored replay resources.","tag":"choreography", 
+        "doc": {"value":"Executes a single stored replay resources."},
+        "descriptor": [
+          {"href":"#replayItem"}
+        ]
+      },
+
+
+      {"id":"doCreate", "type":"idempotent", "rt":"#replayItem", "rel": "create",
+        "title":"Create a new replay resource..","tag":"choreography", 
+        "doc": {"value":"Create a new replay resource."},
+        "descriptor": [
+          {"href":"#replayItem"}
+        ]
+      },
+
+      {"id":"doUpdate", "type":"idempotent", "rt":"#replayItem", "rel": "update",
+        "title":"Update an existing replay resource..","tag":"choreography", 
+        "doc": {"value":"Updates an existing replay resource."},
+        "descriptor": [
+          {"href":"#replayItem"}
+        ]
+      },
+
+      {"id":"doRemove", "type":"idempotent", "rt":"#replayList", "rel": "remove",
+        "title":"Remove an existing replay resource..","tag":"choreography", 
+        "doc": {"value":"Remove an existing replay resource."},
+        "descriptor": [
+          {"href":"#identifier"}
+        ]
+      }
+    ]
+  }
+}
+
+

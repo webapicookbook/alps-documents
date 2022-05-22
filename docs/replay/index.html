@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <title>ALPS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+        <h1>Store and Replay Complex Queries</h1>
+
+<p><em>A pattern for capturing and storing complex filter queries for later replay</em><br />
+<br />
+A workflow pattern that supports storing complex queries as unqiue resources and then returning the URLs for these query resources for later replay. The pattern includes actions for managing the list of stored queries.</p>
+
+<ul>
+<li><a href="replay.json">ALPS</a></li>
+<li><a href="docs/asd.html">Application State Diagram</a></li>
+<li>Semantic Descriptors
+
+<ul>
+<li><a href="docs/semantic.cacheTTL.html">cacheTTL</a> (semantic), How long (in milliseconds) the response should be cached by the client</li>
+<li><a href="docs/semantic.cachingDirectives.html">cachingDirectives</a> (semantic), Additional caching directives for the query</li>
+<li><a href="docs/semantic.dateCreated.html">dateCreated</a> (semantic), Indicates the date/time (UTC) this delayed response was first created).</li>
+<li><a href="docs/semantic.dateUpdated.html">dateUpdated</a> (semantic), Indicates the last date/time (UTC) this delayed response was modified).</li>
+<li><a href="docs/semantic.description.html">description</a> (semantic), Human-readable text that describes this stored query.</li>
+<li><a href="docs/idempotent.doCreate.html">doCreate</a> (idempotent), Create a new replay resource..</li>
+<li><a href="docs/idempotent.doRemove.html">doRemove</a> (idempotent), Remove an existing replay resource..</li>
+<li><a href="docs/idempotent.doUpdate.html">doUpdate</a> (idempotent), Update an existing replay resource..</li>
+<li><a href="docs/safe.goFilter.html">goFilter</a> (safe), Supports filtering the list of stored replay resources</li>
+<li><a href="docs/safe.goHome.html">goHome</a> (safe), Navigate to the home resource</li>
+<li><a href="docs/safe.goItem.html">goItem</a> (safe), Navigates to a single stored replay resources.</li>
+<li><a href="docs/safe.goList.html">goList</a> (safe), Navigates to the list of stored replay resources</li>
+<li><a href="docs/safe.goQuery.html">goQuery</a> (safe), Executes a stored replay resources.</li>
+<li><a href="docs/semantic.home.html">home</a> (semantic), Home resource</li>
+<li><a href="docs/semantic.identifier.html">identifier</a> (semantic), unique identifier for the stored query.</li>
+<li><a href="docs/semantic.replayItem.html">replayItem</a> (semantic), Replay item resource</li>
+<li><a href="docs/semantic.replayList.html">replayList</a> (semantic), Replay list resource</li>
+<li><a href="docs/semantic.replayRecord.html">replayRecord</a> (semantic), A single query reply record</li>
+<li><a href="docs/semantic.replayResults.html">replayResults</a> (semantic), Query results resource</li>
+<li><a href="docs/semantic.resourceQuery.html">resourceQuery</a> (semantic), complete (original) query resource</li>
+<li><a href="docs/semantic.URL.html">URL</a> (semantic), URL of this delayed response document</li>
+</ul></li>
+<li>Tags
+
+<ul>
+<li><a href="docs/tag.choreography.html">choreography</a></li>
+<li><a href="docs/tag.ontology.html">ontology</a></li>
+<li><a href="docs/tag.taxonomy.html">taxonomy</a></li>
+</ul></li>
+</ul>
+
+    </div>
+</body>
+</html>

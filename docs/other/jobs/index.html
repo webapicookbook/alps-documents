@@ -46,9 +46,11 @@ For more on <strong>RESTful Job Control</strong> see <a href="http://b.mamund.co
 
 <ul>
 <li><a href="docs/idempotent.doJobCancel.html">doJobCancel</a> (idempotent), Request to cancel this outstanding job (using DELETE)</li>
+<li><a href="docs/idempotent.doJobContinue.html">doJobContinue</a> (idempotent), Request to contineu this job from where it last left off</li>
 <li><a href="docs/idempotent.doJobCreate.html">doJobCreate</a> (idempotent), Create a new job record.</li>
 <li><a href="docs/idempotent.doJobFailed.html">doJobFailed</a> (idempotent), Navigate to the failed resource</li>
 <li><a href="docs/idempotent.doJobRemove.html">doJobRemove</a> (idempotent), remove job record (via DELETE).</li>
+<li><a href="docs/idempotent.doJobRestart.html">doJobRestart</a> (idempotent), Request to restart this job from teh beginning</li>
 <li><a href="docs/idempotent.doJobSuccess.html">doJobSuccess</a> (idempotent), Navigate to the delayed response resource</li>
 <li><a href="docs/idempotent.doJobUpdate.html">doJobUpdate</a> (idempotent), Update existing job item resource</li>
 <li><a href="docs/idempotent.doTaskCancel.html">doTaskCancel</a> (idempotent), Cancel the task</li>
@@ -63,6 +65,7 @@ For more on <strong>RESTful Job Control</strong> see <a href="http://b.mamund.co
 <li><a href="docs/semantic.home.html">home</a> (semantic), Home resource</li>
 <li><a href="docs/semantic.jobCancelled.html">jobCancelled</a> (semantic), Cancelled job resource</li>
 <li><a href="docs/semantic.jobCancelURL.html">jobCancelURL</a> (semantic), URL to cancel this job</li>
+<li><a href="docs/semantic.jobContinueURL.html">jobContinueURL</a> (semantic), URL to continue this job where it last left off.</li>
 <li><a href="docs/semantic.jobDateCreated.html">jobDateCreated</a> (semantic), Indicates the date/time (UTC) this resource was first created).</li>
 <li><a href="docs/semantic.jobDateUpdated.html">jobDateUpdated</a> (semantic), Indicates the last date/time (UTC) this resource was modified).</li>
 <li><a href="docs/semantic.jobDescription.html">jobDescription</a> (semantic), Human-readable text that describes this document.</li>
@@ -73,6 +76,7 @@ For more on <strong>RESTful Job Control</strong> see <a href="http://b.mamund.co
 <li><a href="docs/semantic.jobList.html">jobList</a> (semantic), Job list resource</li>
 <li><a href="docs/semantic.jobMaxTTL.html">jobMaxTTL</a> (semantic), Indicates the maximum amount of time (in <em>seconds</em>) this resource is considered valid.</li>
 <li><a href="docs/semantic.jobRecord.html">jobRecord</a> (semantic), A job record (which has a collection of tasks)</li>
+<li><a href="docs/semantic.jobRestartURL.html">jobRestartURL</a> (semantic), URL to restart this jobfrom the very beginning.</li>
 <li><a href="docs/semantic.jobStatus.html">jobStatus</a> (semantic), Indicates resource status (pending, working, completed, failed)</li>
 <li><a href="docs/semantic.jobSuccess.html">jobSuccess</a> (semantic), Successful job completion resource</li>
 <li><a href="docs/semantic.jobSuccessURL.html">jobSuccessURL</a> (semantic), URL to follow after successful completion of this job resource</li>

@@ -31,6 +31,16 @@
         "def":"https://schema.org/url",
         "doc": {"value":"This URL points to the resource to follow when the job run fails. This MAY be another job document."}},
 
+      {"id":"jobContinueURL", "type":"semantic", "tag":"ontology",
+        "title":"URL to continue this job where it last left off.", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the resource that will continue the job where it last left off. This SHOULD result skipping tany tasks that have a status of +completed+ or +failed+, resetting any jobs with +working+ status to +pending+ and running any tasks in the job with a status of +pending+."}},
+
+      {"id":"jobRestartURL", "type":"semantic", "tag":"ontology",
+        "title":"URL to restart this jobfrom the very beginning.", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the resource that will restart the job from the very beginning. This SHOULD result resetting all tasks in this job to +pending+ and resetting the timeout counter back to zero for the job and all tasks."}},
+
       {"id":"jobCancelURL", "type":"semantic", "tag":"ontology",
         "title":"URL to cancel this job", 
         "def":"https://schema.org/url",
@@ -148,6 +158,8 @@
         "descriptor" : [
           {"href" : "#jobID"},
           {"href" : "#jobURL"},
+          {"href" : "#jobRestartURL"},
+          {"href" : "#jobContinueURL"},
           {"href" : "#jobCancelURL"},
           {"href" : "#jobSuccessURL"},
           {"href" : "#jobFailedURL"},
@@ -187,6 +199,8 @@
           {"href": "#goHome"},
           {"href": "#doJobUpdate"},
           {"href": "#doJobRemove"},
+          {"href": "#doJobRestart"},
+          {"href": "#doJobContinue"},
           {"href": "#doJobSuccess"},
           {"href": "#doJobCancel"},
           {"href": "#doJobFailed"},
@@ -265,6 +279,22 @@
       {"id":"doJobCancel", "type":"idempotent", "rt":"#jobCancelled", "rel": "job cancel",
         "title":"Request to cancel this outstanding job (using DELETE)","tag":"choreography", 
         "doc": {"value":"Use this action to cancel the outstanding delayed request. Usually applied to a FORM that includes URL, method, and other metadata. Not all request may support this action."},
+        "descriptor": [
+          {"href":"#jobID"}
+        ]
+      }, 
+
+      {"id":"doJobRestart", "type":"idempotent", "rt":"#jobItem", "rel": "job restart",
+        "title":"Request to restart this job from teh beginning","tag":"choreography", 
+        "doc": {"value":"Use this action to restart the job from the beginning. This should set all tasks in the job to +pending+ status and reset any internal timers to zero."},
+        "descriptor": [
+          {"href":"#jobID"}
+        ]
+      }, 
+
+      {"id":"doJobContinue", "type":"idempotent", "rt":"#jobItem", "rel": "job continue",
+        "title":"Request to contineu this job from where it last left off","tag":"choreography", 
+        "doc": {"value":"Use this action to continue the job from where it last lewft off. This should skip all tasks marked +completed+ or +failed+ and set any tasks marked +working+ to +pending+ and then run all tasks set to +pending+ ."},
         "descriptor": [
           {"href":"#jobID"}
         ]

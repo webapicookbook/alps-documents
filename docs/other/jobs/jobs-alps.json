@@ -30,6 +30,11 @@
         "title":"URL to follow after a failed job run of this job resource", 
         "def":"https://schema.org/url",
         "doc": {"value":"This URL points to the resource to follow when the job run fails. This MAY be another job document."}},
+
+      {"id":"jobCancelURL", "type":"semantic", "tag":"ontology",
+        "title":"URL to cancel this job", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the resource that will cancel the job. This SHOULD result in calling the *taskCancelURL* for any currently running tasks in the job as well as the *taskRollbackURL* for each task in the job."}},
         
       {"id":"jobStatus", "type":"semantic", "tag":"ontology",
         "title":"Indicates resource status (pending, working, completed, failed)", 
@@ -111,6 +116,11 @@
         "def":"https://schema.org/url",
         "doc": {"value":"This URL points to the URL that can perform a fored rerun (even if completed) of this task."}},
 
+      {"id":"taskCancelURL", "type":"semantic", "tag":"ontology",
+        "title":"URL to cancel task", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the resouce that will cancel the task."}},
+
       {"id":"taskRecord", "type":"semantic", "tag":"taxonomy",
         "title":"A task record (part of a job)",
         "def":"https://rwmbook.github.io/job-task-record",
@@ -125,6 +135,7 @@
           {"href" : "#taskMaxTTL"},
           {"href" : "#taskMessage"},
           {"href" : "#taskStartURL"},
+          {"href" : "#taskCancelURL"},
           {"href" : "#taskRollbackURL"},
           {"href" : "#taskRerunURL"}
         ]
@@ -137,6 +148,7 @@
         "descriptor" : [
           {"href" : "#jobID"},
           {"href" : "#jobURL"},
+          {"href" : "#jobCancelURL"},
           {"href" : "#jobSuccessURL"},
           {"href" : "#jobFailedURL"},
           {"href" : "#jobDescription"},

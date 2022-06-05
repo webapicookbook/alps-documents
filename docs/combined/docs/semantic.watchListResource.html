@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <title>list (semantic)</title>
+    <title>watchListResource (semantic)</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
     <style>
@@ -23,12 +23,11 @@
     <div class="markdown-body">
         <p>Combined Semantic Profiles for RWMBook: Semantic Descriptor</p>
 
-<h1>list</h1>
+<h1>watchListResource</h1>
 
 <ul>
 <li>type: semantic</li>
-<li>title: The list and all the options.</li>
-<li>doc: Represents the list and all the navigation options.</li>
+<li>title: List of watch-able elements</li>
 <li>tag: <a href="tag.taxonomy.html">taxonomy</a></li>
 <li>descriptor</li>
 </ul>
@@ -43,49 +42,24 @@
 </thead>
 <tbody>
 <tr>
-  <td><a href="semantic.navlink.html">navlink</a></td>
+  <td><a href="semantic.watchListRecord.html">watchListRecord</a></td>
   <td>semantic</td>
-  <td>List navigation link object.</td>
+  <td>WatchList record</td>
 </tr>
 <tr>
-  <td><a href="safe.goList.html">goList</a></td>
+  <td><a href="safe.goWatchResource.html">goWatchResource</a></td>
   <td>safe</td>
-  <td>Go to the list (usually, the start of the list).</td>
-</tr>
-<tr>
-  <td><a href="safe.goFirst.html">goFirst</a></td>
-  <td>safe</td>
-  <td>Move to the first page in the list.</td>
-</tr>
-<tr>
-  <td><a href="safe.goPrevious.html">goPrevious</a></td>
-  <td>safe</td>
-  <td>Move back to the previous page in the list.</td>
-</tr>
-<tr>
-  <td><a href="safe.goNext.html">goNext</a></td>
-  <td>safe</td>
-  <td>Move forward to the next page in the last</td>
-</tr>
-<tr>
-  <td><a href="safe.goLast.html">goLast</a></td>
-  <td>safe</td>
-  <td>Move to the last page in the list.</td>
-</tr>
-<tr>
-  <td><a href="safe.goSelect.html">goSelect</a></td>
-  <td>safe</td>
-  <td>Select an item from the list</td>
-</tr>
-<tr>
-  <td><a href="safe.goExit.html">goExit</a></td>
-  <td>safe</td>
-  <td>Exist the list.</td>
+  <td>Go to the list of selected watchable elements</td>
 </tr>
 <tr>
   <td><a href="safe.goHome.html">goHome</a></td>
   <td>safe</td>
   <td>Go to the Home resource</td>
+</tr>
+<tr>
+  <td><a href="idempotent.doWatchCreate.html">doWatchCreate</a></td>
+  <td>idempotent</td>
+  <td>Create a new list of selected watchable elements</td>
 </tr>
 </tbody>
 </table>

@@ -20,6 +20,7 @@ digraph application_state_diagram {
     replayList [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>replayList<br />(replayRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.replayList.html" target="_parent"]
     watchListResource [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>watchListResource<br />(watchListRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.watchListResource.html" target="_parent"]
     watchResource [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>watchResource<br />(watchRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.watchResource.html" target="_parent"]
+    wfProgress [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>wfProgress<br />(wfProgressRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.wfProgress.html" target="_parent"]
     wipitem [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>wipitem<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.wipitem.html" target="_parent"]
     wiplist [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>wiplist<br />(wiplink)<br /></td></tr></table>>,shape=box URL="docs/semantic.wiplist.html" target="_parent"]
 
@@ -45,6 +46,7 @@ digraph application_state_diagram {
     home -> related [label = <goRelated, mru (safe)> URL="docs/safe.goRelated.html" target="_parent" fontsize=13];
     home -> replayList [label = <goReplayList, replayList collection (safe)> URL="docs/safe.goReplayList.html" target="_parent" fontsize=13];
     home -> watchResource [label = <goWatchResource, watch (safe)> URL="docs/safe.goWatchResource.html" target="_parent" fontsize=13];
+    home -> wfProgress [label = <goWFProgress, wfprogress collection (safe)> URL="docs/safe.goWFProgress.html" target="_parent" fontsize=13];
     home -> wiplist [label = <goListWIP, list collection wip (safe)> URL="docs/safe.goListWIP.html" target="_parent" fontsize=13];
     inputForm -> completed [label = <doFinalSubmit, submit (idempotent)> URL="docs/idempotent.doFinalSubmit.html" target="_parent" fontsize=13];
     inputForm -> home [label=<<table border="0"><tr><td align="left" href="docs/idempotent.doCancelSubmit.html">doCancelSubmit (idempotent)</td></tr><tr><td align="left" href="docs/safe.goHome.html">goHome (safe)</td></tr></table>> fontsize=13];
@@ -71,6 +73,8 @@ digraph application_state_diagram {
     watchResource -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
     watchResource -> watchListResource [label = <goWatchList, watchlist (safe)> URL="docs/safe.goWatchList.html" target="_parent" fontsize=13];
     watchResource -> watchResource [label=<<table border="0"><tr><td align="left" href="docs/idempotent.doWatchClear.html">doWatchClear (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doWatchUpdate.html">doWatchUpdate (idempotent)</td></tr></table>> fontsize=13];
+    wfProgress -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    wfProgress -> wfProgress [label = <doWFProgressUpdate, wfprogress upate (idempotent)> URL="docs/idempotent.doWFProgressUpdate.html" target="_parent" fontsize=13];
     wipitem -> home [label = <goHome, home (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
     wipitem -> wipitem [label=<<table border="0"><tr><td align="left" href="docs/idempotent.doShareWIP.html">doShareWIP (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doStatusWIP.html">doStatusWIP (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doSubmitWIP.html">doSubmitWIP (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doUpdateWIP.html">doUpdateWIP (idempotent)</td></tr><tr><td align="left" href="docs/safe.goReadWIP.html">goReadWIP (safe)</td></tr></table>> fontsize=13];
     wipitem -> wiplist [label=<<table border="0"><tr><td align="left" href="docs/idempotent.doCancelWIP.html">doCancelWIP (idempotent)</td></tr><tr><td align="left" href="docs/safe.goListWIP.html">goListWIP (safe)</td></tr></table>> fontsize=13];

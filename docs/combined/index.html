@@ -78,6 +78,7 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/idempotent.doWatchClear.html">doWatchClear</a> (idempotent), Clear the list of selected watchable elements</li>
 <li><a href="docs/idempotent.doWatchCreate.html">doWatchCreate</a> (idempotent), Create a new list of selected watchable elements</li>
 <li><a href="docs/idempotent.doWatchUpdate.html">doWatchUpdate</a> (idempotent), Upate the list of selected watchable elements</li>
+<li><a href="docs/idempotent.doWFProgressUpdate.html">doWFProgressUpdate</a> (idempotent), Update an existing progress record.</li>
 <li><a href="docs/semantic.email.html">email</a> (semantic), Email Address</li>
 <li><a href="docs/semantic.encoding.html">encoding</a> (semantic), List of supported content and transfer encodings</li>
 <li><a href="docs/semantic.exitList.html">exitList</a> (semantic), The controlled exit state (after you leave the list).</li>
@@ -111,6 +112,7 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/safe.goSelect.html">goSelect</a> (safe), Select an item from the list</li>
 <li><a href="docs/safe.goWatchList.html">goWatchList</a> (safe), Go to the list of available elements</li>
 <li><a href="docs/safe.goWatchResource.html">goWatchResource</a> (safe), Go to the list of selected watchable elements</li>
+<li><a href="docs/safe.goWFProgress.html">goWFProgress</a> (safe), Navigate to the jobs resource</li>
 <li><a href="docs/semantic.health.html">health</a> (semantic), Health Check resource</li>
 <li><a href="docs/semantic.home.html">home</a> (semantic)</li>
 <li><a href="docs/semantic.href.html">href</a> (semantic), URL of the form.</li>
@@ -120,6 +122,14 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/semantic.include.html">include</a> (semantic), List of APIs.json files referenced.</li>
 <li><a href="docs/semantic.input.html">input</a> (semantic), Input for the submit form</li>
 <li><a href="docs/semantic.inputForm.html">inputForm</a> (semantic), Form object and actions</li>
+<li><a href="docs/semantic.jobDateCreated.html">jobDateCreated</a> (semantic), Indicates the date/time (UTC) this resource was first created).</li>
+<li><a href="docs/semantic.jobDateUpdated.html">jobDateUpdated</a> (semantic), Indicates the last date/time (UTC) this resource was modified).</li>
+<li><a href="docs/semantic.jobDescription.html">jobDescription</a> (semantic), Human-readable text that describes this document.</li>
+<li><a href="docs/semantic.jobID.html">jobID</a> (semantic), unique identifier for this job resource.</li>
+<li><a href="docs/semantic.jobMaxTTL.html">jobMaxTTL</a> (semantic), Indicates the maximum amount of time (in <em>seconds</em>) this resource is considered valid.</li>
+<li><a href="docs/semantic.jobRecord.html">jobRecord</a> (semantic), A job record (which has a collection of tasks)</li>
+<li><a href="docs/semantic.jobStatus.html">jobStatus</a> (semantic), Indicates resource status (pending, working, completed, failed)</li>
+<li><a href="docs/semantic.jobURL.html">jobURL</a> (semantic), URL of this job resource document</li>
 <li><a href="docs/semantic.language.html">language</a> (semantic), List of supported natural languages for responses</li>
 <li><a href="docs/semantic.links.html">links</a> (semantic), An object containing link relations and URIs [RFC3986] for external links</li>
 <li><a href="docs/semantic.list.html">list</a> (semantic), The list and all the options.</li>
@@ -169,6 +179,15 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/semantic.specifications.html">specifications</a> (semantic), List of open specifications</li>
 <li><a href="docs/semantic.status.html">status</a> (semantic), indicates service status (pass, fail, warn)</li>
 <li><a href="docs/semantic.tags.html">tags</a> (semantic), Array of descriptive strings</li>
+<li><a href="docs/semantic.taskDescription.html">taskDescription</a> (semantic), Human-readable text that describes this task.</li>
+<li><a href="docs/semantic.taskID.html">taskID</a> (semantic), unique identifier for this task.</li>
+<li><a href="docs/semantic.taskMaxTTL.html">taskMaxTTL</a> (semantic), Indicates the maximum amount of time (in <em>seconds</em>) this task is considered valid.</li>
+<li><a href="docs/semantic.taskMessage.html">taskMessage</a> (semantic), Human-readable text that contains any messages related to the task.</li>
+<li><a href="docs/semantic.taskRecord.html">taskRecord</a> (semantic), A task record (part of a job)</li>
+<li><a href="docs/semantic.taskStartDateTime.html">taskStartDateTime</a> (semantic), Indicates the date/time (UTC) processing started.</li>
+<li><a href="docs/semantic.taskStatus.html">taskStatus</a> (semantic), Indicates resource status (pending, working, completed, failed)</li>
+<li><a href="docs/semantic.taskStopDateTime.html">taskStopDateTime</a> (semantic), Indicates the date/time (UTC) processing stopped).</li>
+<li><a href="docs/semantic.taskURL.html">taskURL</a> (semantic), URL of the task resrouce</li>
 <li><a href="docs/semantic.tel.html">tel</a> (semantic), Phone number</li>
 <li><a href="docs/semantic.time.html">time</a> (semantic), The date-time at which the reading of the observedValue was recorded.</li>
 <li><a href="docs/semantic.title.html">title</a> (semantic), Text title of the form URL</li>
@@ -191,6 +210,10 @@ This ALPS document links together all the existing ALPS semantifc profiles for t
 <li><a href="docs/semantic.watchRecord.html">watchRecord</a> (semantic), List of watched elements.</li>
 <li><a href="docs/semantic.watchResource.html">watchResource</a> (semantic), List of watched elements</li>
 <li><a href="docs/semantic.watchURL.html">watchURL</a> (semantic), URL of the state-watch document.</li>
+<li><a href="docs/semantic.wfProgress.html">wfProgress</a> (semantic), Workflow progress resource</li>
+<li><a href="docs/semantic.wfProgressID.html">wfProgressID</a> (semantic), Unique identifier for this workflow progress resource.</li>
+<li><a href="docs/semantic.wfProgressRecord.html">wfProgressRecord</a> (semantic), A workflow progress record</li>
+<li><a href="docs/semantic.wfProgressURL.html">wfProgressURL</a> (semantic), URL for this workflow progress resource.</li>
 <li><a href="docs/semantic.wipitem.html">wipitem</a> (semantic), A single WIP record.</li>
 <li><a href="docs/semantic.wiplink.html">wiplink</a> (semantic), WIP Link property object</li>
 <li><a href="docs/semantic.wiplist.html">wiplist</a> (semantic), WIP List resource</li>

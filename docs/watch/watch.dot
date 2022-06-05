@@ -1,0 +1,23 @@
+digraph application_state_diagram {
+  graph [
+    labelloc="t";
+    fontname="Helvetica"
+    label="State Watch Profile";
+    URL="index.html" target="_parent"
+  ];
+  node [shape = box, style = "bold,filled" fillcolor="lightgray"];
+
+    watchListResource [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>watchListResource<br />(watchListRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.watchListResource.html" target="_parent"]
+    watchResource [margin=0.02, label=<<table cellspacing="0" cellpadding="5" border="0"><tr><td>watchResource<br />(watchRecord)<br /></td></tr></table>>,shape=box URL="docs/semantic.watchResource.html" target="_parent"]
+
+    home -> watchListResource [label = <goWatchList, watchlist (safe)> URL="docs/safe.goWatchList.html" target="_parent" fontsize=13];
+    home -> watchResource [label = <goWatchResource, watch (safe)> URL="docs/safe.goWatchResource.html" target="_parent" fontsize=13];
+    watchListResource -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    watchListResource -> watchResource [label=<<table border="0"><tr><td align="left" href="docs/idempotent.doWatchCreate.html">doWatchCreate (idempotent)</td></tr><tr><td align="left" href="docs/safe.goWatchResource.html">goWatchResource (safe)</td></tr></table>> fontsize=13];
+    watchResource -> home [label = <goHome, self (safe)> URL="docs/safe.goHome.html" target="_parent" fontsize=13];
+    watchResource -> watchListResource [label = <goWatchList, watchlist (safe)> URL="docs/safe.goWatchList.html" target="_parent" fontsize=13];
+    watchResource -> watchResource [label=<<table border="0"><tr><td align="left" href="docs/idempotent.doWatchClear.html">doWatchClear (idempotent)</td></tr><tr><td align="left" href="docs/idempotent.doWatchUpdate.html">doWatchUpdate (idempotent)</td></tr></table>> fontsize=13];
+
+    home [label = <home> URL="docs/semantic.home.html" target="_parent"]
+
+}

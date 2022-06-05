@@ -1,0 +1,183 @@
+{
+  "$schema": "https://alps-io.github.io/schemas/alps.json",
+  "alps" : {
+    "version" : "1.0",
+    "title" : "Workflow Progress Profile",
+    "doc" : {"value": "*A recipe for monitoring the progress of HTTP workflows*\n\n Every HTTP workflow job should have an associated progress resource. This resource can be tied to the job using the `jobID` which is often the same as the `correlation-id value` stored in an HTTP header. That resource can be a collecting point for any progress reporting or other tracking for the job.\n\nFor more details see [RESTful Web API Patterns and Practices Cookbook](http://b.mamund.com/rwmbook)."},
+    
+    "descriptor": [
+      {"id":"wfProgressID", "type":"semantic", "tag":"ontology",
+        "title":"Unique identifier for this workflow progress resource.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"Unique value for this workflow progress resource (usually a UUID)."}},
+
+      {"id":"wfProgressURL", "type":"semantic", "tag":"ontology",
+        "title":"URL for this workflow progress resource.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"URL for this workflow progress resource (usually a UUID)."}},
+
+      {"id":"jobID", "type":"semantic", "tag":"ontology",
+        "title":"unique identifier for this job resource.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"Unique value for this job resource (usually a UUID)."}},
+
+      {"id":"stateID", "type":"semantic", "tag":"ontology",
+        "title":"unique identifier for the state resource for this job.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"Unique value for the staste resource for this job (usually a UUID)."}},
+
+      {"id":"jobURL", "type":"semantic", "tag":"ontology",
+        "title":"URL of this job resource document", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to this job resource document."}},
+        
+      {"id":"jobStatus", "type":"semantic", "tag":"ontology",
+        "title":"Indicates resource status (pending, working, completed, failed)", 
+        "def":"https://schema.org/status",
+        "doc": {"value":"A value that indicates the status of the task represented by this resource (pending, working, completed, failed"}},
+
+      {"id":"jobDescription", "type":"semantic", "tag":"ontology",
+        "title":"Human-readable text that describes this document.", 
+        "def":"https://schema.org/description",
+        "doc": {"value":"The human-readable text that describes this document."}},
+
+      {"id":"jobDateCreated", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the date/time (UTC) this resource was first created).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this resource was created (in UTC)."}},
+
+      {"id":"jobDateUpdated", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the last date/time (UTC) this resource was modified).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this resource was last modified (in UTC)."}},
+
+      {"id":"jobMaxTTL", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the maximum amount of time (in *seconds*) this resource is considered valid.", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The amount of time (in *seconds*) resource considered valid. After this time runs out (jobDateCreated + jobMaxTTL), this job may be refreshed, cancelled, ignored, etc."}},
+
+      {"id":"taskID", "type":"semantic", "tag":"ontology",
+        "title":"unique identifier for this task.", 
+        "def":"https://schema.org/identifier",
+        "doc": {"value":"Unique value for this task  (usually a UUID)."}},
+
+      {"id":"taskURL", "type":"semantic", "tag":"ontology",
+        "title":"URL of the task resrouce", 
+        "def":"https://schema.org/url",
+        "doc": {"value":"This URL points to the resource that represents the job task."}},
+
+      {"id":"taskStatus", "type":"semantic", "tag":"ontology",
+        "title":"Indicates resource status (pending, working, completed, failed)", 
+        "def":"https://schema.org/status",
+        "doc": {"value":"A value that indicates the status of the task represented by this resource (pending, working, completed, failed"}},
+
+      {"id":"taskDescription", "type":"semantic", "tag":"ontology",
+        "title":"Human-readable text that describes this task.", 
+        "def":"https://schema.org/description",
+        "doc": {"value":"The human-readable text that describes this task."}},
+
+      {"id":"taskStartDateTime", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the date/time (UTC) processing started.", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time this (UTC) processing for this taks was started."}},
+
+      {"id":"taskStopDateTime", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the date/time (UTC) processing stopped).", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The date/time procecssing for this task was stopped (in UTC)."}},
+
+      {"id":"taskMessage", "type":"semantic", "tag":"ontology",
+        "title":"Human-readable text that contains any messages related to the task.", 
+        "def":"https://schema.org/description",
+        "doc": {"value":"The human-readable text that contains any message/info available related to the task. Typically this will contain status updates, completion notes, etc."}},
+
+      {"id":"taskMaxTTL", "type":"semantic", "tag":"ontology",
+        "title":"Indicates the maximum amount of time (in *seconds*) this task is considered valid.", 
+        "def":"https://rwmbook.github.io/dateCreated",
+        "doc": {"value":"The amount of time (in *seconds*) this task is considered valid. After this time runs out (taskStartDateTime + taskMaxTTL), this job may be refreshed, cancelled, ignored, etc."}},
+
+      {"id":"taskRecord", "type":"semantic", "tag":"taxonomy",
+        "title":"A task record (part of a job)",
+        "def":"https://rwmbook.github.io/job-task-record",
+        "doc": {"value":"A complete task record that is part of a job"},
+        "descriptor" : [
+          {"href" : "#taskID"},
+          {"href" : "#taskURL"},
+          {"href" : "#taskDescription"},
+          {"href" : "#taskStatus"},
+          {"href" : "#taskStartDateTime"},
+          {"href" : "#taskStopDateTime"},
+          {"href" : "#taskMaxTTL"},
+          {"href" : "#taskMessage"}
+        ]
+      },
+
+      {"id":"jobRecord", "type":"semantic", "tag":"taxonomy",
+        "title":"A job record (which has a collection of tasks)",
+        "def":"https://rwmbook.github.io/job-task-record",
+        "doc": {"value":"A complete job record including the collection of tasks."},
+        "descriptor" : [
+          {"href" : "#jobID"},
+          {"href" : "#jobURL"},
+          {"href" : "#jobDescription"},
+          {"href" : "#jobStatus"},
+          {"href" : "#jobDateCreated"},
+          {"href" : "#jobDateUpdated"},
+          {"href" : "#jobMaxTTL"},
+          {"href" : "#taskRecord"}
+        ]
+      },
+
+      {"id":"wfProgressRecord", "type":"semantic", "tag":"taxonomy",
+        "title":"A workflow progress record",
+        "def":"https://rwmbook.github.io/job-task-record",
+        "doc": {"value":"A complete workflow progress record that holds any tracking data for a workflow job."},
+        "descriptor" : [
+          {"href" : "#wfProgressID"},
+          {"href" : "#wfProgressURL"},
+          {"href" : "#jobRecord"}
+        ]
+      },
+
+
+      {"id":"home", "type":"semantic",
+        "title":"Home resource","tag":"taxonomy", 
+        "doc": {"value":"Home resource"},
+        "descriptor" : [
+          {"href" : "#goWFProgress"}
+        ]
+      },
+
+      {"id":"wfProgress", "type":"semantic",
+        "title":"Workflow progress resource","tag":"taxonomy", 
+        "doc": {"value":"Job resource"},
+        "descriptor" : [
+          {"href": "#goHome"},
+          {"href": "#doWFProgressUpdate"},
+          {"href": "#wfProgressRecord"}
+        ]
+      },
+
+      {"id":"goHome", "type":"safe", "rt":"#home", "rel": "home",
+        "title":"Navigate to the home resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the home resource"}
+      },
+
+      {"id":"goWFProgress", "type":"safe", "rt":"#wfProgress", "rel": "wfprogress collection",
+        "title":"Navigate to the jobs resource","tag":"choreography", 
+        "doc": {"value":"Navigate to the jobs resource"}
+      },
+
+      {"id":"doWFProgressUpdate", "type":"idempotent", "rt":"#wfProgress", "rel" : "wfprogress upate",
+        "title":"Update an existing progress record.","tag":"choreography",
+        "doc":{"value":"Update an existing progress record for the collection."},
+        "descriptor": [
+          {"href":"#wfProgressRecord"}
+        ]
+      }
+      
+    ]
+  }
+}
+
+

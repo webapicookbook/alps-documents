@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <title>Workflow Progress Profile</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css">
+    <style>
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 25px;
+        }
+    
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="markdown-body">
+        <h1>Workflow Progress Profile</h1>
+
+<p><em>A recipe for monitoring the progress of HTTP workflows</em><br />
+<br />
+ Every HTTP workflow job should have an associated progress resource. This resource can be tied to the job using the <code>jobID</code> which is often the same as the <code>correlation-id value</code> stored in an HTTP header. That resource can be a collecting point for any progress reporting or other tracking for the job.<br />
+<br />
+For more details see <a href="http://b.mamund.com/rwmbook">RESTful Web API Patterns and Practices Cookbook</a>.</p>
+
+<ul>
+<li><a href="workflow-progress.json">ALPS</a></li>
+<li><a href="docs/asd.html">Application State Diagram</a></li>
+<li>Semantic Descriptors
+
+<ul>
+<li><a href="docs/idempotent.doWFProgressUpdate.html">doWFProgressUpdate</a> (idempotent), Update an existing progress record.</li>
+<li><a href="docs/safe.goHome.html">goHome</a> (safe), Navigate to the home resource</li>
+<li><a href="docs/safe.goWFProgress.html">goWFProgress</a> (safe), Navigate to the jobs resource</li>
+<li><a href="docs/semantic.home.html">home</a> (semantic), Home resource</li>
+<li><a href="docs/semantic.jobDateCreated.html">jobDateCreated</a> (semantic), Indicates the date/time (UTC) this resource was first created).</li>
+<li><a href="docs/semantic.jobDateUpdated.html">jobDateUpdated</a> (semantic), Indicates the last date/time (UTC) this resource was modified).</li>
+<li><a href="docs/semantic.jobDescription.html">jobDescription</a> (semantic), Human-readable text that describes this document.</li>
+<li><a href="docs/semantic.jobID.html">jobID</a> (semantic), unique identifier for this job resource.</li>
+<li><a href="docs/semantic.jobMaxTTL.html">jobMaxTTL</a> (semantic), Indicates the maximum amount of time (in <em>seconds</em>) this resource is considered valid.</li>
+<li><a href="docs/semantic.jobRecord.html">jobRecord</a> (semantic), A job record (which has a collection of tasks)</li>
+<li><a href="docs/semantic.jobStatus.html">jobStatus</a> (semantic), Indicates resource status (pending, working, completed, failed)</li>
+<li><a href="docs/semantic.jobURL.html">jobURL</a> (semantic), URL of this job resource document</li>
+<li><a href="docs/semantic.stateID.html">stateID</a> (semantic), unique identifier for the state resource for this job.</li>
+<li><a href="docs/semantic.taskDescription.html">taskDescription</a> (semantic), Human-readable text that describes this task.</li>
+<li><a href="docs/semantic.taskID.html">taskID</a> (semantic), unique identifier for this task.</li>
+<li><a href="docs/semantic.taskMaxTTL.html">taskMaxTTL</a> (semantic), Indicates the maximum amount of time (in <em>seconds</em>) this task is considered valid.</li>
+<li><a href="docs/semantic.taskMessage.html">taskMessage</a> (semantic), Human-readable text that contains any messages related to the task.</li>
+<li><a href="docs/semantic.taskRecord.html">taskRecord</a> (semantic), A task record (part of a job)</li>
+<li><a href="docs/semantic.taskStartDateTime.html">taskStartDateTime</a> (semantic), Indicates the date/time (UTC) processing started.</li>
+<li><a href="docs/semantic.taskStatus.html">taskStatus</a> (semantic), Indicates resource status (pending, working, completed, failed)</li>
+<li><a href="docs/semantic.taskStopDateTime.html">taskStopDateTime</a> (semantic), Indicates the date/time (UTC) processing stopped).</li>
+<li><a href="docs/semantic.taskURL.html">taskURL</a> (semantic), URL of the task resrouce</li>
+<li><a href="docs/semantic.wfProgress.html">wfProgress</a> (semantic), Workflow progress resource</li>
+<li><a href="docs/semantic.wfProgressID.html">wfProgressID</a> (semantic), Unique identifier for this workflow progress resource.</li>
+<li><a href="docs/semantic.wfProgressRecord.html">wfProgressRecord</a> (semantic), A workflow progress record</li>
+<li><a href="docs/semantic.wfProgressURL.html">wfProgressURL</a> (semantic), URL for this workflow progress resource.</li>
+</ul></li>
+<li>Tags
+
+<ul>
+<li><a href="docs/tag.choreography.html">choreography</a></li>
+<li><a href="docs/tag.ontology.html">ontology</a></li>
+<li><a href="docs/tag.taxonomy.html">taxonomy</a></li>
+</ul></li>
+</ul>
+
+    </div>
+</body>
+</html>
